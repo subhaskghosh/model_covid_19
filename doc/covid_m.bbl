@@ -1,0 +1,62 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{TANG2020248}
+B.~Tang, N.~L. Bragazzi, Q.~Li, S.~Tang, Y.~Xiao, J.~Wu, An updated estimation
+  of the risk of transmission of the novel coronavirus (2019-ncov), Infectious
+  Disease Modelling 5 (2020) 248 -- 255.
+\newblock \href {http://dx.doi.org/https://doi.org/10.1016/j.idm.2020.02.001}
+  {\path{doi:https://doi.org/10.1016/j.idm.2020.02.001}}.
+
+\bibitem{EIKENBERRY2020293}
+S.~E. Eikenberry, M.~Mancuso, E.~Iboi, T.~Phan, K.~Eikenberry, Y.~Kuang,
+  E.~Kostelich, A.~B. Gumel, To mask or not to mask: Modeling the potential for
+  face mask use by the general public to curtail the covid-19 pandemic,
+  Infectious Disease Modelling 5 (2020) 293 -- 308.
+\newblock \href {http://dx.doi.org/https://doi.org/10.1016/j.idm.2020.04.001}
+  {\path{doi:https://doi.org/10.1016/j.idm.2020.04.001}}.
+
+\bibitem{Long2020}
+Q.-X. Long, X.-J. Tang, Q.-L. Shi, Q.~Li, H.-J. Deng, J.~Yuan, J.-L. Hu, W.~Xu,
+  Y.~Zhang, F.-J. Lv, K.~Su, F.~Zhang, J.~Gong, B.~Wu, X.-M. Liu, J.-J. Li,
+  J.-F. Qiu, J.~Chen, A.-L. Huang,
+  \href{https://doi.org/10.1038/s41591-020-0965-6}{Clinical and immunological
+  assessment of asymptomatic sars-cov-2 infections}, Nature Medicine 26~(8)
+  (2020) 1200--1204.
+\newblock \href {http://dx.doi.org/10.1038/s41591-020-0965-6}
+  {\path{doi:10.1038/s41591-020-0965-6}}.
+\newline\urlprefix\url{https://doi.org/10.1038/s41591-020-0965-6}
+
+\bibitem{Zhou2020}
+F.~Zhou, T.~Yu, R.~Du, G.~Fan, Y.~Liu, Z.~Liu, J.~Xiang, Y.~Wang, B.~Song,
+  X.~Gu, L.~Guan, Y.~Wei, H.~Li, X.~Wu, J.~Xu, S.~Tu, Y.~Zhang, H.~Chen,
+  B.~Cao, \href{https://doi.org/10.1016/S0140-6736(20)30566-3}{Clinical course
+  and risk factors for mortality of adult inpatients with covid-19 in wuhan,
+  china: a retrospective cohort study}, The Lancet 395~(10229) (2020)
+  1054--1062.
+\newblock \href {http://dx.doi.org/10.1016/S0140-6736(20)30566-3}
+  {\path{doi:10.1016/S0140-6736(20)30566-3}}.
+\newline\urlprefix\url{https://doi.org/10.1016/S0140-6736(20)30566-3}
+
+\bibitem{Hu2020}
+Z.~Hu, C.~Song, C.~Xu, G.~Jin, Y.~Chen, X.~Xu, H.~Ma, W.~Chen, Y.~Lin,
+  Y.~Zheng, J.~Wang, Z.~Hu, Y.~Yi, H.~Shen,
+  \href{https://doi.org/10.1007/s11427-020-1661-4}{Clinical characteristics of
+  24 asymptomatic infections with {COVID}-19 screened among close contacts in
+  nanjing, china}, Science China Life Sciences 63~(5) (2020) 706--711.
+\newblock \href {http://dx.doi.org/10.1007/s11427-020-1661-4}
+  {\path{doi:10.1007/s11427-020-1661-4}}.
+\newline\urlprefix\url{https://doi.org/10.1007/s11427-020-1661-4}
+
+\bibitem{LIANG2020.03.31.20049387}
+J.~LIANG, H.-Y. Yuan, L.~Wu, D.~U. Pfeiffer, Estimating effects of intervention
+  measures on covid-19 outbreak in wuhan taking account of improving diagnostic
+  capabilities using a modelling approach, medRxiv\href
+  {http://dx.doi.org/10.1101/2020.03.31.20049387}
+  {\path{doi:10.1101/2020.03.31.20049387}}.
+
+\end{thebibliography}
