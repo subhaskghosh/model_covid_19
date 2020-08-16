@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
@@ -42,6 +42,34 @@ F.~Zhou, T.~Yu, R.~Du, G.~Fan, Y.~Liu, Z.~Liu, J.~Xiang, Y.~Wang, B.~Song,
   {\path{doi:10.1016/S0140-6736(20)30566-3}}.
 \newline\urlprefix\url{https://doi.org/10.1016/S0140-6736(20)30566-3}
 
+\bibitem{Shen2020.01.23.916726}
+M.~Shen, Z.~Peng, Y.~Xiao, L.~Zhang, Modelling the epidemic trend of the 2019
+  novel coronavirus outbreak in china, bioRxiv\href
+  {http://dx.doi.org/10.1101/2020.01.23.916726}
+  {\path{doi:10.1101/2020.01.23.916726}}.
+
+\bibitem{Li489}
+R.~Li, S.~Pei, B.~Chen, Y.~Song, T.~Zhang, W.~Yang, J.~Shaman,
+  \href{https://science.sciencemag.org/content/368/6490/489}{Substantial
+  undocumented infection facilitates the rapid dissemination of novel
+  coronavirus (sars-cov-2)}, Science 368~(6490) (2020) 489--493.
+\newblock \href
+  {http://arxiv.org/abs/https://science.sciencemag.org/content/368/6490/489.full.pdf}
+  {\path{arXiv:https://science.sciencemag.org/content/368/6490/489.full.pdf}},
+  \href {http://dx.doi.org/10.1126/science.abb3221}
+  {\path{doi:10.1126/science.abb3221}}.
+\newline\urlprefix\url{https://science.sciencemag.org/content/368/6490/489}
+
+\bibitem{doi:10.7326/M20-0504}
+\href{https://doi.org/10.7326/M20-0504}{The incubation period of coronavirus
+  disease 2019 (covid-19) from publicly reported confirmed cases: Estimation
+  and application}, Annals of Internal Medicine 172~(9) (2020) 577--582, pMID:
+  32150748.
+\newblock \href {http://arxiv.org/abs/https://doi.org/10.7326/M20-0504}
+  {\path{arXiv:https://doi.org/10.7326/M20-0504}}, \href
+  {http://dx.doi.org/10.7326/M20-0504} {\path{doi:10.7326/M20-0504}}.
+\newline\urlprefix\url{https://doi.org/10.7326/M20-0504}
+
 \bibitem{Hu2020}
 Z.~Hu, C.~Song, C.~Xu, G.~Jin, Y.~Chen, X.~Xu, H.~Ma, W.~Chen, Y.~Lin,
   Y.~Zheng, J.~Wang, Z.~Hu, Y.~Yi, H.~Shen,
@@ -52,11 +80,24 @@ Z.~Hu, C.~Song, C.~Xu, G.~Jin, Y.~Chen, X.~Xu, H.~Ma, W.~Chen, Y.~Lin,
   {\path{doi:10.1007/s11427-020-1661-4}}.
 \newline\urlprefix\url{https://doi.org/10.1007/s11427-020-1661-4}
 
-\bibitem{LIANG2020.03.31.20049387}
-J.~LIANG, H.-Y. Yuan, L.~Wu, D.~U. Pfeiffer, Estimating effects of intervention
-  measures on covid-19 outbreak in wuhan taking account of improving diagnostic
-  capabilities using a modelling approach, medRxiv\href
-  {http://dx.doi.org/10.1101/2020.03.31.20049387}
-  {\path{doi:10.1101/2020.03.31.20049387}}.
+\bibitem{Diekmann1990}
+O.~Diekmann, J.~A.~P. Heesterbeek, J.~A.~J. Metz,
+  \href{https://doi.org/10.1007/BF00178324}{On the definition and the
+  computation of the basic reproduction ratio r0 in models for infectious
+  diseases in heterogeneous populations}, Journal of Mathematical Biology
+  28~(4) (1990) 365--382.
+\newblock \href {http://dx.doi.org/10.1007/BF00178324}
+  {\path{doi:10.1007/BF00178324}}.
+\newline\urlprefix\url{https://doi.org/10.1007/BF00178324}
+
+\bibitem{VANDENDRIESSCHE200229}
+P.~{van den Driessche}, J.~Watmough,
+  \href{http://www.sciencedirect.com/science/article/pii/S0025556402001086}{Reproduction
+  numbers and sub-threshold endemic equilibria for compartmental models of
+  disease transmission}, Mathematical Biosciences 180~(1) (2002) 29 -- 48.
+\newblock \href
+  {http://dx.doi.org/https://doi.org/10.1016/S0025-5564(02)00108-6}
+  {\path{doi:https://doi.org/10.1016/S0025-5564(02)00108-6}}.
+\newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0025556402001086}
 
 \end{thebibliography}
