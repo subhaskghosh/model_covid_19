@@ -317,7 +317,7 @@ The transmission dynamics of COVID-19 in the basic model is given by the followi
 \end{equation}
 %%
 \begin{equation}
-\frac{dQ}{dt} = \epsilon(t) A + \left( \varphi + \mu \right) Q,
+\frac{dQ}{dt} = \epsilon(t) A - \left( \varphi + \mu \right) Q,
 \label{eqn:base-model-4}
 \end{equation}
 %%
@@ -440,12 +440,186 @@ In this section we describe the estimated values of various parameters based on 
 \end{table*}
 
 \subsubsection{The basic reproduction number for baseline model}
-The basic reproduction number is calculated for the special case when we have $\beta(t) = \beta_0, \epsilon(t) = \epsilon_0$, and $p = q = r = s = u = v = w = x = 0$. in following we explore the local stability of the disease-free equilibrium (DFE) using the next generation operator method \cite{Diekmann1990,VANDENDRIESSCHE200229}.
-
+The basic reproduction number is calculated for the special case when we have $\beta(t) = \beta_0, \epsilon(t) = \epsilon_0$, and $p = q = r = s = u = v = w = x = 0$. in following we explore the local stability of the disease-free equilibrium (DFE) using the next generation operator method \cite{Diekmann1990,VANDENDRIESSCHE200229}. Following \cite{VANDENDRIESSCHE200229}, we define the system of equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}), in more compact form as:
+%
+%
+\begin{equation}
+\dot{X} = f(X) = \mathcal{F}(X) - \mathcal{V}(X), 
+\label{eqn:baseline-compact-1}
+\end{equation}
+%
+%
+where, $X = \left( E, I, A, Q, H, C, D, R, S \right)^t $, and $\mathcal{F}(X) $ containing rate of appearance of new infections defined as:
+%
+%
+\begin{equation}
+\mathcal{F}(X) = 
+\begin{pmatrix}
+\beta_0 \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} \\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}, 
+\label{eqn:baseline-compact-2}
+\end{equation}
+%
+%
+and, $\mathcal{V}(X)$ capturing the movement between the compartments, with $\mathcal{V}^{-}(X)$ as the rate of outward transfer, and $\mathcal{V}^{+}(X)$ as the rate of inward transfer for each compartment, we have,
+%
+%
+\begin{equation}
+\begin{split}
+\mathcal{V}(X) &= \mathcal{V}^{-}(X) - \mathcal{V}^{+}(X)\\
+&= \begin{pmatrix}
+\sigma E \\
+\left( \eta + \theta + \lambda \right) I\\
+\left( \epsilon_0 + \nu + \gamma \right) A\\
+\left( \varphi + \mu \right) Q\\
+\left( \tau + \psi \right) H\\
+\left( \delta + \zeta \right) C\\
+0\\
+0\\
+\beta_0 \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N}
+\end{pmatrix} - 
+\begin{pmatrix}
+0 \\
+\alpha \sigma E + \nu A\\
+\left( 1 - \alpha \right)\sigma E  \\
+\epsilon_0 A\\
+\theta I + \varphi Q\\
+\tau H + \lambda I\\
+\delta C\\
+\left( \eta I +  \gamma A + \mu Q + \psi H + \zeta C \right)\\
+0
+\end{pmatrix}\\
+&= \begin{pmatrix}
+\sigma E \\
+\left( \eta + \theta + \lambda \right) I - \alpha \sigma E - \nu A\\
+\left( \epsilon_0 + \nu + \gamma \right) A - \left( 1 - \alpha \right)\sigma E\\
+\left( \varphi + \mu \right) Q - \epsilon_0 A\\
+\left( \tau + \psi \right) H - \theta I - \varphi Q\\
+\left( \delta + \zeta \right) C - \tau H - \lambda I\\
+-\delta C\\
+-\left( \eta I +  \gamma A + \mu Q + \psi H + \zeta C \right)\\
+\beta_0 \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N}
+\end{pmatrix}
+\end{split}
+\label{eqn:baseline-compact-3}
+\end{equation}
+%
+%
+We also define $\mathcal{X}_s$, as the set of all possible disease free states.
+%
+%
 \begin{proposition}
-	content...
+For equation $\dot{X} = f(x) = \mathcal{F}(X) - \mathcal{V}(X)$, following holds:
+\begin{enumerate}
+	\item Functions $\mathcal{F}(X)$, $\mathcal{V}^{-}(X)$ and $\mathcal{V}^{+}(X)$, are all non-negative, when $X > 0$.
+	\item If $X \in \mathcal{X}_s$, then $\mathcal{V}^{-}(x)=\mathcal{F}(x)=\mathcal{V}^{+}(x)=0$ for $x \in \{E, I, A, Q, H, C, D, R\}$.
+	\item Let $Df(X_0)$ be the Jacobian matrix evaluated at DFE $X_0$, and defined as the partial derivative $[{\partial f}/{\partial x}]$ for $x \in \{E, I, A, Q, H, C, D, R, S\}$. If $\mathcal{F}(X) = 0$, then all eigenvalues of $Df(X_0)$ has negative real parts.
+\end{enumerate}
 \end{proposition}
-
+\begin{proof}
+Propositions (1) and (2), an be observed from the equations (\ref{eqn:baseline-compact-2}) and (\ref{eqn:baseline-compact-3}).  For proposition (3), 
+\end{proof}
+%
+%
+Let $X_0 \in \mathcal{X}_s$ be a DFE. Then $X_0 = \left( 0, 0, 0, 0, 0, 0, 0, 0, S_0 \right) $, and with $S_0/N_0=1$ we have, 
+%
+%
+\begin{equation}
+\begin{split}
+D \mathcal{F}(X_0) \\
+&=  \begin{pmatrix}
+0 & \beta_0 & \kappa \beta_0 & \omega \beta_0 & \rho \beta_0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0
+ \end{pmatrix}\\
+ &=  \begin{pmatrix}
+ F & 0\\
+ 0 & 0
+  \end{pmatrix}
+\end{split}
+\label{eqn:DFE-1}
+\end{equation}
+%
+%
+With,
+%
+%
+\begin{equation}
+F = \begin{pmatrix}
+0 & \beta_0 & \kappa \beta_0 & \omega \beta_0 & \rho \beta_0 \\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0
+  \end{pmatrix}
+  \label{eqn:DFE-2}
+\end{equation}
+%
+%
+Similarly, we have 
+%
+%
+\begin{equation}
+\begin{split}
+D \mathcal{V}(X_0) = \\
+\begin{pmatrix}
+\sigma & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+-\alpha \sigma & \left( \eta + \theta + \lambda\right)  & - \nu & 0 & 0 & 0 &0 & 0 &0 \\
+-\left( 1- \alpha \right) \sigma & 0 & \left( \epsilon_0 + \nu + \gamma \right) & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & - \epsilon_0 & \left( \varphi + \mu\right)  & 0 & 0 &0 & 0 &0 \\
+0 & -\theta & 0 & -\varphi & \left( \tau + \psi\right)  & 0 &0 & 0 &0 \\
+0 & -\lambda & 0 & 0 & -\tau & \left( \delta + \zeta\right)  &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & -\delta &0 & 0 &0 \\
+0 & -\eta & -\gamma & -\mu & -\psi & -\zeta &0 & 0 &0 \\
+0 & \beta_0 & \kappa\beta_0 & \omega\beta_0 & \rho\beta_0 & 0 &0 & 0 &0
+  \end{pmatrix}\\
+  =\begin{pmatrix}
+  V & 0\\
+  J_3 & J_4
+  \end{pmatrix}
+\end{split}
+\label{eqn:DFE-3}
+\end{equation}
+%
+%
+With,
+%
+%
+\begin{equation}
+V = \begin{pmatrix}
+\sigma & 0 & 0 & 0 & 0 \\
+-\alpha \sigma & \left( \eta + \theta + \lambda\right)  & - \nu & 0 & 0 \\
+-\left( 1- \alpha \right) \sigma & 0 & \left( \epsilon_0 + \nu + \gamma \right) & 0 & 0 \\
+0 & 0 & - \epsilon_0 & \left( \varphi + \mu\right)  & 0 \\
+0 & -\theta & 0 & -\varphi & \left( \tau + \psi\right)
+\end{pmatrix}
+\label{eqn:DFE-4}
+\end{equation}
+%
+%
+Defining $\rho(A) = \max {\{ | \lambda_1 |, \ldots,  | \lambda_n |\} }$ as the spectral radius of an $n \times n$ matrix $A$, with eigenvalues $\lambda_1 \ldots \lambda_n$, and $|\dot|$ denoting absolute values. According to \cite{VANDENDRIESSCHE200229}, basic reproduction number $\mathcal{R}_0$ associated to the system can be computed as $\mathcal{R}_0 = \rho(FV^{-1})$. Hence, based on the discussion above, for the baseline model we have,
+%
+%
+\begin{equation}
+\mathcal{R}_0 = 
+\label{eqn:Rnot}
+\end{equation}
+%
+%
 \subsection{Extending the baseline model}
 In this section we consider various extension of the model and parameters. First extension is to model confinement - where a large proportion of susceptible population is placed under restricted movement, and thereby reducing the probability of contact. Such restriction has been modeled by introducing another compartment $L$. Individuals from $S$ move to $L$ at rate $u(t)$. In many countries, confinement was spread over several weeks followed by a period of de-confinement. We model de-confinement by individuals moving from $L$ to $S$ at rate $p(t)$. In specific we modify equation (\ref{eqn:base-model-9}) as follows
 %%
@@ -453,7 +627,8 @@ In this section we consider various extension of the model and parameters. First
 \frac{dS}{dt} = p(t)L -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - u(t)S,
 \label{eqn:lockdown-model-1}
 \end{equation}
-
+%
+%
 We also add following dynamics to the baseline model 
 %%
 \begin{equation}

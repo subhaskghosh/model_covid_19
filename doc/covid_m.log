@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  16 AUG 2020 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  17 AUG 2020 09:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,7 +537,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.78 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.88 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -644,7 +644,22 @@ Overfull \hbox (10.04453pt too wide) in alignment at lines 437--437
 [][][][] 
  []
 
-(./covid_m.bbl
+[5] [6]
+Overfull \hbox (10.43088pt too wide) in paragraph at lines 523--524
+[]\OT1/cmr/m/it/10 If $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 2 X[]$\OT1/cmr/m/it/
+10 , then $\OMS/cmsy/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/
+10 ) = \OMS/cmsy/m/n/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
+ \OMS/cmsy/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 0$ 
+\OT1/cmr/m/it/10 for $\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 f\OML/cmm/m/it/10 E
+; I; A; Q; H; C; D; R\OMS/cmsy/m/n/10 g$\OT1/cmr/m/it/10 . 
+ []
+
+[7]
+Overfull \hbox (11.4253pt too wide) detected at line 596
+ $[][]$  
+ []
+
+[8] (./covid_m.bbl
 Underfull \hbox (badness 1472) in paragraph at lines 9--14
 []\OT1/cmr/m/n/10 B. Tang, N. L. Bragazzi, Q. Li, S. Tang, Y. Xiao, J. Wu, An
  []
@@ -655,13 +670,13 @@ Underfull \hbox (badness 1127) in paragraph at lines 9--14
 el coro-n-
  []
 
-[5] [6]
+
 Underfull \hbox (badness 1448) in paragraph at lines 16--22
 []\OT1/cmr/m/n/10 S. E. Eiken-berry, M. Man-cuso, E. Iboi, T. Phan, K. Eiken-be
 rry,
  []
 
-
+[9]
 Underfull \hbox (badness 2573) in paragraph at lines 46--50
 []\OT1/cmr/m/n/10 M. Shen, Z. Peng, Y. Xiao, L. Zhang, Mod-elling the epi-demic
 
@@ -685,7 +700,7 @@ Underfull \hbox (badness 1681) in paragraph at lines 66--72
 id-19) from
  []
 
-[7]
+
 Underfull \hbox (badness 2913) in paragraph at lines 94--102
 []\OT1/cmr/m/n/10 P. van den Driess-che, J. Wat-mough, Re-pro-duc-tion num-bers
  and
@@ -703,38 +718,38 @@ Overfull \hbox (45.38484pt too wide) in paragraph at lines 94--102
 le/pii/S0025556402001086 
  []
 
-) [8] (./covid_m.aux) ) 
+) [10] (./covid_m.aux) ) 
 Here is how much of TeX's memory you used:
- 14981 strings out of 480608
- 288295 string characters out of 5903630
- 521822 words of memory out of 5000000
- 30616 multiletter control sequences out of 15000+600000
+ 14991 strings out of 480608
+ 288467 string characters out of 5903630
+ 525894 words of memory out of 5000000
+ 30626 multiletter control sequences out of 15000+600000
  539425 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,60p,792b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
-local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/lo
-cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on covid_m.pdf (8 pages, 238575 bytes).
+ 60i,15n,60p,792b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
+/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/l
+ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/loc
+al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on covid_m.pdf (10 pages, 252786 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 116 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
