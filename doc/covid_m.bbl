@@ -60,15 +60,57 @@ R.~Li, S.~Pei, B.~Chen, Y.~Song, T.~Zhang, W.~Yang, J.~Shaman,
   {\path{doi:10.1126/science.abb3221}}.
 \newline\urlprefix\url{https://science.sciencemag.org/content/368/6490/489}
 
-\bibitem{doi:10.7326/M20-0504}
-\href{https://doi.org/10.7326/M20-0504}{The incubation period of coronavirus
-  disease 2019 (covid-19) from publicly reported confirmed cases: Estimation
-  and application}, Annals of Internal Medicine 172~(9) (2020) 577--582, pMID:
-  32150748.
-\newblock \href {http://arxiv.org/abs/https://doi.org/10.7326/M20-0504}
-  {\path{arXiv:https://doi.org/10.7326/M20-0504}}, \href
-  {http://dx.doi.org/10.7326/M20-0504} {\path{doi:10.7326/M20-0504}}.
-\newline\urlprefix\url{https://doi.org/10.7326/M20-0504}
+\bibitem{Ferguson2020}
+N.~Ferguson, D.~Laydon, G.~Nedjati-Gilani, N.~Imai, K.~Ainslie, M.~Baguelin,
+  S.~Bhatia, A.~Boonyasiri, Z.~M. Cucunubá, G.~Cuomo-Dannenburg, A.~Dighe,
+  I.~Dorigatti, H.~Fu, K.~Gaythorpe, W.~Green, A.~Hamlet, W.~Hinsley, L.~Okell,
+  S.~van Elsland, A.~Ghani, Report 9: Impact of non-pharmaceutical
+  interventions (npis) to reduce covid-19 mortality and healthcare demand\href
+  {http://dx.doi.org/10.25561/77482} {\path{doi:10.25561/77482}}.
+
+\bibitem{Giordano2020}
+G.~Giordano, F.~Blanchini, R.~Bruno, P.~Colaneri, A.~Di~Filippo, A.~Di~Matteo,
+  M.~Colaneri, \href{https://doi.org/10.1038/s41591-020-0883-7}{Modelling the
+  covid-19 epidemic and implementation of population-wide interventions in
+  italy}, Nature Medicine 26~(6) (2020) 855--860.
+\newblock \href {http://dx.doi.org/10.1038/s41591-020-0883-7}
+  {\path{doi:10.1038/s41591-020-0883-7}}.
+\newline\urlprefix\url{https://doi.org/10.1038/s41591-020-0883-7}
+
+\bibitem{Lauer2020.02.02.20020016}
+S.~A. Lauer, K.~H. Grantz, Q.~Bi, F.~K. Jones, Q.~Zheng, H.~Meredith, A.~S.
+  Azman, N.~G. Reich, J.~Lessler, The incubation period of 2019-ncov from
+  publicly reported confirmed cases: estimation and application, medRxiv\href
+  {http://dx.doi.org/10.1101/2020.02.02.20020016}
+  {\path{doi:10.1101/2020.02.02.20020016}}.
+
+\bibitem{Moriarty2020}
+L.~F. Moriarty, M.~M. Plucinski, B.~J. Marston, E.~V. Kurbatova, B.~Knust,
+  E.~L. Murray, N.~Pesik, D.~Rose, D.~Fitter, M.~Kobayashi, M.~Toda, P.~T.
+  Canty, T.~Scheuer, E.~S. Halsey, N.~J. Cohen, L.~Stockman, D.~A. Wadford,
+  A.~M. Medley, G.~Green, J.~J. Regan, K.~Tardivel, S.~White, C.~Brown,
+  C.~Morales, C.~Yen, B.~Wittry, A.~Freeland, S.~Naramore, R.~T. Novak,
+  D.~Daigle, M.~Weinberg, A.~Acosta, C.~Herzig, B.~K. Kapella, K.~R. Jacobson,
+  K.~Lamba, A.~Ishizumi, J.~Sarisky, E.~Svendsen, T.~Blocher, C.~Wu,
+  J.~Charles, R.~Wagner, A.~Stewart, P.~S. Mead, E.~Kurylo, S.~Campbell,
+  R.~Murray, P.~Weidle, M.~Cetron, C.~R. Friedman, C.~B. Behravesh, A.~Bjork,
+  W.~Bower, C.~Bozio, Z.~Braden, M.~C. Bertulfo, K.~Chatham-Stephens, V.~Chu,
+  B.~Cooper, K.~Dooling, C.~Dubray, E.~Curren, M.~A. Honein, K.~Ivey, J.~Jones,
+  M.~Kadzik, N.~Knight, M.~Marlow, A.~McColloch, R.~McDonald, A.~Klevos,
+  S.~Poser, R.~A. Rinker, T.~Ritter, L.~Rodriguez, M.~Ryan, Z.~Schneider,
+  C.~Shockey, J.~Shugart, M.~Silver, P.~W. Smith, F.~Tobolowsky,
+  A.~Treffiletti, M.~Wallace, J.~Yoder, P.~Barry, R.~Berumen, B.~Bregman,
+  K.~Campos, S.~Chai, R.~Glenn-Finer, H.~Guevara, J.~Hacker, K.~Hsieh, M.~K.
+  Morris, R.~Murphy, J.~F. Myers, T.~Padilla, C.-Y. Pan, A.~Readhead,
+  E.~Saguar, M.~Salas, R.~E. Snyder, D.~Vugia, J.~Watt, C.~Wong, M.~Acosta,
+  S.~Davis, B.~Kapuszinsky, B.~Matyas, G.~Miller, A.~Ntui, J.~Richards, , , , ,
+  and, \href{https://doi.org/10.15585/mmwr.mm6912e3}{Public health responses to
+  {COVID}-19 outbreaks on cruise ships {\textemdash} worldwide,
+  february{\textendash}march 2020}, {MMWR}. Morbidity and Mortality Weekly
+  Report 69~(12) (2020) 347--352.
+\newblock \href {http://dx.doi.org/10.15585/mmwr.mm6912e3}
+  {\path{doi:10.15585/mmwr.mm6912e3}}.
+\newline\urlprefix\url{https://doi.org/10.15585/mmwr.mm6912e3}
 
 \bibitem{Hu2020}
 Z.~Hu, C.~Song, C.~Xu, G.~Jin, Y.~Chen, X.~Xu, H.~Ma, W.~Chen, Y.~Lin,

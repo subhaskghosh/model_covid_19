@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  17 AUG 2020 09:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  17 AUG 2020 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,7 +537,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.88 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.96 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -615,23 +615,18 @@ Overfull \hbox (1.99272pt too wide) in paragraph at lines 437--437
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--437
-[]|\OT1/cmr/m/n/10 infectiousness fac-tor asymp-
- []
-
-
-Underfull \hbox (badness 6001) in paragraph at lines 437--437
-[]|\OT1/cmr/m/n/10 infectiousness fac-tor quar-an-
- []
-
-
-Underfull \hbox (badness 5175) in paragraph at lines 437--437
-[]|\OT1/cmr/m/n/10 rate of de-tec-tion of symp-
+Underfull \hbox (badness 8038) in paragraph at lines 437--437
+[]|\OT1/cmr/m/n/10 infectiousness fac-tor iso-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 437--437
-[]|\OT1/cmr/m/n/10 rate of de-vel-op-ing life-
+[]|\OT1/cmr/m/n/10 transition rate asymp-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--437
+[]|\OT1/cmr/m/n/10 detection rate asymp-
  []
 
 
@@ -640,22 +635,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 437--437
  []
 
 
-Overfull \hbox (10.04453pt too wide) in alignment at lines 437--437
+Underfull \hbox (badness 4036) in paragraph at lines 437--437
+\OT1/cmr/m/n/10 threatening symp-toms in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--437
+[]|\OT1/cmr/m/n/10 rate of de-vel-op-ing life-
+ []
+
+
+Underfull \hbox (badness 1281) in paragraph at lines 437--437
+\OT1/cmr/m/n/10 threatening symp-toms for
+ []
+
+
+Underfull \hbox (badness 4531) in paragraph at lines 437--437
+[]|\OT1/cmr/m/n/10 recovery rate of asymp-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--437
+[]|\OT1/cmr/m/n/10 recovery rate of symp-
+ []
+
+
+Overfull \hbox (10.04979pt too wide) in alignment at lines 437--437
 [][][][] 
  []
 
 [5] [6]
-Overfull \hbox (10.43088pt too wide) in paragraph at lines 523--524
-[]\OT1/cmr/m/it/10 If $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 2 X[]$\OT1/cmr/m/it/
-10 , then $\OMS/cmsy/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/
-10 ) = \OMS/cmsy/m/n/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
- \OMS/cmsy/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 0$ 
-\OT1/cmr/m/it/10 for $\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 f\OML/cmm/m/it/10 E
-; I; A; Q; H; C; D; R\OMS/cmsy/m/n/10 g$\OT1/cmr/m/it/10 . 
+Overfull \hbox (8.31575pt too wide) in paragraph at lines 519--520
+[]\OT1/cmr/m/n/10 If $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 2 X[]$\OT1/cmr/m/n/10
+ , then $\OMS/cmsy/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10
+ ) = \OMS/cmsy/m/n/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = \
+OMS/cmsy/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 0$ fo
+r $\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 f\OML/cmm/m/it/10 E; I; A; Q; H; C; D;
+ R\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
  []
 
 [7]
-Overfull \hbox (11.4253pt too wide) detected at line 596
+Overfull \hbox (11.4253pt too wide) detected at line 589
  $[][]$  
  []
 
@@ -695,38 +715,38 @@ pid dis-sem-i-na-
  []
 
 
-Underfull \hbox (badness 1681) in paragraph at lines 66--72
-[]\OT1/cmr/m/n/10 The in-cu-ba-tion pe-riod of coro-n-avirus dis-ease 2019 (cov
-id-19) from
+Underfull \hbox (badness 1983) in paragraph at lines 64--70
+[]\OT1/cmr/m/n/10 N. Fer-gu-son, D. Lay-don, G. Nedjati-Gilani, N. Imai, K. Ain
+slie,
  []
 
-
-Underfull \hbox (badness 2913) in paragraph at lines 94--102
+[10]
+Underfull \hbox (badness 2913) in paragraph at lines 136--144
 []\OT1/cmr/m/n/10 P. van den Driess-che, J. Wat-mough, Re-pro-duc-tion num-bers
  and
  []
 
 
-Underfull \hbox (badness 2435) in paragraph at lines 94--102
+Underfull \hbox (badness 2435) in paragraph at lines 136--144
 \OT1/cmr/m/n/10 sub-threshold en-demic equi-lib-ria for com-part-men-tal mod-el
 s of dis-
  []
 
 
-Overfull \hbox (45.38484pt too wide) in paragraph at lines 94--102
+Overfull \hbox (45.38484pt too wide) in paragraph at lines 136--144
 \OT1/cmr/m/n/10 URL \OT1/cmtt/m/n/10 http://www.sciencedirect.com/science/artic
 le/pii/S0025556402001086 
  []
 
-) [10] (./covid_m.aux) ) 
+) [11] (./covid_m.aux) ) 
 Here is how much of TeX's memory you used:
- 14991 strings out of 480608
- 288467 string characters out of 5903630
- 525894 words of memory out of 5000000
- 30626 multiletter control sequences out of 15000+600000
+ 15001 strings out of 480608
+ 288667 string characters out of 5903630
+ 526942 words of memory out of 5000000
+ 30636 multiletter control sequences out of 15000+600000
  539425 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,15n,60p,792b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,15n,60p,1011b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/am
@@ -746,10 +766,10 @@ r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/loc
 al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loca
 l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on covid_m.pdf (10 pages, 252786 bytes).
+Output written on covid_m.pdf (11 pages, 254626 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

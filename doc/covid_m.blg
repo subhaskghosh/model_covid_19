@@ -3,46 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: covid_m.aux
 The style file: elsarticle-num.bst
 Database file #1: covid_m.bib
-Warning--empty author in doi:10.7326/M20-0504
-You've used 10 entries,
+Warning--empty journal in Ferguson2020
+You've used 13 entries,
             2937 wiz_defined-function locations,
-            764 strings with 8784 characters,
-and the built_in function-call counts, 4221 in all, are:
-= -- 368
-> -- 256
+            787 strings with 12269 characters,
+and the built_in function-call counts, 6889 in all, are:
+= -- 443
+> -- 724
 < -- 0
-+ -- 92
-- -- 82
-* -- 454
-:= -- 656
-add.period$ -- 19
-call.type$ -- 10
-change.case$ -- 11
++ -- 250
+- -- 237
+* -- 799
+:= -- 1208
+add.period$ -- 23
+call.type$ -- 13
+change.case$ -- 13
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 92
-empty$ -- 367
-format.name$ -- 91
-if$ -- 993
+cite$ -- 14
+duplicate$ -- 114
+empty$ -- 446
+format.name$ -- 250
+if$ -- 1481
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 10
-newline$ -- 54
-num.names$ -- 9
-pop$ -- 46
+int.to.str$ -- 13
+missing$ -- 13
+newline$ -- 65
+num.names$ -- 13
+pop$ -- 66
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 179
+skip$ -- 230
 stack$ -- 0
-substring$ -- 223
-swap$ -- 40
+substring$ -- 246
+swap$ -- 46
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 20
-width$ -- 12
-write$ -- 114
+while$ -- 26
+width$ -- 15
+write$ -- 139
 (There was 1 warning)

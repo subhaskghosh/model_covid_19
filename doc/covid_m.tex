@@ -394,45 +394,45 @@ In this section we describe the estimated values of various parameters based on 
 
 	\begin{table*}
 	\centering
-	\begin{tabularx}{\textwidth}[t]{p{0.09\textwidth}p{0.4\textwidth}p{0.25\textwidth}p{0.15\textwidth}}
+	\begin{tabularx}{\textwidth}[t]{p{0.09\textwidth}p{0.35\textwidth}p{0.3\textwidth}p{0.15\textwidth}}
 		\hline
 		\textbf{Param} &  \textbf{Description} &  \textbf{Possible Range} &  \textbf{Default}\\ [0.5ex]
 		\hline
 		$\beta_0$ &  infectious contact rate & $0.5$-$1.5$ $ day^{-1}$ \cite{Li489,Shen2020.01.23.916726} & $0.76$ $day^{-1}$\\
 		\hline
-		$\kappa$ &  infectiousness factor asymptomatic &  & \\
+		$\kappa$ &  infectiousness factor asymptomatic & $0.4$-$0.6$ \cite{Li489,Ferguson2020} & $0.5$\\
 		\hline
-		$\omega$ &  infectiousness factor quarantined &  & \\
+		$\omega$ &  infectiousness factor quarantined & $0.005$-$0.011$ \cite{Giordano2020} & $0.011$\\
 		\hline
-		$\rho$ &  infectiousness factor isolated & & \\
+		$\rho$ &  infectiousness factor isolated & $0.005$-$0.011$ \cite{Giordano2020} & $0.011$\\
 		\hline
-		$\sigma$ &  transition rate exposed to infectious & $1/14$-$1/3$ $day^{-1}$ \cite{Li489,doi:10.7326/M20-0504} & $1/5$ $day^{-1}$\\
+		$\sigma$ &  transition rate exposed to infectious & $1/14$-$1/3$ $day^{-1}$ \cite{Li489,Lauer2020.02.02.20020016} & $1/5.2$ $day^{-1}$\\
 		\hline
-		$\alpha$ &  fraction of infections that become symptomatic & 0.5 days & \cite{Hu2020}\\
+		$\alpha$ &  fraction of infections that become symptomatic & $0.15$-$0.7$  \cite{Li489,Ferguson2020,Moriarty2020} & $0.5$\\
 		\hline
-		$\nu$ &  transition rate  asymptomatic to symptomatic & 0.5 days & \cite{Hu2020}\\
+		$\nu$ &  transition rate  asymptomatic to symptomatic & $0.025$-$0.125$ \cite{Giordano2020} & $0.125$\\
 		\hline
-		$\epsilon$ &  detection rate asymptomatic & 0.5 days & \cite{Hu2020}\\
+		$\epsilon_0$ &  detection rate asymptomatic & $0.171$ \cite{Giordano2020} & $0.171$ \\
 		\hline
-		$\varphi$ &  rate of asymptomatic developing symptoms & 0.5 days & \cite{Hu2020}\\
+		$\varphi$ &  rate of asymptomatic developing symptoms & $0.025$-$0.125$ \cite{Giordano2020} & $0.125$\\
 		\hline
-		$\theta$ &  rate of detection of symptomatic & 0.5 days & \cite{Hu2020}\\
+		$\theta$ &  rate of detection of symptomatic & $0.371$ & $0.371$\\
 		\hline
-		$\tau$ &  rate of developing life-threatening symptoms & 0.5 days & \cite{Hu2020}\\
+		$\tau$ &  rate of developing life-threatening symptoms in isolation & $0.027$ & $0.027$\\
 		\hline
-		$\lambda$ &  rate of developing life-threatening symptoms & 0.5 days & \cite{Hu2020}\\
+		$\lambda$ &  rate of developing life-threatening symptoms for symptomatic& $0.017$ & $0.017$\\
 		\hline
-		$\gamma$ &  recovery rate of asymptomatic & 0.5 days & \cite{Hu2020}\\
+		$\gamma$ &  recovery rate of asymptomatic & $0.034$ & $0.034$\\
 		\hline
-		$\eta$ &  recovery rate of symptomatic & 0.5 days & \cite{Hu2020}\\
+		$\eta$ &  recovery rate of symptomatic & $0.017$ & $0.017$\\
 		\hline
-		$\mu$ &  recovery rate of quarantined & 0.5 days & \cite{Hu2020}\\
+		$\mu$ &  recovery rate of quarantined & $0.034$ & $0.034$\\
 		\hline
-		$\psi$ & recovery rate of isolated & 0.5 days & \cite{Hu2020}\\
+		$\psi$ & recovery rate of isolated & $0.017$ & $0.017$\\
 		\hline
-		$\zeta$ &  recovery rate of critical & 0.5 days & \cite{Hu2020}\\
+		$\zeta$ &  recovery rate of critical & $0.017$ & $0.017$\\
 		\hline
-		$\delta$ &  mortality rate & 0.5 days & \cite{Hu2020}\\ [1ex] 
+		$\delta$ &  mortality rate & $0.01$-$0.015$ & $0.015$\\ [1ex] 
 		\hline
 	\end{tabularx}
 	\caption{Baseline parameters, brief description, possible ranges based on modeling and clinical studies, and default value chosen for this study.}
@@ -513,20 +513,13 @@ and, $\mathcal{V}(X)$ capturing the movement between the compartments, with $\ma
 \end{equation}
 %
 %
-We also define $\mathcal{X}_s$, as the set of all possible disease free states.
-%
-%
-\begin{proposition}
-For equation $\dot{X} = f(x) = \mathcal{F}(X) - \mathcal{V}(X)$, following holds:
+We also define $\mathcal{X}_s$, as the set of all possible disease free states. In order to directly apply the results in \cite{VANDENDRIESSCHE200229}, following shall hold for equation $\dot{X} = f(x) = \mathcal{F}(X) - \mathcal{V}(X)$:
 \begin{enumerate}
 	\item Functions $\mathcal{F}(X)$, $\mathcal{V}^{-}(X)$ and $\mathcal{V}^{+}(X)$, are all non-negative, when $X > 0$.
 	\item If $X \in \mathcal{X}_s$, then $\mathcal{V}^{-}(x)=\mathcal{F}(x)=\mathcal{V}^{+}(x)=0$ for $x \in \{E, I, A, Q, H, C, D, R\}$.
 	\item Let $Df(X_0)$ be the Jacobian matrix evaluated at DFE $X_0$, and defined as the partial derivative $[{\partial f}/{\partial x}]$ for $x \in \{E, I, A, Q, H, C, D, R, S\}$. If $\mathcal{F}(X) = 0$, then all eigenvalues of $Df(X_0)$ has negative real parts.
 \end{enumerate}
-\end{proposition}
-\begin{proof}
-Propositions (1) and (2), an be observed from the equations (\ref{eqn:baseline-compact-2}) and (\ref{eqn:baseline-compact-3}).  For proposition (3), 
-\end{proof}
+We note that each function represents a directed transfer of individuals, and they are all non-negative. (1) and (2), can be observed from the equations (\ref{eqn:baseline-compact-2}) and (\ref{eqn:baseline-compact-3}).  For (3), setting $\mathcal{F}(X) = 0$, we consider linearized system $\dot{X} = - D\mathcal{V}(X_0)(X-X_0)$, near DFE. From equation (\ref{eqn:DFE-3}) we observe that eigenvalues corresponding to $Df(X_0)$ has zero eigenvalues of multiplicity $3$ with associated eigenvectors in the directions of $D, R, S$. The results in \cite{VANDENDRIESSCHE200229} still holds for our system for stability in the directions of the susceptible and recovered compartment (note that )as $D$ is a counting compartment), this however, has no consequence in the meaning of the threshold $\mathcal{R}_0$. In fact this technicality can be resolved by adding natural birth and death rates proportional to the compartments $S$ and $R$ that is arbitrarily small and positive. 
 %
 %
 Let $X_0 \in \mathcal{X}_s$ be a DFE. Then $X_0 = \left( 0, 0, 0, 0, 0, 0, 0, 0, S_0 \right) $, and with $S_0/N_0=1$ we have, 
