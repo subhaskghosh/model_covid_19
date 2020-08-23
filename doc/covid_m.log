@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  17 AUG 2020 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  18 AUG 2020 11:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,7 +537,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.96 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.87 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -766,7 +766,7 @@ r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/loc
 al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loca
 l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on covid_m.pdf (11 pages, 254626 bytes).
+Output written on covid_m.pdf (11 pages, 254607 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  86 compressed objects within 1 object stream
