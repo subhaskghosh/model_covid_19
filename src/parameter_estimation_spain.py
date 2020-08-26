@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 import lmfit
 import argparse
+from src.plots import plot_compare_spain, plot_evolution_Brazil
 
 parser = argparse.ArgumentParser(description='The Baseline Epidemic Model')
 
@@ -12,44 +13,36 @@ parser.add_argument('--horizon', type=int, default=208, help='Simulation horizon
 parser.add_argument('--step', type=float, default=0.01, help='Time-step - discretisation of the continuous-time system')
 
 ### Population
-parser.add_argument('--country', type=str, default='Brazil', help='Total population')
+parser.add_argument('--country', type=str, default='Spain', help='Total population')
 
 ### Model parameters
-# parser.add_argument('--beta_0', type=float, default=1.5, help='infectious contact rate')
-# parser.add_argument('--beta_min', type=float, default=0.35, help='infectious contact rate minimum')
-# parser.add_argument('--t_0', type=int, default=22, help='social distanceing and lockdown start day')
-# parser.add_argument('--r', type=float, default=0.03, help='beta_0 decay rate')
 parser.add_argument('--kappa', type=float, default=0.5, help='infectiousness factor asymptomatic')
 parser.add_argument('--omega', type=float, default=0.0114, help='infectiousness factor quarantined')
 parser.add_argument('--rho', type=float, default=0.0114, help='infectiousness factor isolated')
 parser.add_argument('--sigma', type=float, default=0.1923, help='transition rate exposed to infectious')
-parser.add_argument('--alpha', type=float, default=0.95, help='fraction of infections that become symptomatic')
+parser.add_argument('--alpha', type=float, default=0.85, help='fraction of infections that become symptomatic')
 parser.add_argument('--nu', type=float, default=0.1254, help='transition rate  asymptomatic to symptomatic')
-#parser.add_argument('--epsilon', type=float, default=0.171, help='detection rate asymptomatic')
 parser.add_argument('--varphi', type=float, default=0.1254, help='rate of quarantined to isolation')
 parser.add_argument('--theta', type=float, default=0.371, help='rate of detection of symptomatic')
 parser.add_argument('--tau', type=float, default=0.0274, help='rate of developing life-threatening symptoms in isolation')
 parser.add_argument('--lamda', type=float, default=0.0171, help='rate of developing life-threatening symptoms for symptomatic')
-parser.add_argument('--gamma', type=float, default=0.0342, help='recovery rate of asymptomatic')
-parser.add_argument('--eta', type=float, default=0.0171, help='recovery rate of symptomatic')
-parser.add_argument('--mu', type=float, default=0.0342, help='recovery rate of quarantined')
-parser.add_argument('--psi', type=float, default=0.0171, help='recovery rate of isolated')
-parser.add_argument('--zeta', type=float, default=0.0171, help='recovery rate of critical')
-parser.add_argument('--delta', type=float, default=0.01, help='mortality rate')
+parser.add_argument('--gamma', type=float, default=0.0312, help='recovery rate of asymptomatic')
+parser.add_argument('--eta', type=float, default=0.0371, help='recovery rate of symptomatic')
+parser.add_argument('--mu', type=float, default=0.0242, help='recovery rate of quarantined')
+parser.add_argument('--psi', type=float, default=0.0271, help='recovery rate of isolated')
+parser.add_argument('--zeta', type=float, default=0.0271, help='recovery rate of critical')
+parser.add_argument('--delta', type=float, default=0.024, help='mortality rate')
+
+
 
 args = parser.parse_args()
 
-# beta_0 = args.beta_0
-# beta_min = args.beta_min
-# t_0 = args.t_0
-# r = args.r
 kappa = args.kappa
 omega = args.omega
 rho = args.rho
 sigma = args.sigma
 alpha = args.alpha
 nu = args.nu
-#epsilon = args.epsilon
 varphi = args.varphi
 theta = args.theta
 tau = args.tau
@@ -74,10 +67,16 @@ population = population_df[population_df["Country Name"]==args.country].values.t
 
 ## Load actual data
 actuals_df = pd.read_csv(f'../data/{args.country}.csv', delimiter=',')
+
+## Total Cases
 total_cases = actuals_df["Total Cases"].values.tolist()
+## Deaths : deceduti
 deaths = actuals_df["Deaths"].values.tolist()
+## Recovered : dimessi_guariti
 recovered = actuals_df["Recovered"].values.tolist()
+## Currently Infected
 currently_infected = actuals_df["Currently Positive"].values.tolist()
+
 
 
 def deriv(y, t, beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, theta, tau, lamda, gamma, eta, mu, psi, zeta, delta):
@@ -96,7 +95,7 @@ def deriv(y, t, beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, thet
 
     return dEdt, dIdt, dAdt, dQdt, dHdt, dCdt, dDdt, dRdt, dSdt, dDRdt
 
-def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s):
+def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
 
     # Contact
     def beta(t):
@@ -106,8 +105,12 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s):
             beta_0_now = beta_min + (beta_0 - beta_min) * np.exp(-r * (t - t_0))
             return beta_0_now
 
+    # Testing
     def epsilon(t):
-        return epsilon_0 + s * epsilon_0 * t
+        if t < et_0:
+            return epsilon_0
+        else:
+            return epsilon_max - (epsilon_max - epsilon_0) * np.exp(-s * (t - et_0))
 
     E_0 = 0.0
     I_0 = 1.0 / population
@@ -125,23 +128,30 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s):
     ret = odeint(deriv, y0, t, args=(beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, theta, tau, lamda, gamma, eta, mu, psi, zeta, delta))
     E, I, A, Q, H, C, D, R, S, DR = ret.T
     TI = Q + H + C
-    return t, E, I, A, Q, H, C, D, R, S, DR, TI
 
-outbreak_shift = 60
+    beta_over_time = [beta(i) for i in range(len(t))]
+    epsilon_over_time = [epsilon(i) for i in range(len(t))]
+
+    return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time
+
+outbreak_shift = 36
+till_day = 75
 y_data = currently_infected
-y_data = y_data[outbreak_shift:]
+y_data = y_data[outbreak_shift:outbreak_shift+till_day]
 days = len(y_data)
 x_data = np.linspace(0, days - 1, days, dtype=int)
 
-params_init_min_max = {"beta_0": (1.14, 0.9, 1.5),
-                       "beta_min": (0.3, 0.01, 0.6),
-                       "t_0": (4, 2, 40),
+params_init_min_max = {"beta_0": (1.14, 0.9, 1.8),
+                       "beta_min": (0.03, 0.01, 0.54),
+                       "t_0": (12, 2, 40),
+                       "et_0": (40, 2, 80),
                        "r": (0.03, 0.001, 0.1),
                        "epsilon_0": (0.171, 0.017, 0.3),
-                       "s":(0.03, 0.001, 0.1)} # {initial, min, max}
+                       "epsilon_max": (0.6,0.5,0.99),
+                       "s":(0.03, 0.001, 0.5)} # {initial, min, max}
 
-def fitter(x, beta_0, t_0, beta_min, r, epsilon_0, s):
-    ret = Model(days, beta_0, t_0, beta_min, r, epsilon_0, s)
+def fitter(x, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
+    ret = Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0)
     return ret[11][x]
 
 mod = lmfit.Model(fitter)
@@ -154,8 +164,25 @@ fit_method = "least_squares"
 
 result = mod.fit(y_data, params, method="least_squares", x=x_data)
 
-result.plot_fit(datafmt="-")
-plt.show()
-
 print(result.best_values)
-print(result.result)
+print(result.fit_report())
+# print(result.ci_report())
+# result.plot_fit(datafmt="-")
+# result.plot_residuals(datafmt="-")
+# plt.show()
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(days,
+                                                                                result.best_values['beta_0'],
+                                                                                result.best_values['t_0'],
+                                                                                result.best_values['beta_min'],
+                                                                                result.best_values['r'],
+                                                                                result.best_values['epsilon_0'],
+                                                                                result.best_values['s'],
+                                                                                result.best_values['epsilon_max'],
+                                                                                result.best_values['et_0'])
+plot_compare_spain(t,
+             TI, currently_infected,
+             R, recovered,
+             D, deaths,
+             outbreak_shift, till_day)
+
+# plot_evolution_Brazil(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)

@@ -1,4 +1,4 @@
-%%\documentclass[preprint,authoryear,12pt]{elsarticle}
+%% \documentclass[preprint,authoryear,12pt]{elsarticle}
 %% Use the option review to obtain double line spacing
 \documentclass[authoryear,preprint]{elsarticle}
 
@@ -100,7 +100,19 @@
 	
 \section{Results}
 \label{SEC2}
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{Italy_plot_model_data.pdf}
+	\caption{.} 
+	\label{fig1} 
+\end{figure*}
 
+\begin{figure*}
+	\centering
+	\includegraphics[width=\textwidth]{Italy_evolution.pdf}
+	\caption{.} 
+	\label{fig2} 
+\end{figure*}
 \section{Discussion}
 \label{SEC3}
 
@@ -113,8 +125,6 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 	\centering
    
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.75,xscale=0.75]
-%uncomment if require: \path (0,592); %set diagram left start at 0, and has height of 592
-
 %Rounded Rect [id:dp09957357672412392] 
 \draw  [fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ] (3,196) .. controls (3,191.58) and (6.58,188) .. (11,188) -- (65,188) .. controls (69.42,188) and (73,191.58) .. (73,196) -- (73,220) .. controls (73,224.42) and (69.42,228) .. (65,228) -- (11,228) .. controls (6.58,228) and (3,224.42) .. (3,220) -- cycle ;
 %Rounded Rect [id:dp5050898332419083] 
@@ -134,15 +144,6 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 %Curve Lines [id:da4853002885061428] 
 \draw    (224,220) .. controls (259.64,223.96) and (234.51,273) .. (282.52,281.75) ;
 \draw [shift={(284,282)}, rotate = 189.09] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da9124332231046819] 
-\draw    (11,157.5) -- (11,186) ;
-\draw [shift={(11,188)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da12605518772981372] 
-\draw    (162,161.5) -- (162,186) ;
-\draw [shift={(162,188)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da03560982385511191] 
-\draw    (292,56.5) -- (292.19,86) ;
-\draw [shift={(292.2,88)}, rotate = 269.64] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 %Straight Lines [id:da550796713766323] 
 \draw    (336,149) -- (336.2,240) ;
 \draw [shift={(336.2,242)}, rotate = 269.88] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
@@ -187,21 +188,6 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 %Curve Lines [id:da10892599229549393] 
 \draw    (552,302.5) .. controls (488.32,351.26) and (362.27,401.99) .. (286.14,427.12) ;
 \draw [shift={(285,427.5)}, rotate = 341.78999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da2069291659666035] 
-\draw    (11,228) -- (11,258.5) ;
-\draw [shift={(11,260.5)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da5287473969345702] 
-\draw    (162,228) -- (162,256.5) ;
-\draw [shift={(162,258.5)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da7840920125098882] 
-\draw    (292.2,149) -- (292.01,177.5) ;
-\draw [shift={(292,179.5)}, rotate = 270.38] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da9543677440180489] 
-\draw    (296,211.5) -- (296.19,241) ;
-\draw [shift={(296.2,243)}, rotate = 269.64] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-%Straight Lines [id:da18449249841812487] 
-\draw    (296.2,304) -- (296.01,332.5) ;
-\draw [shift={(296,334.5)}, rotate = 270.38] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
 
 % Text Node
 \draw (23,199.4) node [anchor=north west][inner sep=0.75pt]    {$S( t)$};
@@ -218,13 +204,7 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 % Text Node
 \draw (209,242.4) node [anchor=north west][inner sep=0.75pt]    {$\alpha \sigma $};
 % Text Node
-\draw (17,157.4) node [anchor=north west][inner sep=0.75pt]    {$p$};
-% Text Node
-\draw (167,159.4) node [anchor=north west][inner sep=0.75pt]    {$q$};
-% Text Node
-\draw (299,54.4) node [anchor=north west][inner sep=0.75pt]    {$r$};
-% Text Node
-\draw (341,185) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ] [align=left] {symptom};
+\draw (341,171) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ] [align=left] {symptom};
 % Text Node
 \draw (99,184.4) node [anchor=north west][inner sep=0.75pt]    {$\beta ( t)$};
 % Text Node
@@ -244,7 +224,7 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 % Text Node
 \draw (233,200.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 245; green, 166; blue, 35 }  ,opacity=1 ] [align=left] {onset};
 % Text Node
-\draw (320,185) node [anchor=north west][inner sep=0.75pt]    {$\nu $};
+\draw (320,174) node [anchor=north west][inner sep=0.75pt]    {$\nu $};
 % Text Node
 \draw (470,254.9) node [anchor=north west][inner sep=0.75pt]    {$\theta $};
 % Text Node
@@ -264,13 +244,11 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 % Text Node
 \draw (235,420.4) node [anchor=north west][inner sep=0.75pt]    {$R( t)$};
 % Text Node
-\draw (266,368.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ] [align=left] {recovery};
-% Text Node
-\draw (12,136.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ] [align=left] {\textcolor[rgb]{0.55,0.34,0.16}{imported}};
+\draw (258,368.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ] [align=left] {recovery};
 % Text Node
 \draw (78,219.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 144; green, 19; blue, 254 }  ,opacity=1 ] [align=left] {contagion};
 % Text Node
-\draw (215,355.9) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
+\draw (212,355.9) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
 % Text Node
 \draw (262,311.9) node [anchor=north west][inner sep=0.75pt]    {$\eta $};
 % Text Node
@@ -279,20 +257,6 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 \draw (339,381.9) node [anchor=north west][inner sep=0.75pt]    {$\psi $};
 % Text Node
 \draw (337,418.9) node [anchor=north west][inner sep=0.75pt]    {$\zeta $};
-% Text Node
-\draw (13,231.4) node [anchor=north west][inner sep=0.75pt]    {$u$};
-% Text Node
-\draw (164,231.4) node [anchor=north west][inner sep=0.75pt]    {$v$};
-% Text Node
-\draw (294.2,152.4) node [anchor=north west][inner sep=0.75pt]    {$w$};
-% Text Node
-\draw (13,263.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ] [align=left] {\textcolor[rgb]{0.55,0.34,0.16}{exported}};
-% Text Node
-\draw (298,214.9) node [anchor=north west][inner sep=0.75pt]    {$s$};
-% Text Node
-\draw (298.2,307.4) node [anchor=north west][inner sep=0.75pt]    {$x$};
-
-
 \end{tikzpicture}
 
 \caption[Model]{The model consists of following bins: susceptible $S(t)$,, exposed $E(t)$, asymptomatic $A(t)$, symptomatic $I(t)$, quarantined $Q(t)$, isolated $H(t)$,  deceased ($D(t)$ and recovered $R(t)$ individuals in a population of $N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t)$ individuals.}
@@ -302,17 +266,17 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 The transmission dynamics of COVID-19 in the basic model is given by the following deterministic system of nonlinear differential equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}):
 %%
 \begin{equation}
-\frac{dE}{dt} = q + \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - \sigma E - v, 
+\frac{dE}{dt} = \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - \sigma E, 
 \label{eqn:base-model-1}
 \end{equation}
 %%
 \begin{equation}
-\frac{dI}{dt} = s + \alpha \sigma E + \nu A - \left( \eta + \theta + \lambda \right) I - x,
+\frac{dI}{dt} = \alpha \sigma E + \nu A - \left( \eta + \theta + \lambda \right) I,
 \label{eqn:base-model-2}
 \end{equation}
 %%
 \begin{equation}
-\frac{dA}{dt} = r + \left( 1-\alpha \right) \sigma E - \left( \epsilon(t) + \nu + \gamma \right) A - w,
+\frac{dA}{dt} =  \left( 1-\alpha \right) \sigma E - \left( \epsilon(t) + \nu + \gamma \right) A,
 \label{eqn:base-model-3}
 \end{equation}
 %%
@@ -342,7 +306,7 @@ The transmission dynamics of COVID-19 in the basic model is given by the followi
 \end{equation}
 %%
 \begin{equation}
-\frac{dS}{dt} = p -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - u,
+\frac{dS}{dt} = \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N},
 \label{eqn:base-model-9}
 \end{equation}
 %%
@@ -362,11 +326,7 @@ In our model, the susceptible individuals gets exposed to infection, and move to
 \end{cases}
 \label{eqn:base-model-11}
 \end{equation}
-We would like to note that in certain countries, stringency measures were in place at an earlier stages of the epidemic and was relaxed over time leading to a higher contact rate. Under such scenario, we use value $\beta_0$. 
-
-Our model incorporates some facets of mobility, whereby, we recruit a inflow of susceptible individuals into the region at a rate $p$, and also consider an outflow with a rate $u$. It is well known that such inflow of travelers in the community including regional migration, immigration and emigration has lead to faster spread of the contagion [Citation]. A similar inflow and outflow has been amended to exposed, symptomatic and  asymptomatic but undetected compartments, namely $E(t), A(t), I(t)$. In the absence of an effective screening test, and when it was observed that in the wake of governmental stringency measure, people tried to flee regions that are under stricter measures, individuals from these  groups carried contagion to other geographic regions [citation]. 
-
-We assume that the asymptomatic individuals infect with a lower contact rate ($\kappa < 1$) than the symptomatic individuals. Once someone symptomatic is diagnosed, they can only infect healthcare workers and this lower contact rate is captured by the parameter ($\rho < 1$). Similarly, quarantined individuals have much lower contact rate of ($\omega < 1$). Overall rate of change for the susceptible population is thus defined by equation (\ref{eqn:base-model-9}).
+We would like to note that in certain countries, stringency measures were in place at an earlier stages of the epidemic and was relaxed over time leading to a higher contact rate. Under such scenario, we use value $\beta_0$. We assume that the asymptomatic individuals infect with a lower contact rate ($\kappa < 1$) than the symptomatic individuals. Once someone symptomatic is diagnosed, they can only infect healthcare workers and this lower contact rate is captured by the parameter ($\rho < 1$). Similarly, quarantined individuals have much lower contact rate of ($\omega < 1$). Overall rate of change for the susceptible population is thus defined by equation (\ref{eqn:base-model-9}).
 
 \subsubsection{Exposed individuals: $E(t)$}
 Individuals in compartment $E$, are exposed to the virus, and are not contagious during a period of latent time. An individual in $E$ becomes infectious, and moves to compartment $A$ as asymptomatic or to $I$ as symptomatic. We assume that $\sigma$ is the transition rate from exposed to infectious, and a fraction $\alpha$ of them show symptoms. Overall rate of change for the exposed population is thus defined by equation (\ref{eqn:base-model-1}).
@@ -375,7 +335,7 @@ Individuals in compartment $E$, are exposed to the virus, and are not contagious
 Symptomatic individuals can get diagnosed ($\theta$) and be isolated, or show acute symptoms and be hospitalized ($\lambda$), or can recover at the rate $\eta$. It has been observed that $\eta \geq \gamma$, where symptomatic individuals recover at faster rate than asymptomatic individuals, and asymptomatic individuals have longer duration of viral shedding \cite{Long2020}. Overall rate of change is given by equation (\ref{eqn:base-model-2}).
 
 \subsubsection{Asymptomatic individuals: $A(t)$}
-Asymptomatic individuals can enter into population with rate $r$, and then can migrate out at rate $w$. Asymptomatic individuals can eventually show symptoms and move to $I$ at rate $\nu$ or can have a positive diagnosis and move to quarantine. We model testing of asymptomatic population as a function of time as the community testing process ramps up. Testing rate has been captured as $\epsilon(t)$. Finally, they can recover at the rate $\gamma$. Overall rate of change is given by equation (\ref{eqn:base-model-3}).
+ Asymptomatic individuals can eventually show symptoms and move to $I$ at rate $\nu$ or can have a positive diagnosis and move to quarantine. We model testing of asymptomatic population as a function of time as the community testing process ramps up. Testing rate has been captured as $\epsilon(t)$. Finally, they can recover at the rate $\gamma$. Overall rate of change is given by equation (\ref{eqn:base-model-3}).
 
 \subsubsection{Quarantined individuals: $Q(t)$}
 Quarantined individuals are asymptomatic population after diagnosis and they have very low contact rate ($\omega < 1$). This is mostly by infecting the other family members or by breach of protocol. They however, may develop symptoms and move to $H$ or recover. Overall rate of change is given by equation (\ref{eqn:base-model-4}).
@@ -388,10 +348,8 @@ These counters collect information on population that are critical, recovered or
 
 \subsubsection{Baseline epidemiological parameters}
 In this section we describe the estimated values of various parameters based on the current literature. It has been noted in the literature that the clinical course of the disease is typically quite long. Average total duration of illness has been estimated to be three weeks in \cite{Zhou2020}. In the baseline model we consider $p, q, r, s, u, v, w, x$ to be 0. In other words we do  not include any mobility in the base model. In following we will include them in the extended model with appropriate meaning. Parameter $\beta_0$ is strongly dependent on the population behavior. We select a default value that has been estimated in \cite{Shen2020.01.23.916726} for pre-lockdown period.
-
-\cite{Long2020}
-
-
+%
+%
 	\begin{table*}
 	\centering
 	\begin{tabularx}{\textwidth}[t]{p{0.09\textwidth}p{0.35\textwidth}p{0.3\textwidth}p{0.15\textwidth}}
@@ -440,7 +398,7 @@ In this section we describe the estimated values of various parameters based on 
 \end{table*}
 
 \subsubsection{The basic reproduction number for baseline model}
-The basic reproduction number is calculated for the special case when we have $\beta(t) = \beta_0, \epsilon(t) = \epsilon_0$, and $p = q = r = s = u = v = w = x = 0$. in following we explore the local stability of the disease-free equilibrium (DFE) using the next generation operator method \cite{Diekmann1990,VANDENDRIESSCHE200229}. Following \cite{VANDENDRIESSCHE200229}, we define the system of equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}), in more compact form as:
+The basic reproduction number is calculated for the special case when we have $\beta(t) = \beta_0, \epsilon(t) = \epsilon_0$. In following we explore the local stability of the disease-free equilibrium (DFE) using the next generation operator method \cite{Diekmann1990,VANDENDRIESSCHE200229}. Following \cite{VANDENDRIESSCHE200229}, we define the system of equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}), in more compact form as:
 %
 %
 \begin{equation}

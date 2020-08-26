@@ -138,12 +138,6 @@ def update_beta(beta_0, i):
 
 for i in range(1,LENGTH):
     #beta_0 = update_beta(beta_0,i)
-    if i > 4/args.step:
-        beta_0 = 1.3
-    if i>22/args.step:
-        beta_0 = 0.65
-    if i>29/args.step:
-        beta_0 = 0.24
 
     f = np.array([[-sigma, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, beta_0 * (X[1] + X[2] * kappa + X[3] * omega + X[4] * rho)[0], 0.0],
                    [alpha * sigma, -(eta + theta + lamda), nu, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],

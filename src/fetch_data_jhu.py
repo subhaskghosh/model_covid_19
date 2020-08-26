@@ -62,7 +62,7 @@ def prepare():
     filename_deaths = '../data/time_series_covid19_deaths_global.csv'
     filename_recovered = '../data/time_series_covid19_recovered_global.csv'
 
-    countryList = ["Italy", "Brazil", "India", "France", "Spain"]
+    countryList = ["Brazil", "India", "France", "Spain"]
 
     # Load population data from The World Bank Group
     # https://data.worldbank.org/indicator/SP.POP.TOTL?end=2019&start=1960&view=chart&year=2019
@@ -80,15 +80,22 @@ def prepare():
     for c in countryList:
         population = population_df[population_df["Country Name"]==c].values.tolist()[0][1]
         confirmed = [a/population for a in confirmed_df[confirmed_df["Country"]==c].values.tolist()[0][1:]]
+        confirmed_n = [a for a in confirmed_df[confirmed_df["Country"]==c].values.tolist()[0][1:]]
         death = [a/population for a in death_df[death_df["Country"] == c].values.tolist()[0][1:]]
+        death_n = [a for a in death_df[death_df["Country"] == c].values.tolist()[0][1:]]
         recovered = [a/population for a in recovered_df[recovered_df["Country"] == c].values.tolist()[0][1:]]
+        recovered_n = [a for a in recovered_df[recovered_df["Country"] == c].values.tolist()[0][1:]]
         country_df = pd.DataFrame({
             "Total Cases": confirmed,
             "Deaths" : death,
             "Recovered": recovered,
+            "Total Cases Number": confirmed_n,
+            "Deaths Number": death_n,
+            "Recovered Number": recovered_n,
             "Date" : dates
         })
         country_df["Currently Positive"] = country_df["Total Cases"] - (country_df["Deaths"]+country_df["Recovered"])
+        country_df["Currently Positive Number"] = country_df["Total Cases Number"] - (country_df["Deaths Number"] + country_df["Recovered Number"])
         country_df.to_csv(f'../data/{c}.csv', index=False)
-
+update()
 prepare()
