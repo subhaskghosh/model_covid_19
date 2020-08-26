@@ -20,7 +20,7 @@ parser.add_argument('--kappa', type=float, default=0.5, help='infectiousness fac
 parser.add_argument('--omega', type=float, default=0.0114, help='infectiousness factor quarantined')
 parser.add_argument('--rho', type=float, default=0.0114, help='infectiousness factor isolated')
 parser.add_argument('--sigma', type=float, default=0.1923, help='transition rate exposed to infectious')
-parser.add_argument('--alpha', type=float, default=0.95, help='fraction of infections that become symptomatic')
+parser.add_argument('--alpha', type=float, default=0.65, help='fraction of infections that become symptomatic')
 parser.add_argument('--nu', type=float, default=0.1254, help='transition rate  asymptomatic to symptomatic')
 parser.add_argument('--varphi', type=float, default=0.1254, help='rate of quarantined to isolation')
 parser.add_argument('--theta', type=float, default=0.371, help='rate of detection of symptomatic')

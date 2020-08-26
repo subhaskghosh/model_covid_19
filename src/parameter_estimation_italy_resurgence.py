@@ -99,18 +99,19 @@ def deriv(y, t, beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, thet
 
     return dEdt, dIdt, dAdt, dQdt, dHdt, dCdt, dDdt, dRdt, dSdt, dDRdt
 
-def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_new, u):
-
+def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_new, u, t_1):
     # Contact
     def beta(t):
         if t < t_0:
             return beta_0
         else:
-            if t < 120:
+            if t < t_1:
                 beta_0_now = beta_min + (beta_0 - beta_min) * np.exp(-r * (t - t_0))
+                return beta_0_now
             else:
-                beta_0_now = beta_new - (beta_new - beta_min) * np.exp(-u * (t-120))
-            return beta_0_now
+                curr = beta_min + (beta_0 - beta_min) * np.exp(-r * (t - t_0))
+                beta_0_now = beta_new - (beta_new - curr) * np.exp(-u * (t - t_1))
+                return beta_0_now
 
     # Testing
     def epsilon(t):
@@ -150,17 +151,18 @@ x_data = np.linspace(0, days - 1, days, dtype=int)
 params_init_min_max = {"beta_0": (1.14, 0.9, 1.5),
                        "beta_min": (0.36, 0.03, 1.5),
                        "t_0": (4, 2, 30),
+                       "t_1": (45, 30, 70),
                        "et_0": (4, 2, 20),
                        "r": (0.03, 0.001, 0.5),
                        "epsilon_0": (0.6, 0.54, 0.8),
                        "epsilon_max": (0.6,0.5,0.8),
                        "s":(0.32, 0.3, 0.9),
-                       "beta_new": (0.07, 0.06, 0.39),
+                       "beta_new": (0.07, 0.006, 0.39),
                        "u": (0.03, 0.001, 0.036)
                        } # {initial, min, max}
 
-def fitter(x, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0,beta_new, u):
-    ret = Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_new, u)
+def fitter(x, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0,beta_new, u, t_1):
+    ret = Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_new, u, t_1)
     return ret[11][x]
 
 mod = lmfit.Model(fitter)
@@ -176,21 +178,21 @@ result = mod.fit(y_data, params, method="least_squares", x=x_data)
 print(result.best_values)
 print(result.fit_report())
 #print(result.ci_report())
-#result.plot_fit(datafmt="-")
+result.plot_fit(datafmt="-")
 #result.plot_residuals(datafmt="-")
 plt.show()
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(350,
-                                                                                result.best_values['beta_0'],
-                                                                                result.best_values['t_0'],
-                                                                                result.best_values['beta_min'],
-                                                                                result.best_values['r'],
-                                                                                result.best_values['epsilon_0'],
-                                                                                result.best_values['s'],
-                                                                                result.best_values['epsilon_max'],
-                                                                                result.best_values['et_0'],
-                                                                                result.best_values['beta_new'],
-                                                                                result.best_values['u'])
-
-
-
-plot_evolution(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)
+# t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(350,
+#                                                                                 result.best_values['beta_0'],
+#                                                                                 result.best_values['t_0'],
+#                                                                                 result.best_values['beta_min'],
+#                                                                                 result.best_values['r'],
+#                                                                                 result.best_values['epsilon_0'],
+#                                                                                 result.best_values['s'],
+#                                                                                 result.best_values['epsilon_max'],
+#                                                                                 result.best_values['et_0'],
+#                                                                                 result.best_values['beta_new'],
+#                                                                                 result.best_values['u'])
+#
+#
+#
+# plot_evolution(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)

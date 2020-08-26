@@ -239,8 +239,8 @@ def plot_compare_india(t,
     fig.tight_layout()
     plt.show()
 
-    # plt.savefig(f'../doc/India_plot_model_data.pdf', dpi=600)
-    # plt.clf()
+    #plt.savefig(f'../doc/India_plot_model_data.pdf', dpi=600)
+    #plt.clf()
 
 def plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time):
     short = 90
@@ -307,8 +307,8 @@ def plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, bet
     fig.tight_layout()
     plt.show()
 
-    # plt.savefig(f'../doc/India_evolution.pdf', dpi=600)
-    # plt.clf()
+    #plt.savefig(f'../doc/India_evolution.pdf', dpi=600)
+    #plt.clf()
 
 def plot_compare_brazil(t,
                  TI, currently_infected,
@@ -560,5 +560,362 @@ def plot_evolution_spain(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, bet
     # plt.savefig(f'../doc/Spain_evolution.pdf', dpi=600)
     # plt.clf()
 
-def plot_sensitivity():
-    pass
+def plot_sensitivity_beta_spain(t,
+                            TI1, DR1, R1, D1, CI1, CR1,
+                            TI2, DR2, R2, D2, CI2, CR2,
+                            TI3, DR3, R3, D3, CI3, CR3,
+                            TI4, DR4, R4, D4, CI4, CR4,
+                            TI5, DR5, R5, D5, CI5, CR5,
+                            currently_infected):
+    long = 700
+    fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+    fig.subplots_adjust(hspace=0.4, wspace=0.4)
+
+    axes[0, 0].plot(t, TI1, label='Current total infected', color='#D0E9F2')
+    axes[0, 0].plot(t, TI2, label='Current total infected', color='#829FD9')
+    axes[0, 0].plot(t, TI3, label='Current total infected', color='#F2A516')
+    axes[0, 0].plot(t, TI4, label='Current total infected', color='#D98218')
+    axes[0, 0].plot(t, TI5, label='Current total infected', color='#8C5511')
+    axes[0, 0].plot(t[:179], currently_infected[35:], label='Current total infected: Data', color='#000000')
+    axes[0, 0].set_xlabel('Time (days)')
+    axes[0, 0].set_ylabel('Cases (fraction of the population)')
+    axes[0, 0].set_title('Sensitivity w. r. t. $\\beta(t)$: Currently infected')
+    axes[0, 0].set_xlim(0, long)
+    axes[0, 0].set_ylim(0, 3e-2)
+    axes[0, 0].text(-0.1, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
+
+    axes[0, 1].plot(t, DR1, label='Current total infected', color='#D0E9F2')
+    axes[0, 1].plot(t, DR2, label='Current total infected', color='#829FD9')
+    axes[0, 1].plot(t, DR3, label='Current total infected', color='#F2A516')
+    axes[0, 1].plot(t, DR4, label='Current total infected', color='#D98218')
+    axes[0, 1].plot(t, DR5, label='Current total infected', color='#8C5511')
+    axes[0, 1].set_xlabel('Time (days)')
+    axes[0, 1].set_ylabel('Cases (fraction of the population)')
+    axes[0, 1].set_title('Sensitivity w. r. t. $\\beta(t)$: Detected and Recovered')
+    axes[0, 1].set_xlim(0, long)
+    axes[0, 1].set_ylim(0, 1e-1)
+    axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
+
+    axes[0, 2].plot(t, R1, label='Current total infected', color='#D0E9F2')
+    axes[0, 2].plot(t, R2, label='Current total infected', color='#829FD9')
+    axes[0, 2].plot(t, R3, label='Current total infected', color='#F2A516')
+    axes[0, 2].plot(t, R4, label='Current total infected', color='#D98218')
+    axes[0, 2].plot(t, R5, label='Current total infected', color='#8C5511')
+    axes[0, 2].set_xlabel('Time (days)')
+    axes[0, 2].set_ylabel('Cases (fraction of the population)')
+    axes[0, 2].set_title('Sensitivity w. r. t. $\\beta(t)$: Cumulative Recovered')
+    axes[0, 2].set_xlim(0, long)
+    axes[0, 2].set_ylim(0, 1e-1)
+    axes[0, 2].text(-0.1, 1.15, 'c', transform=axes[0, 2].transAxes, size=16, weight='bold')
+
+    axes[1, 0].plot(t, D1, label='Current total infected', color='#D0E9F2')
+    axes[1, 0].plot(t, D2, label='Current total infected', color='#829FD9')
+    axes[1, 0].plot(t, D3, label='Current total infected', color='#F2A516')
+    axes[1, 0].plot(t, D4, label='Current total infected', color='#D98218')
+    axes[1, 0].plot(t, D5, label='Current total infected', color='#8C5511')
+    axes[1, 0].set_xlabel('Time (days)')
+    axes[1, 0].set_ylabel('Cases (fraction of the population)')
+    axes[1, 0].set_title('Sensitivity w. r. t. $\\beta(t)$: Deaths')
+    axes[1, 0].set_xlim(0, long)
+    axes[1, 0].set_ylim(0, 1e-1)
+    axes[1, 0].text(-0.1, 1.15, 'd', transform=axes[1, 0].transAxes, size=16, weight='bold')
+
+    axes[1, 1].plot(t, CI1, label='Current total infected', color='#D0E9F2')
+    axes[1, 1].plot(t, CI2, label='Current total infected', color='#829FD9')
+    axes[1, 1].plot(t, CI3, label='Current total infected', color='#F2A516')
+    axes[1, 1].plot(t, CI4, label='Current total infected', color='#D98218')
+    axes[1, 1].plot(t, CI5, label='Current total infected', color='#8C5511')
+    axes[1, 1].set_xlabel('Time (days)')
+    axes[1, 1].set_ylabel('Cases (fraction of the population)')
+    axes[1, 1].set_title('Sensitivity w. r. t. $\\beta(t)$: Cumulative Infected')
+    axes[1, 1].set_xlim(0, long)
+    axes[1, 1].set_ylim(0, 1e-1)
+    axes[1, 1].text(-0.1, 1.15, 'e', transform=axes[1, 1].transAxes, size=16, weight='bold')
+
+    axes[1, 2].plot(t, CR1, label='Current total infected', color='#D0E9F2')
+    axes[1, 2].plot(t, CR2, label='Current total infected', color='#829FD9')
+    axes[1, 2].plot(t, CR3, label='Current total infected', color='#F2A516')
+    axes[1, 2].plot(t, CR4, label='Current total infected', color='#D98218')
+    axes[1, 2].plot(t, CR5, label='Current total infected', color='#8C5511')
+    axes[1, 2].set_xlabel('Time (days)')
+    axes[1, 2].set_ylabel('Cases (fraction of the population)')
+    axes[1, 2].set_title('Sensitivity w. r. t. $\\beta(t)$: Critical')
+    axes[1, 2].set_xlim(0, long)
+    axes[1, 2].set_ylim(0, 3e-2)
+    axes[1, 2].text(-0.1, 1.15, 'f', transform=axes[1, 2].transAxes, size=16, weight='bold')
+
+    fig.tight_layout()
+    plt.show()
+
+    #plt.savefig(f'../doc/Spain_sensitivity_beta.pdf', dpi=600)
+    #plt.clf()
+
+def plot_sensitivity_epsilon_spain(t,
+                            TI1, DR1, R1, D1, CI1, CR1,
+                            TI2, DR2, R2, D2, CI2, CR2,
+                            TI3, DR3, R3, D3, CI3, CR3,
+                            TI4, DR4, R4, D4, CI4, CR4,
+                            TI5, DR5, R5, D5, CI5, CR5,
+                            currently_infected):
+    long = 700
+    fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+    fig.subplots_adjust(hspace=0.4, wspace=0.4)
+
+    axes[0, 0].plot(t, TI1, label='Current total infected', color='#D0E9F2')
+    axes[0, 0].plot(t, TI2, label='Current total infected', color='#829FD9')
+    axes[0, 0].plot(t, TI3, label='Current total infected', color='#F2A516')
+    axes[0, 0].plot(t, TI4, label='Current total infected', color='#D98218')
+    axes[0, 0].plot(t, TI5, label='Current total infected', color='#8C5511')
+    axes[0, 0].plot(t[:179], currently_infected[35:], label='Current total infected: Data', color='#000000')
+    axes[0, 0].set_xlabel('Time (days)')
+    axes[0, 0].set_ylabel('Cases (fraction of the population)')
+    axes[0, 0].set_title('Sensitivity w. r. t. $\epsilon(t)$: Currently infected')
+    axes[0, 0].set_xlim(0, long)
+    axes[0, 0].set_ylim(0, 1e-1)
+    axes[0, 0].text(-0.1, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
+
+    axes[0, 1].plot(t, DR1, label='Current total infected', color='#D0E9F2')
+    axes[0, 1].plot(t, DR2, label='Current total infected', color='#829FD9')
+    axes[0, 1].plot(t, DR3, label='Current total infected', color='#F2A516')
+    axes[0, 1].plot(t, DR4, label='Current total infected', color='#D98218')
+    axes[0, 1].plot(t, DR5, label='Current total infected', color='#8C5511')
+    axes[0, 1].set_xlabel('Time (days)')
+    axes[0, 1].set_ylabel('Cases (fraction of the population)')
+    axes[0, 1].set_title('Sensitivity w. r. t. $\epsilon(t)$: Detected and Recovered')
+    axes[0, 1].set_xlim(0, long)
+    axes[0, 1].set_ylim(0, 1)
+    axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
+
+    axes[0, 2].plot(t, R1, label='Current total infected', color='#D0E9F2')
+    axes[0, 2].plot(t, R2, label='Current total infected', color='#829FD9')
+    axes[0, 2].plot(t, R3, label='Current total infected', color='#F2A516')
+    axes[0, 2].plot(t, R4, label='Current total infected', color='#D98218')
+    axes[0, 2].plot(t, R5, label='Current total infected', color='#8C5511')
+    axes[0, 2].set_xlabel('Time (days)')
+    axes[0, 2].set_ylabel('Cases (fraction of the population)')
+    axes[0, 2].set_title('Sensitivity w. r. t. $\epsilon(t)$: Cumulative Recovered')
+    axes[0, 2].set_xlim(0, long)
+    axes[0, 2].set_ylim(0, 1)
+    axes[0, 2].text(-0.1, 1.15, 'c', transform=axes[0, 2].transAxes, size=16, weight='bold')
+
+    axes[1, 0].plot(t, D1, label='Current total infected', color='#D0E9F2')
+    axes[1, 0].plot(t, D2, label='Current total infected', color='#829FD9')
+    axes[1, 0].plot(t, D3, label='Current total infected', color='#F2A516')
+    axes[1, 0].plot(t, D4, label='Current total infected', color='#D98218')
+    axes[1, 0].plot(t, D5, label='Current total infected', color='#8C5511')
+    axes[1, 0].set_xlabel('Time (days)')
+    axes[1, 0].set_ylabel('Cases (fraction of the population)')
+    axes[1, 0].set_title('Sensitivity w. r. t. $\epsilon(t)$: Deaths')
+    axes[1, 0].set_xlim(0, long)
+    axes[1, 0].set_ylim(0, 1)
+    axes[1, 0].text(-0.1, 1.15, 'd', transform=axes[1, 0].transAxes, size=16, weight='bold')
+
+    axes[1, 1].plot(t, CI1, label='Current total infected', color='#D0E9F2')
+    axes[1, 1].plot(t, CI2, label='Current total infected', color='#829FD9')
+    axes[1, 1].plot(t, CI3, label='Current total infected', color='#F2A516')
+    axes[1, 1].plot(t, CI4, label='Current total infected', color='#D98218')
+    axes[1, 1].plot(t, CI5, label='Current total infected', color='#8C5511')
+    axes[1, 1].set_xlabel('Time (days)')
+    axes[1, 1].set_ylabel('Cases (fraction of the population)')
+    axes[1, 1].set_title('Sensitivity w. r. t.$\epsilon(t)$: Cumulative Infected')
+    axes[1, 1].set_xlim(0, long)
+    axes[1, 1].set_ylim(0, 1)
+    axes[1, 1].text(-0.1, 1.15, 'e', transform=axes[1, 1].transAxes, size=16, weight='bold')
+
+    axes[1, 2].plot(t, CR1, label='Current total infected', color='#D0E9F2')
+    axes[1, 2].plot(t, CR2, label='Current total infected', color='#829FD9')
+    axes[1, 2].plot(t, CR3, label='Current total infected', color='#F2A516')
+    axes[1, 2].plot(t, CR4, label='Current total infected', color='#D98218')
+    axes[1, 2].plot(t, CR5, label='Current total infected', color='#8C5511')
+    axes[1, 2].set_xlabel('Time (days)')
+    axes[1, 2].set_ylabel('Cases (fraction of the population)')
+    axes[1, 2].set_title('Sensitivity w. r. t. $\epsilon(t)$: Critical')
+    axes[1, 2].set_xlim(0, long)
+    axes[1, 2].set_ylim(0, 1e-1)
+    axes[1, 2].text(-0.1, 1.15, 'f', transform=axes[1, 2].transAxes, size=16, weight='bold')
+
+    fig.tight_layout()
+    plt.show()
+
+    #plt.savefig(f'../doc/Spain_sensitivity_epsilon.pdf', dpi=600)
+    #plt.clf()
+
+def plot_sensitivity_beta_india(t,
+                            TI1, DR1, R1, D1, CI1, CR1,
+                            TI2, DR2, R2, D2, CI2, CR2,
+                            TI3, DR3, R3, D3, CI3, CR3,
+                            TI4, DR4, R4, D4, CI4, CR4,
+                            TI5, DR5, R5, D5, CI5, CR5,
+                            currently_infected):
+    long = 700
+    fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+    fig.subplots_adjust(hspace=0.4, wspace=0.4)
+
+    axes[0, 0].plot(t, TI1, label='Current total infected', color='#D0E9F2')
+    axes[0, 0].plot(t, TI2, label='Current total infected', color='#829FD9')
+    axes[0, 0].plot(t, TI3, label='Current total infected', color='#F2A516')
+    axes[0, 0].plot(t, TI4, label='Current total infected', color='#D98218')
+    axes[0, 0].plot(t, TI5, label='Current total infected', color='#8C5511')
+    axes[0, 0].plot(t[:160], currently_infected[45:208-3], label='Current total infected: Data', color='#000000')
+    axes[0, 0].set_xlabel('Time (days)')
+    axes[0, 0].set_ylabel('Cases (fraction of the population)')
+    axes[0, 0].set_title('Sensitivity w. r. t. $\\beta(t)$: Currently infected')
+    axes[0, 0].set_xlim(0, long)
+    axes[0, 0].set_ylim(0, 1e-3)
+    axes[0, 0].text(-0.1, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
+
+    axes[0, 1].plot(t, DR1, label='Current total infected', color='#D0E9F2')
+    axes[0, 1].plot(t, DR2, label='Current total infected', color='#829FD9')
+    axes[0, 1].plot(t, DR3, label='Current total infected', color='#F2A516')
+    axes[0, 1].plot(t, DR4, label='Current total infected', color='#D98218')
+    axes[0, 1].plot(t, DR5, label='Current total infected', color='#8C5511')
+    axes[0, 1].set_xlabel('Time (days)')
+    axes[0, 1].set_ylabel('Cases (fraction of the population)')
+    axes[0, 1].set_title('Sensitivity w. r. t. $\\beta(t)$: Detected and Recovered')
+    axes[0, 1].set_xlim(0, long)
+    axes[0, 1].set_ylim(0, 1e-2)
+    axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
+
+    axes[0, 2].plot(t, R1, label='Current total infected', color='#D0E9F2')
+    axes[0, 2].plot(t, R2, label='Current total infected', color='#829FD9')
+    axes[0, 2].plot(t, R3, label='Current total infected', color='#F2A516')
+    axes[0, 2].plot(t, R4, label='Current total infected', color='#D98218')
+    axes[0, 2].plot(t, R5, label='Current total infected', color='#8C5511')
+    axes[0, 2].set_xlabel('Time (days)')
+    axes[0, 2].set_ylabel('Cases (fraction of the population)')
+    axes[0, 2].set_title('Sensitivity w. r. t. $\\beta(t)$: Cumulative Recovered')
+    axes[0, 2].set_xlim(0, long)
+    axes[0, 2].set_ylim(0, 1e-2)
+    axes[0, 2].text(-0.1, 1.15, 'c', transform=axes[0, 2].transAxes, size=16, weight='bold')
+
+    axes[1, 0].plot(t, D1, label='Current total infected', color='#D0E9F2')
+    axes[1, 0].plot(t, D2, label='Current total infected', color='#829FD9')
+    axes[1, 0].plot(t, D3, label='Current total infected', color='#F2A516')
+    axes[1, 0].plot(t, D4, label='Current total infected', color='#D98218')
+    axes[1, 0].plot(t, D5, label='Current total infected', color='#8C5511')
+    axes[1, 0].set_xlabel('Time (days)')
+    axes[1, 0].set_ylabel('Cases (fraction of the population)')
+    axes[1, 0].set_title('Sensitivity w. r. t. $\\beta(t)$: Deaths')
+    axes[1, 0].set_xlim(0, long)
+    axes[1, 0].set_ylim(0, 1e-3)
+    axes[1, 0].text(-0.1, 1.15, 'd', transform=axes[1, 0].transAxes, size=16, weight='bold')
+
+    axes[1, 1].plot(t, CI1, label='Current total infected', color='#D0E9F2')
+    axes[1, 1].plot(t, CI2, label='Current total infected', color='#829FD9')
+    axes[1, 1].plot(t, CI3, label='Current total infected', color='#F2A516')
+    axes[1, 1].plot(t, CI4, label='Current total infected', color='#D98218')
+    axes[1, 1].plot(t, CI5, label='Current total infected', color='#8C5511')
+    axes[1, 1].set_xlabel('Time (days)')
+    axes[1, 1].set_ylabel('Cases (fraction of the population)')
+    axes[1, 1].set_title('Sensitivity w. r. t. $\\beta(t)$: Cumulative Infected')
+    axes[1, 1].set_xlim(0, long)
+    axes[1, 1].set_ylim(0, 1e-2)
+    axes[1, 1].text(-0.1, 1.15, 'e', transform=axes[1, 1].transAxes, size=16, weight='bold')
+
+    axes[1, 2].plot(t, CR1, label='Current total infected', color='#D0E9F2')
+    axes[1, 2].plot(t, CR2, label='Current total infected', color='#829FD9')
+    axes[1, 2].plot(t, CR3, label='Current total infected', color='#F2A516')
+    axes[1, 2].plot(t, CR4, label='Current total infected', color='#D98218')
+    axes[1, 2].plot(t, CR5, label='Current total infected', color='#8C5511')
+    axes[1, 2].set_xlabel('Time (days)')
+    axes[1, 2].set_ylabel('Cases (fraction of the population)')
+    axes[1, 2].set_title('Sensitivity w. r. t. $\\beta(t)$: Critical')
+    axes[1, 2].set_xlim(0, long)
+    axes[1, 2].set_ylim(0, 1e-3)
+    axes[1, 2].text(-0.1, 1.15, 'f', transform=axes[1, 2].transAxes, size=16, weight='bold')
+
+    fig.tight_layout()
+    plt.show()
+
+    #plt.savefig(f'../doc/India_sensitivity_beta.pdf', dpi=600)
+    #plt.clf()
+
+def plot_sensitivity_epsilon_india(t,
+                            TI1, DR1, R1, D1, CI1, CR1,
+                            TI2, DR2, R2, D2, CI2, CR2,
+                            TI3, DR3, R3, D3, CI3, CR3,
+                            TI4, DR4, R4, D4, CI4, CR4,
+                            TI5, DR5, R5, D5, CI5, CR5,
+                            currently_infected):
+    long = 800
+    fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+    fig.subplots_adjust(hspace=0.4, wspace=0.4)
+
+    axes[0, 0].plot(t, TI1, label='Current total infected', color='#D0E9F2')
+    axes[0, 0].plot(t, TI2, label='Current total infected', color='#829FD9')
+    axes[0, 0].plot(t, TI3, label='Current total infected', color='#F2A516')
+    axes[0, 0].plot(t, TI4, label='Current total infected', color='#D98218')
+    axes[0, 0].plot(t, TI5, label='Current total infected', color='#8C5511')
+    axes[0, 0].plot(t[:160], currently_infected[45:208-3], label='Current total infected: Data', color='#000000')
+    axes[0, 0].set_xlabel('Time (days)')
+    axes[0, 0].set_ylabel('Cases (fraction of the population)')
+    axes[0, 0].set_title('Sensitivity w. r. t. $\epsilon(t)$: Currently infected')
+    axes[0, 0].set_xlim(0, long)
+    axes[0, 0].set_ylim(0, 2.5e-2)
+    axes[0, 0].text(-0.1, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
+
+    axes[0, 1].plot(t, DR1, label='Current total infected', color='#D0E9F2')
+    axes[0, 1].plot(t, DR2, label='Current total infected', color='#829FD9')
+    axes[0, 1].plot(t, DR3, label='Current total infected', color='#F2A516')
+    axes[0, 1].plot(t, DR4, label='Current total infected', color='#D98218')
+    axes[0, 1].plot(t, DR5, label='Current total infected', color='#8C5511')
+    axes[0, 1].set_xlabel('Time (days)')
+    axes[0, 1].set_ylabel('Cases (fraction of the population)')
+    axes[0, 1].set_title('Sensitivity w. r. t. $\epsilon(t)$: Detected and Recovered')
+    axes[0, 1].set_xlim(0, long)
+    axes[0, 1].set_ylim(0, 5e-1)
+    axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
+
+    axes[0, 2].plot(t, R1, label='Current total infected', color='#D0E9F2')
+    axes[0, 2].plot(t, R2, label='Current total infected', color='#829FD9')
+    axes[0, 2].plot(t, R3, label='Current total infected', color='#F2A516')
+    axes[0, 2].plot(t, R4, label='Current total infected', color='#D98218')
+    axes[0, 2].plot(t, R5, label='Current total infected', color='#8C5511')
+    axes[0, 2].set_xlabel('Time (days)')
+    axes[0, 2].set_ylabel('Cases (fraction of the population)')
+    axes[0, 2].set_title('Sensitivity w. r. t. $\epsilon(t)$: Cumulative Recovered')
+    axes[0, 2].set_xlim(0, long)
+    axes[0, 2].set_ylim(0, 5e-1)
+    axes[0, 2].text(-0.1, 1.15, 'c', transform=axes[0, 2].transAxes, size=16, weight='bold')
+
+    axes[1, 0].plot(t, D1, label='Current total infected', color='#D0E9F2')
+    axes[1, 0].plot(t, D2, label='Current total infected', color='#829FD9')
+    axes[1, 0].plot(t, D3, label='Current total infected', color='#F2A516')
+    axes[1, 0].plot(t, D4, label='Current total infected', color='#D98218')
+    axes[1, 0].plot(t, D5, label='Current total infected', color='#8C5511')
+    axes[1, 0].set_xlabel('Time (days)')
+    axes[1, 0].set_ylabel('Cases (fraction of the population)')
+    axes[1, 0].set_title('Sensitivity w. r. t. $\epsilon(t)$: Deaths')
+    axes[1, 0].set_xlim(0, long)
+    axes[1, 0].set_ylim(0, 2.5e-2)
+    axes[1, 0].text(-0.1, 1.15, 'd', transform=axes[1, 0].transAxes, size=16, weight='bold')
+
+    axes[1, 1].plot(t, CI1, label='Current total infected', color='#D0E9F2')
+    axes[1, 1].plot(t, CI2, label='Current total infected', color='#829FD9')
+    axes[1, 1].plot(t, CI3, label='Current total infected', color='#F2A516')
+    axes[1, 1].plot(t, CI4, label='Current total infected', color='#D98218')
+    axes[1, 1].plot(t, CI5, label='Current total infected', color='#8C5511')
+    axes[1, 1].set_xlabel('Time (days)')
+    axes[1, 1].set_ylabel('Cases (fraction of the population)')
+    axes[1, 1].set_title('Sensitivity w. r. t. $\epsilon(t)$: Cumulative Infected')
+    axes[1, 1].set_xlim(0, long)
+    axes[1, 1].set_ylim(0, 5e-1)
+    axes[1, 1].text(-0.1, 1.15, 'e', transform=axes[1, 1].transAxes, size=16, weight='bold')
+
+    axes[1, 2].plot(t, CR1, label='Current total infected', color='#D0E9F2')
+    axes[1, 2].plot(t, CR2, label='Current total infected', color='#829FD9')
+    axes[1, 2].plot(t, CR3, label='Current total infected', color='#F2A516')
+    axes[1, 2].plot(t, CR4, label='Current total infected', color='#D98218')
+    axes[1, 2].plot(t, CR5, label='Current total infected', color='#8C5511')
+    axes[1, 2].set_xlabel('Time (days)')
+    axes[1, 2].set_ylabel('Cases (fraction of the population)')
+    axes[1, 2].set_title('Sensitivity w. r. t. $\epsilon(t)$: Critical')
+    axes[1, 2].set_xlim(0, long)
+    axes[1, 2].set_ylim(0, 2.5e-2)
+    axes[1, 2].text(-0.1, 1.15, 'f', transform=axes[1, 2].transAxes, size=16, weight='bold')
+
+    fig.tight_layout()
+    #plt.show()
+
+    plt.savefig(f'../doc/India_sensitivity_epsilon.pdf', dpi=600)
+    plt.clf()

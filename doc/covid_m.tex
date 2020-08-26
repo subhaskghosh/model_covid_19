@@ -572,7 +572,10 @@ Defining $\rho(A) = \max {\{ | \lambda_1 |, \ldots,  | \lambda_n |\} }$ as the s
 %
 %
 \subsection{Extending the baseline model}
-In this section we consider various extension of the model and parameters. First extension is to model confinement - where a large proportion of susceptible population is placed under restricted movement, and thereby reducing the probability of contact. Such restriction has been modeled by introducing another compartment $L$. Individuals from $S$ move to $L$ at rate $u(t)$. In many countries, confinement was spread over several weeks followed by a period of de-confinement. We model de-confinement by individuals moving from $L$ to $S$ at rate $p(t)$. In specific we modify equation (\ref{eqn:base-model-9}) as follows
+In this section we consider various extension of the model and parameters. 
+
+\subsubsection{Scenario: Confinement}
+First extension is to model confinement - where a large proportion of susceptible population is placed under restricted movement, and thereby reducing the probability of contact. Such restriction has been modeled by introducing another compartment $L$. Individuals from $S$ move to $L$ at rate $u(t)$. In many countries, confinement was spread over several weeks followed by a period of de-confinement. We model de-confinement by individuals moving from $L$ to $S$ at rate $p(t)$. In specific we modify equation (\ref{eqn:base-model-9}) as follows
 %%
 \begin{equation}
 \frac{dS}{dt} = p(t)L -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - u(t)S,
@@ -588,6 +591,12 @@ We also add following dynamics to the baseline model
 \end{equation}
 %%
 Thus, equations (\ref{eqn:base-model-1}-\ref{eqn:base-model-8}), equation (\ref{eqn:lockdown-model-1}), and (\ref{eqn:lockdown-model-2}) along with equation (\ref{eqn:base-model-10}), defines the confinement - de-confinement scenario. A few remarks are in place for the time dependent functions $u(t)$ and $p(t)$.
+
+\subsubsection{Scenario: Loss of immunity}
+
+\subsubsection{Scenario: Extensive testing}
+
+\subsubsection{Scenario: more contagious strain }
 
 \section*{Authors' contributions}
 \label{SEC5}

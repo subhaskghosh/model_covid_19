@@ -3,23 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d920f80c-231d-4c86-b5e3-e04e8410cc43" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Brazil.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Brazil.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/France.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/France.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/India.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/India.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Italy.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Spain.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Spain.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/dates.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/dates.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/time_series_covid19_confirmed_global.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/time_series_covid19_confirmed_global.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/time_series_covid19_deaths_global.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/time_series_covid19_deaths_global.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/time_series_covid19_recovered_global.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/time_series_covid19_recovered_global.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/India_evolution.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/India_evolution.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/India_plot_model_data.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/India_plot_model_data.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/covid_m.aux" beforeDir="false" afterPath="$PROJECT_DIR$/doc/covid_m.aux" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/covid_m.log" beforeDir="false" afterPath="$PROJECT_DIR$/doc/covid_m.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/covid_m.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/covid_m.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/covid_m.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/doc/covid_m.synctex.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/covid_m.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/covid_m.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base_model_simulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/base_model_simulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fetch_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fetch_data_jhu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parameter_estimation.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parameter_estimation_Italy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parameter_estimation_india.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parameter_estimation_india.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parameter_estimation_italy_resurgence.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/parameter_estimation_italy_resurgence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plots.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="559" column="30" selection-start-line="559" selection-start-column="30" selection-end-line="559" selection-end-column="30" />
+            <state relative-caret-position="468">
+              <caret line="920" column="4" selection-start-line="920" selection-start-column="4" selection-end-line="920" selection-end-column="4" />
               <folding>
                 <element signature="e#1#26#0" expanded="true" />
               </folding>
@@ -45,10 +38,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/parameter_estimation_spain_resurgence.py">
+        <entry file="file://$PROJECT_DIR$/src/sensitivity_analysis_india_epsilon.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="180" column="2" selection-start-line="180" selection-start-column="2" selection-end-line="180" selection-end-column="2" />
+            <state relative-caret-position="333">
+              <caret line="206" column="73" selection-start-line="206" selection-start-column="73" selection-end-line="206" selection-end-column="73" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -86,11 +79,15 @@
         <option value="$PROJECT_DIR$/src/fetch_data_jhu.py" />
         <option value="$PROJECT_DIR$/src/fetch_data_ITA.py" />
         <option value="$PROJECT_DIR$/src/parameter_estimation_Italy.py" />
-        <option value="$PROJECT_DIR$/src/parameter_estimation_india.py" />
         <option value="$PROJECT_DIR$/src/parameter_estimation_brazil.py" />
         <option value="$PROJECT_DIR$/src/parameter_estimation_spain.py" />
-        <option value="$PROJECT_DIR$/src/parameter_estimation_italy_resurgence.py" />
         <option value="$PROJECT_DIR$/src/parameter_estimation_spain_resurgence.py" />
+        <option value="$PROJECT_DIR$/src/parameter_estimation_italy_resurgence.py" />
+        <option value="$PROJECT_DIR$/src/sensitivity_analysis_spain.py" />
+        <option value="$PROJECT_DIR$/src/sensitivity_analysis_spain_epsilon.py" />
+        <option value="$PROJECT_DIR$/src/parameter_estimation_india.py" />
+        <option value="$PROJECT_DIR$/src/sensitivity_analysis_india_beta.py" />
+        <option value="$PROJECT_DIR$/src/sensitivity_analysis_india_epsilon.py" />
         <option value="$PROJECT_DIR$/src/plots.py" />
       </list>
     </option>
@@ -158,49 +155,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.parameter_estimation_spain_resurgence">
-    <configuration name="parameter_estimation" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="model_covid_19" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/parameter_estimation_Italy.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="parameter_estimation_brazil" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="model_covid_19" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/parameter_estimation_brazil.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.sensitivity_analysis_india_epsilon">
     <configuration name="parameter_estimation_india" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="model_covid_19" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -222,7 +177,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="parameter_estimation_spain" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="sensitivity_analysis_india_beta" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="model_covid_19" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -234,7 +189,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/parameter_estimation_spain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/sensitivity_analysis_india_beta.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -243,7 +198,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="parameter_estimation_spain_resurgence" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="sensitivity_analysis_india_epsilon" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="model_covid_19" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -255,7 +210,49 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/parameter_estimation_spain_resurgence.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/sensitivity_analysis_india_epsilon.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sensitivity_analysis_spain" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="model_covid_19" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/sensitivity_analysis_spain_beta.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sensitivity_analysis_spain_epsilon" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="model_covid_19" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/sensitivity_analysis_spain_epsilon.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -266,11 +263,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.parameter_estimation_spain_resurgence" />
-        <item itemvalue="Python.parameter_estimation_spain" />
-        <item itemvalue="Python.parameter_estimation_brazil" />
-        <item itemvalue="Python.parameter_estimation" />
+        <item itemvalue="Python.sensitivity_analysis_india_epsilon" />
+        <item itemvalue="Python.sensitivity_analysis_india_beta" />
         <item itemvalue="Python.parameter_estimation_india" />
+        <item itemvalue="Python.sensitivity_analysis_spain_epsilon" />
+        <item itemvalue="Python.sensitivity_analysis_spain" />
       </list>
     </recent_temporary>
   </component>
@@ -470,34 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/Italy.csv">
-      <provider editor-type-id="csv-text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="61" lean-forward="true" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-          <column index="16" width="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.conda/envs/t20/lib/python3.7/site-packages/matplotlib/artist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -532,16 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_india.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="185" column="38" lean-forward="true" selection-end-line="191" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/Brazil.csv">
       <provider editor-type-id="csv-text-editor" />
       <provider selected="true" editor-type-id="csv-table-editor">
@@ -568,42 +527,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_Italy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" selection-start-line="27" selection-end-line="32" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/base_model_simulation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="28" column="57" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="57" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_spain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="162" column="28" lean-forward="true" selection-start-line="162" selection-start-column="28" selection-end-line="162" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_italy_resurgence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="191" column="103" selection-start-line="189" selection-start-column="106" selection-end-line="191" selection-end-column="103" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -624,10 +553,118 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_Italy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Italy.csv">
+      <provider editor-type-id="csv-text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="61" lean-forward="true" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+          <column index="16" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_italy_resurgence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="153" column="33" selection-start-line="153" selection-start-column="31" selection-end-line="153" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/parameter_estimation_spain_resurgence.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="180" column="2" selection-start-line="180" selection-start-column="2" selection-end-line="180" selection-end-column="2" />
+        <state relative-caret-position="-2427">
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_spain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="162" column="28" lean-forward="true" selection-start-line="162" selection-start-column="28" selection-end-line="162" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sensitivity_analysis_spain_beta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="115" column="39" lean-forward="true" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sensitivity_analysis_spain_epsilon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="127" column="28" lean-forward="true" selection-start-line="117" selection-start-column="4" selection-end-line="127" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sensitivity_analysis_india_beta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="143" selection-start-line="143" selection-end-line="150" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/parameter_estimation_india.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="172" column="83" selection-start-line="172" selection-start-column="83" selection-end-line="172" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sensitivity_analysis_india_epsilon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="206" column="73" selection-start-line="206" selection-start-column="73" selection-end-line="206" selection-end-column="73" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -636,8 +673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="559" column="30" selection-start-line="559" selection-start-column="30" selection-end-line="559" selection-end-column="30" />
+        <state relative-caret-position="468">
+          <caret line="920" column="4" selection-start-line="920" selection-start-column="4" selection-end-line="920" selection-end-column="4" />
           <folding>
             <element signature="e#1#26#0" expanded="true" />
           </folding>

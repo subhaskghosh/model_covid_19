@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  26 AUG 2020 10:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  26 AUG 2020 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -540,7 +540,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.90 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.94 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -760,7 +760,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  15013 strings out of 480608
  289002 string characters out of 5903630
- 525201 words of memory out of 5000000
+ 525203 words of memory out of 5000000
  30646 multiletter control sequences out of 15000+600000
  539425 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -786,7 +786,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2020/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2020/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on covid_m.pdf (13 pages, 357173 bytes).
+Output written on covid_m.pdf (13 pages, 357791 bytes).
 PDF statistics:
  172 PDF objects out of 1000 (max. 8388607)
  125 compressed objects within 2 object streams
