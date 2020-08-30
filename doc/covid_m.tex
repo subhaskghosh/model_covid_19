@@ -100,17 +100,33 @@
 	
 \section{Results}
 \label{SEC2}
-\begin{figure*}
+\begin{figure*}[t!]
 	\centering
-	\includegraphics[width=\textwidth]{Italy_plot_model_data.pdf}
-	\caption{.} 
-	\label{fig1} 
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Italy_plot_model_data.pdf}
+	\end{subfigure}%
+	~ 
+	\begin{subfigure}[t]{0.5\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{India_plot_model_data.pdf}
+	\end{subfigure}
+	\caption{Caption place holder}
+		\label{fig1} 
 \end{figure*}
 
-\begin{figure*}
+\begin{figure*}[t!]
 	\centering
-	\includegraphics[width=\textwidth]{Italy_evolution.pdf}
-	\caption{.} 
+		\begin{subfigure}[b]{0.8\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_evolution.pdf}
+	\end{subfigure}
+\begin{subfigure}[b]{0.8\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{India_evolution.pdf}
+\end{subfigure}
+\caption{Caption place holder}
+
 	\label{fig2} 
 \end{figure*}
 \section{Discussion}
@@ -260,7 +276,7 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 \end{tikzpicture}
 
 \caption[Model]{The model consists of following bins: susceptible $S(t)$,, exposed $E(t)$, asymptomatic $A(t)$, symptomatic $I(t)$, quarantined $Q(t)$, isolated $H(t)$,  deceased ($D(t)$ and recovered $R(t)$ individuals in a population of $N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t)$ individuals.}
-\label{fig1} 
+\label{fig3} 
 \end{figure*}
 
 The transmission dynamics of COVID-19 in the basic model is given by the following deterministic system of nonlinear differential equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}):
@@ -566,11 +582,14 @@ Defining $\rho(A) = \max {\{ | \lambda_1 |, \ldots,  | \lambda_n |\} }$ as the s
 %
 %
 \begin{equation}
-\mathcal{R}_0 = 
+\mathcal{R}_0 = \rho \beta \left( \frac{\alpha \theta}{r_1 r_2} + \frac{\left( 1-\alpha\right) \epsilon \varphi}{r_2 r_3 r_4} + \frac{\left( 1-\alpha\right) \gamma \theta}{r_1 r_2 r_3}\right) + \kappa \beta \left( \frac{1-\alpha}{r_3} \right) - \beta \left( \frac{\alpha}{r_1} + \frac{\gamma \left(1-\alpha \right) }{r_1 r_3}\right)  - \omega \beta \left( \frac{\epsilon \left( 1-\alpha\right) }{r_3 r_4}\right) 
 \label{eqn:Rnot}
 \end{equation}
 %
 %
+\subsubsection{Fitting of the model for the COVID-19 outbreak: Italy and India}
+
+
 \subsection{Extending the baseline model}
 In this section we consider various extension of the model and parameters. 
 
@@ -596,7 +615,11 @@ Thus, equations (\ref{eqn:base-model-1}-\ref{eqn:base-model-8}), equation (\ref{
 
 \subsubsection{Scenario: Extensive testing}
 
-\subsubsection{Scenario: more contagious strain }
+\subsubsection{Scenario: Contagious strain }
+
+\subsubsection{Scenario: Reinfection and loss of Immunity }
+
+\subsubsection{Scenario: Mass Vaccination }
 
 \section*{Authors' contributions}
 \label{SEC5}

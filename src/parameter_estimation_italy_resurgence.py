@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 import lmfit
 import argparse
-from src.plots import plot_evolution
+from src.plots import plot_evolution, plot_compare
 
 parser = argparse.ArgumentParser(description='The Baseline Epidemic Model')
 
@@ -16,22 +16,22 @@ parser.add_argument('--step', type=float, default=0.01, help='Time-step - discre
 parser.add_argument('--country', type=str, default='Italy', help='Total population')
 
 ### Model parameters
-parser.add_argument('--kappa', type=float, default=0.45, help='infectiousness factor asymptomatic')
+parser.add_argument('--kappa', type=float, default=0.21, help='infectiousness factor asymptomatic')
 parser.add_argument('--omega', type=float, default=0.0114, help='infectiousness factor quarantined')
 parser.add_argument('--rho', type=float, default=0.0114, help='infectiousness factor isolated')
-parser.add_argument('--sigma', type=float, default=0.223, help='transition rate exposed to infectious')
-parser.add_argument('--alpha', type=float, default=0.50, help='fraction of infections that become symptomatic')
+parser.add_argument('--sigma', type=float, default=0.1923, help='transition rate exposed to infectious')
+parser.add_argument('--alpha', type=float, default=0.39, help='fraction of infections that become symptomatic')
 parser.add_argument('--nu', type=float, default=0.1254, help='transition rate  asymptomatic to symptomatic')
 parser.add_argument('--varphi', type=float, default=0.0527, help='rate of quarantined to isolation')
 parser.add_argument('--theta', type=float, default=0.171, help='rate of detection of symptomatic')
-parser.add_argument('--tau', type=float, default=0.008, help='rate of developing life-threatening symptoms in isolation')
-parser.add_argument('--lamda', type=float, default=0.007, help='rate of developing life-threatening symptoms for symptomatic')
-parser.add_argument('--gamma', type=float, default=0.0742, help='recovery rate of asymptomatic')
+parser.add_argument('--tau', type=float, default=0.0026, help='rate of developing life-threatening symptoms in isolation')
+parser.add_argument('--lamda', type=float, default=0.013, help='rate of developing life-threatening symptoms for symptomatic')
+parser.add_argument('--gamma', type=float, default=0.00177, help='recovery rate of asymptomatic')
 parser.add_argument('--eta', type=float, default=0.0171, help='recovery rate of symptomatic')
-parser.add_argument('--mu', type=float, default=0.0342, help='recovery rate of quarantined')
-parser.add_argument('--psi', type=float, default=0.0171, help='recovery rate of isolated')
-parser.add_argument('--zeta', type=float, default=0.0171, help='recovery rate of critical')
-parser.add_argument('--delta', type=float, default=0.094, help='mortality rate')
+parser.add_argument('--mu', type=float, default=0.0172, help='recovery rate of quarantined')
+parser.add_argument('--psi', type=float, default=0.033, help='recovery rate of isolated')
+parser.add_argument('--zeta', type=float, default=0.0179, help='recovery rate of critical')
+parser.add_argument('--delta', type=float, default=0.092, help='mortality rate')
 
 
 args = parser.parse_args()
@@ -100,6 +100,7 @@ def deriv(y, t, beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, thet
     return dEdt, dIdt, dAdt, dQdt, dHdt, dCdt, dDdt, dRdt, dSdt, dDRdt
 
 def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_new, u, t_1):
+
     # Contact
     def beta(t):
         if t < t_0:
@@ -148,16 +149,16 @@ y_data = y_data[outbreak_shift:]
 days = len(y_data)
 x_data = np.linspace(0, days - 1, days, dtype=int)
 
-params_init_min_max = {"beta_0": (1.14, 0.9, 1.5),
-                       "beta_min": (0.36, 0.03, 1.5),
-                       "t_0": (4, 2, 30),
-                       "t_1": (45, 30, 70),
-                       "et_0": (4, 2, 20),
-                       "r": (0.03, 0.001, 0.5),
-                       "epsilon_0": (0.6, 0.54, 0.8),
-                       "epsilon_max": (0.6,0.5,0.8),
-                       "s":(0.32, 0.3, 0.9),
-                       "beta_new": (0.07, 0.006, 0.39),
+params_init_min_max = {"beta_0": (1.14, 0.9, 1.8),
+                       "beta_min": (0.03, 0.03, 0.54),
+                       "t_0": (2, 2, 40),
+                       "t_1": (55, 45, 200),
+                       "et_0": (40, 2, 80),
+                       "r": (0.03, 0.001, 0.1),
+                       "epsilon_0": (0.171, 0.017, 0.3),
+                       "epsilon_max": (0.6,0.5,0.99),
+                       "s":(0.03, 0.001, 0.5),
+                       "beta_new": (0.74, 0.5, 1.5),
                        "u": (0.03, 0.001, 0.036)
                        } # {initial, min, max}
 
@@ -178,21 +179,30 @@ result = mod.fit(y_data, params, method="least_squares", x=x_data)
 print(result.best_values)
 print(result.fit_report())
 #print(result.ci_report())
-result.plot_fit(datafmt="-")
+#result.plot_fit(datafmt="-")
 #result.plot_residuals(datafmt="-")
-plt.show()
-# t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(350,
-#                                                                                 result.best_values['beta_0'],
-#                                                                                 result.best_values['t_0'],
-#                                                                                 result.best_values['beta_min'],
-#                                                                                 result.best_values['r'],
-#                                                                                 result.best_values['epsilon_0'],
-#                                                                                 result.best_values['s'],
-#                                                                                 result.best_values['epsilon_max'],
-#                                                                                 result.best_values['et_0'],
-#                                                                                 result.best_values['beta_new'],
-#                                                                                 result.best_values['u'])
-#
-#
-#
-# plot_evolution(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)
+#plt.show()
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(700,
+                                                                                result.best_values['beta_0'],
+                                                                                result.best_values['t_0'],
+                                                                                result.best_values['beta_min'],
+                                                                                result.best_values['r'],
+                                                                                result.best_values['epsilon_0'],
+                                                                                result.best_values['s'],
+                                                                                result.best_values['epsilon_max'],
+                                                                                result.best_values['et_0'],
+                                                                                result.best_values['beta_new'],
+                                                                                result.best_values['u'],
+                                                                                result.best_values['t_1'])
+
+
+# plot_compare(t,
+#              TI, currently_infected,
+#              DR, recovered,
+#              C, critical,
+#              D, deaths,
+#              Q+A, quarantined,
+#              H, isolated,
+#              0, days)
+
+plot_evolution(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)

@@ -170,7 +170,7 @@ print(result.fit_report())
 # result.plot_fit(datafmt="-")
 # result.plot_residuals(datafmt="-")
 # plt.show()
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(700,
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(days,
                                                                                 result.best_values['beta_0'],
                                                                                 result.best_values['t_0'],
                                                                                 result.best_values['beta_min'],
@@ -182,10 +182,10 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(
 
 
 
-# plot_compare_india(t,
-#              TI, currently_infected,
-#              R, recovered,
-#              D, deaths,
-#              outbreak_shift, till_day)
+plot_compare_india(t,
+             TI, currently_infected,
+             R, recovered,
+             D, deaths,
+             outbreak_shift, till_day)
 
-plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)
+#plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)

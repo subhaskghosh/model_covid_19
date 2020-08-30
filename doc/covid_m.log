@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  26 AUG 2020 15:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  29 AUG 2020 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,9 +528,6 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 )
 (./covid_m.aux
 
-LaTeX Warning: Label `fig1' multiply defined.
-
-
 ! Package natbib Error: Bibliography not compatible with author-year citations.
 
 (natbib)                Press <return> to continue in numerical citation style.
@@ -540,7 +537,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.94 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.97 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -602,15 +599,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Italy_plot_model_data.pdf, id=4, 867.24pt x 867.24pt>
 File: Italy_plot_model_data.pdf Graphic file (type pdf)
 <use Italy_plot_model_data.pdf>
-Package pdftex.def Info: Italy_plot_model_data.pdf  used on input line 105.
-(pdftex.def)             Requested size: 345.0pt x 344.99754pt.
-<Italy_evolution.pdf, id=5, 867.24pt x 722.7pt>
+Package pdftex.def Info: Italy_plot_model_data.pdf  used on input line 107.
+(pdftex.def)             Requested size: 172.5pt x 172.49216pt.
+<India_plot_model_data.pdf, id=5, 361.35pt x 867.24pt>
+File: India_plot_model_data.pdf Graphic file (type pdf)
+<use India_plot_model_data.pdf>
+Package pdftex.def Info: India_plot_model_data.pdf  used on input line 112.
+(pdftex.def)             Requested size: 172.5pt x 413.9944pt.
+
+Overfull \hbox (4.44443pt too wide) in paragraph at lines 105--114
+ [][]  [] 
+ []
+
+<Italy_evolution.pdf, id=6, 867.24pt x 722.7pt>
 File: Italy_evolution.pdf Graphic file (type pdf)
 <use Italy_evolution.pdf>
-Package pdftex.def Info: Italy_evolution.pdf  used on input line 112.
-(pdftex.def)             Requested size: 345.0pt x 287.49794pt.
+Package pdftex.def Info: Italy_evolution.pdf  used on input line 122.
+(pdftex.def)             Requested size: 276.00105pt x 230.00055pt.
+<India_evolution.pdf, id=7, 867.24pt x 722.7pt>
+File: India_evolution.pdf Graphic file (type pdf)
+<use India_evolution.pdf>
+Package pdftex.def Info: India_evolution.pdf  used on input line 126.
+(pdftex.def)             Requested size: 276.00105pt x 230.00055pt.
 
-Overfull \hbox (56.16556pt too wide) in paragraph at lines 260--261
+Overfull \hbox (56.16556pt too wide) in paragraph at lines 276--277
  [][] 
  []
 
@@ -623,63 +635,71 @@ Overfull \hbox (2.22221pt too wide) has occurred while \output is active
 
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2 <./Italy_plot_model_data.pdf>] [3 <./Italy_evolution.pdf>] [4] [5]
-Overfull \hbox (1.99272pt too wide) in paragraph at lines 395--395
+[2 <./Italy_plot_model_data.pdf> <./India_plot_model_data.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./India_plot_model_data.pdf)
+: PDF inclusion: multiple pdfs with page group included in a single page
+>] [3 <./Italy_evolution.pdf> <./India_evolution.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./India_evolution.pdf): PDF 
+inclusion: multiple pdfs with page group included in a single page
+>] [4] [5]
+Overfull \hbox (1.99272pt too wide) in paragraph at lines 411--411
 []|\OT1/cmr/bx/n/10 Param| 
  []
 
 
-Underfull \hbox (badness 8038) in paragraph at lines 395--395
+Underfull \hbox (badness 8038) in paragraph at lines 411--411
 []|\OT1/cmr/m/n/10 infectiousness fac-tor iso-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--395
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 []|\OT1/cmr/m/n/10 transition rate asymp-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--395
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 []|\OT1/cmr/m/n/10 detection rate asymp-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--395
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 []|\OT1/cmr/m/n/10 rate of de-vel-op-ing life-
  []
 
 
-Underfull \hbox (badness 4036) in paragraph at lines 395--395
+Underfull \hbox (badness 4036) in paragraph at lines 411--411
 \OT1/cmr/m/n/10 threatening symp-toms in
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--395
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 []|\OT1/cmr/m/n/10 rate of de-vel-op-ing life-
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 395--395
+Underfull \hbox (badness 1281) in paragraph at lines 411--411
 \OT1/cmr/m/n/10 threatening symp-toms for
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 395--395
+Underfull \hbox (badness 4531) in paragraph at lines 411--411
 []|\OT1/cmr/m/n/10 recovery rate of asymp-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--395
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
 []|\OT1/cmr/m/n/10 recovery rate of symp-
  []
 
 
-Overfull \hbox (10.04979pt too wide) in alignment at lines 395--395
+Overfull \hbox (10.04979pt too wide) in alignment at lines 411--411
 [][][][] 
  []
 
-[6] [7] [8]
-Overfull \hbox (8.31575pt too wide) in paragraph at lines 477--478
+[6] [7]
+Overfull \hbox (8.31575pt too wide) in paragraph at lines 493--494
 []\OT1/cmr/m/n/10 If $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 2 X[]$\OT1/cmr/m/n/10
  , then $\OMS/cmsy/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10
  ) = \OMS/cmsy/m/n/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = \
@@ -688,9 +708,16 @@ r $\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 f\OML/cmm/m/it/10 E; I; A; Q; H; C; D;
  R\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
  []
 
-[9]
-Overfull \hbox (11.4253pt too wide) detected at line 547
+[8]
+Overfull \hbox (11.4253pt too wide) detected at line 563
  $[][]$  
+ []
+
+[9]
+Overfull \hbox (80.05042pt too wide) detected at line 587
+ $\OMS/cmsy/m/n/10 R[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 ^^Z^^L [] \OT1/cmr/m/
+n/10 + \OML/cmm/m/it/10 ^^T^^L [] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^L [] 
+\OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 !^^L []$  
  []
 
 [10] (./covid_m.bbl
@@ -710,7 +737,7 @@ Underfull \hbox (badness 1448) in paragraph at lines 16--22
 rry,
  []
 
-[11]
+
 Underfull \hbox (badness 2573) in paragraph at lines 46--50
 []\OT1/cmr/m/n/10 M. Shen, Z. Peng, Y. Xiao, L. Zhang, Mod-elling the epi-demic
 
@@ -722,7 +749,7 @@ Underfull \hbox (badness 2717) in paragraph at lines 46--50
 -iv-
  []
 
-
+[11]
 Underfull \hbox (badness 2556) in paragraph at lines 52--62
 \OT1/cmr/m/n/10 Sub-stan-tial un-doc-u-mented in-fec-tion fa-cil-i-tates the ra
 pid dis-sem-i-na-
@@ -752,44 +779,40 @@ Overfull \hbox (45.38484pt too wide) in paragraph at lines 136--144
 le/pii/S0025556402001086 
  []
 
-) [13] (./covid_m.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+) [13] (./covid_m.aux) ) 
 Here is how much of TeX's memory you used:
- 15013 strings out of 480608
- 289002 string characters out of 5903630
- 525203 words of memory out of 5000000
- 30646 multiletter control sequences out of 15000+600000
+ 15031 strings out of 480608
+ 289465 string characters out of 5903630
+ 523170 words of memory out of 5000000
+ 30662 multiletter control sequences out of 15000+600000
  539425 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,15n,60p,1011b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/202
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2020/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on covid_m.pdf (13 pages, 357791 bytes).
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><
+/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
+local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
+ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/loc
+al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local
+/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
+texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on covid_m.pdf (13 pages, 389757 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
+ 202 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
