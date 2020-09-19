@@ -16,21 +16,21 @@ parser.add_argument('--step', type=float, default=0.01, help='Time-step - discre
 parser.add_argument('--country', type=str, default='India', help='Total population')
 
 ### Model parameters
-parser.add_argument('--kappa', type=float, default=0.5, help='infectiousness factor asymptomatic')
+parser.add_argument('--kappa', type=float, default=0.6, help='infectiousness factor asymptomatic')
 parser.add_argument('--omega', type=float, default=0.0114, help='infectiousness factor quarantined')
 parser.add_argument('--rho', type=float, default=0.0114, help='infectiousness factor isolated')
 parser.add_argument('--sigma', type=float, default=0.1923, help='transition rate exposed to infectious')
-parser.add_argument('--alpha', type=float, default=0.65, help='fraction of infections that become symptomatic')
+parser.add_argument('--alpha', type=float, default=0.3, help='fraction of infections that become symptomatic')
 parser.add_argument('--nu', type=float, default=0.1254, help='transition rate  asymptomatic to symptomatic')
 parser.add_argument('--varphi', type=float, default=0.1254, help='rate of quarantined to isolation')
 parser.add_argument('--theta', type=float, default=0.371, help='rate of detection of symptomatic')
 parser.add_argument('--tau', type=float, default=0.0274, help='rate of developing life-threatening symptoms in isolation')
 parser.add_argument('--lamda', type=float, default=0.0171, help='rate of developing life-threatening symptoms for symptomatic')
-parser.add_argument('--gamma', type=float, default=0.0642, help='recovery rate of asymptomatic')
-parser.add_argument('--eta', type=float, default=0.0271, help='recovery rate of symptomatic')
-parser.add_argument('--mu', type=float, default=0.0442, help='recovery rate of quarantined')
-parser.add_argument('--psi', type=float, default=0.0551, help='recovery rate of isolated')
-parser.add_argument('--zeta', type=float, default=0.0591, help='recovery rate of critical')
+parser.add_argument('--gamma', type=float, default=0.06, help='recovery rate of asymptomatic')
+parser.add_argument('--eta', type=float, default=0.14, help='recovery rate of symptomatic')
+parser.add_argument('--mu', type=float, default=0.0742, help='recovery rate of quarantined')
+parser.add_argument('--psi', type=float, default=0.073, help='recovery rate of isolated')
+parser.add_argument('--zeta', type=float, default=0.078, help='recovery rate of critical')
 parser.add_argument('--delta', type=float, default=0.01, help='mortality rate')
 
 
@@ -70,9 +70,9 @@ actuals_df = pd.read_csv(f'../data/{args.country}.csv', delimiter=',')
 
 ## Total Cases
 total_cases = actuals_df["Total Cases"].values.tolist()
-## Deaths : deceduti
+## Deaths
 deaths = actuals_df["Deaths"].values.tolist()
-## Recovered : dimessi_guariti
+## Recovered
 recovered = actuals_df["Recovered"].values.tolist()
 ## Currently Infected
 currently_infected = actuals_df["Currently Positive"].values.tolist()
@@ -112,6 +112,22 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
         else:
             return epsilon_max - (epsilon_max - epsilon_0) * np.exp(-s * (t - et_0))
 
+    def r_0(t):
+        r_1 = (eta + theta + lamda)
+        r_2 = (tau + psi)
+        r_3 = (epsilon(t) + nu + gamma)
+        r_4 = (varphi + mu)
+
+        p1 = beta(t) * (((alpha) / (r_1)) + ((nu * (1 - alpha)) / (r_1 * r_3)))
+        p2 = kappa * beta(t) * ((1 - alpha) / (r_3))
+        p3 = omega * beta(t) * ((epsilon(t) * (1 - alpha)) / (r_3 * r_4))
+        p4 = rho * beta(t) * (
+                    ((alpha * theta) / (r_1 * r_2)) + (((1 - alpha) * epsilon(t) * varphi) / (r_2 * r_3 * r_4)) + (
+                        ((1 - alpha) * nu * theta) / (r_1 * r_2 * r_3)))
+
+        res = p1 + p2 + p3 + p4
+        return res
+
     E_0 = 0.0
     I_0 = 1.0 / population
     A_0 = 200.0 / population
@@ -131,22 +147,23 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
 
     beta_over_time = [beta(i) for i in range(len(t))]
     epsilon_over_time = [epsilon(i) for i in range(len(t))]
+    r_not_over_time = [r_0(i) for i in range(len(t))]
 
-    return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time
+    return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time
 
-outbreak_shift = 45
-till_day = 208-60
+outbreak_shift = 41
+till_day = 239-41
 y_data = currently_infected
-y_data = y_data[outbreak_shift:outbreak_shift+till_day]
+y_data = y_data[outbreak_shift:]
 days = len(y_data)
 x_data = np.linspace(0, days - 1, days, dtype=int)
 
-params_init_min_max = {"beta_0": (1.14, 0.9, 1.5),
+params_init_min_max = {"beta_0": (1.14, 0.7, 1.5),
                        "beta_min": (0.03, 0.01, 0.54),
                        "t_0": (12, 8, 40),
                        "et_0": (40, 20, 80),
                        "r": (0.03, 0.001, 0.1),
-                       "epsilon_0": (0.171, 0.017, 0.3),
+                       "epsilon_0": (0.171, 0.017, 0.4),
                        "epsilon_max": (0.6,0.5,0.8),
                        "s":(0.03, 0.001, 0.1)} # {initial, min, max}
 
@@ -166,11 +183,21 @@ result = mod.fit(y_data, params, method="least_squares", x=x_data)
 
 print(result.best_values)
 print(result.fit_report())
-# print(result.ci_report())
+
+# dely = result.eval_uncertainty(params, sigma=2)
+# plt.figure(figsize=(6,8))
+# plt.fill_between(x_data, result.best_fit-dely, result.best_fit+dely, color="#E8E9EA",
+#                  label='2-$\sigma$ uncertainty band')
 # result.plot_fit(datafmt="-")
-# result.plot_residuals(datafmt="-")
+# plt.title("95\% confidence bands for the model (India)")
+# plt.xlabel('Time (days)')
+# plt.ylabel('Cases (fraction of the population)')
+# plt.ylim(-1.5e-3, 1.5e-3)
 # plt.show()
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(days,
+# plt.savefig(f'../doc/India_model_confidence.pdf', dpi=600)
+# plt.clf()
+
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time = Model(700, # change to 700 for plot_evolution_India, otherwise use days
                                                                                 result.best_values['beta_0'],
                                                                                 result.best_values['t_0'],
                                                                                 result.best_values['beta_min'],
@@ -179,13 +206,26 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(
                                                                                 result.best_values['s'],
                                                                                 result.best_values['epsilon_max'],
                                                                                 result.best_values['et_0'])
+# plt.figure(figsize=(6,8))
+# plt.plot(r_not_over_time)
+# plt.title("$R_0$ (India)")
+# plt.xlabel('Time (days)')
+# plt.ylabel('$R_0$')
+# plt.show()
+# plt.savefig(f'../doc/India_R_0.pdf', dpi=600)
+# plt.clf()
+# for r in r_not_over_time:
+#     print(r)
+# plt.plot(r_not_over_time)
+# plt.show()
+#
+#
+#
+# plot_compare_india(t,
+#              TI, currently_infected,
+#              DR, recovered,
+#              D, deaths,
+#              outbreak_shift, till_day)
 
+plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)
 
-
-plot_compare_india(t,
-             TI, currently_infected,
-             R, recovered,
-             D, deaths,
-             outbreak_shift, till_day)
-
-#plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)

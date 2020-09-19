@@ -3,46 +3,56 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: covid_m.aux
 The style file: elsarticle-num.bst
 Database file #1: covid_m.bib
+Repeated entry---line 410 of file covid_m.bib
+ : @article{Long2020
+ :                  ,
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "Saul A, Scott N, Crabb BS, Majumdar SS, Coghlan B, Hellard ME." for entry Saul2020
+while executing---line 1495 of file elsarticle-num.bst
+Too many commas in name 1 of "Saul A, Scott N, Crabb BS, Majumdar SS, Coghlan B, Hellard ME." for entry Saul2020
+while executing---line 1495 of file elsarticle-num.bst
+Too many commas in name 1 of "Saul A, Scott N, Crabb BS, Majumdar SS, Coghlan B, Hellard ME." for entry Saul2020
+while executing---line 1495 of file elsarticle-num.bst
 Warning--empty journal in Ferguson2020
-You've used 13 entries,
+You've used 27 entries,
             2937 wiz_defined-function locations,
-            787 strings with 12269 characters,
-and the built_in function-call counts, 6889 in all, are:
-= -- 443
-> -- 724
+            894 strings with 16545 characters,
+and the built_in function-call counts, 11218 in all, are:
+= -- 845
+> -- 933
 < -- 0
-+ -- 250
-- -- 237
-* -- 799
-:= -- 1208
-add.period$ -- 23
-call.type$ -- 13
-change.case$ -- 13
++ -- 329
+- -- 302
+* -- 1185
+:= -- 1834
+add.period$ -- 42
+call.type$ -- 27
+change.case$ -- 27
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 114
-empty$ -- 446
-format.name$ -- 250
-if$ -- 1481
+cite$ -- 28
+duplicate$ -- 229
+empty$ -- 884
+format.name$ -- 327
+if$ -- 2574
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 13
-newline$ -- 65
-num.names$ -- 13
-pop$ -- 66
+int.to.str$ -- 27
+missing$ -- 26
+newline$ -- 121
+num.names$ -- 27
+pop$ -- 154
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 230
+skip$ -- 482
 stack$ -- 0
-substring$ -- 246
-swap$ -- 46
+substring$ -- 376
+swap$ -- 88
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 26
-width$ -- 15
-write$ -- 139
-(There was 1 warning)
+while$ -- 47
+width$ -- 29
+write$ -- 273
+(There were 4 error messages)

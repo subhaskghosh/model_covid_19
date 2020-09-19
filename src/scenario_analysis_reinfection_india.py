@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 import lmfit
 import argparse
-from src.plots import plot_sensitivity_epsilon_india
+from src.plots import plot_scenario_reinfection_india
 
 parser = argparse.ArgumentParser(description='The Baseline Epidemic Model')
 
@@ -79,8 +79,8 @@ currently_infected = actuals_df["Currently Positive"].values.tolist()
 
 
 
-def deriv(y, t, beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, theta, tau, lamda, gamma, eta, mu, psi, zeta, delta):
-    E, I, A, Q, H, C, D, R, S, DR = y
+def deriv(y, t, beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, theta, tau, lamda, gamma, eta, mu, psi, zeta, delta, chi):
+    E, I, A, Q, H, C, D, R, S, DR, TR = y
 
     dEdt = beta(t) * (I + kappa * A + omega * Q + rho * H) * S - sigma * E
     dIdt = alpha * sigma * E + nu * A - ( eta + theta + lamda ) * I
@@ -89,13 +89,14 @@ def deriv(y, t, beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, thet
     dHdt = theta * I + varphi * Q - (tau + psi) * H
     dCdt = tau * H + lamda * I - (delta + zeta) * C
     dDdt = delta * C
-    dRdt = (eta * I + gamma * A + mu * Q + psi * H + zeta * C)
-    dSdt = -beta(t) * (I + kappa * A + omega * Q + rho * H) * S
+    dRdt = (eta * I + gamma * A + mu * Q + psi * H + zeta * C) - chi(t) * R
+    dSdt = -beta(t) * (I + kappa * A + omega * Q + rho * H) * S + chi(t) * R
     dDRdt = ( mu * Q + psi * H + zeta * C )
+    dTRdt = (eta * I + gamma * A + mu * Q + psi * H + zeta * C)
 
-    return dEdt, dIdt, dAdt, dQdt, dHdt, dCdt, dDdt, dRdt, dSdt, dDRdt
+    return dEdt, dIdt, dAdt, dQdt, dHdt, dCdt, dDdt, dRdt, dSdt, dDRdt, dTRdt
 
-def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, m):
+def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, chi_val):
     # Contact
     def beta(t):
         if t < t_0:
@@ -109,12 +110,13 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, m):
         if t < et_0:
             return epsilon_0
         else:
-            if t < 239 - 41:
-                return epsilon_max - (epsilon_max - epsilon_0) * np.exp(-s * (t - et_0))
-            else:
-                curr = epsilon_max - (epsilon_max - epsilon_0) * np.exp(-s * (t - et_0))
-                new = epsilon_max - (epsilon_max - curr) * np.exp(-s * (t - et_0))
-                return new * m
+            return epsilon_max - (epsilon_max - epsilon_0) * np.exp(-s * (t - et_0))
+
+    def chi(t):
+        if t < 239-41:
+            return chi_val
+        else:
+            return chi_val
 
     E_0 = 0.0
     I_0 = 1.0 / population
@@ -126,17 +128,18 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, m):
     R_0 = 0.0
     S_0 = 1.0 - (E_0 + I_0 + A_0 + Q_0 + H_0 + C_0 + D_0 + R_0)
     DR_0 = 0.0
-    y0 = E_0, I_0, A_0, Q_0, H_0, C_0, D_0, R_0, S_0, DR_0
+    TR_0 = 0.0
+    y0 = E_0, I_0, A_0, Q_0, H_0, C_0, D_0, R_0, S_0, DR_0, TR_0
 
     t = np.linspace(0, days - 1, days)
-    ret = odeint(deriv, y0, t, args=(beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, theta, tau, lamda, gamma, eta, mu, psi, zeta, delta))
-    E, I, A, Q, H, C, D, R, S, DR = ret.T
+    ret = odeint(deriv, y0, t, args=(beta, kappa, omega, rho, sigma, alpha, nu, epsilon, varphi, theta, tau, lamda, gamma, eta, mu, psi, zeta, delta, chi))
+    E, I, A, Q, H, C, D, R, S, DR, TR = ret.T
     TI = Q + H + C
 
     beta_over_time = [beta(i) for i in range(len(t))]
     epsilon_over_time = [epsilon(i) for i in range(len(t))]
 
-    return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time
+    return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, TR
 
 outbreak_shift = 41
 till_day = 239-41
@@ -150,7 +153,9 @@ best_values = {'beta_0': 0.8090335200647616,
                'epsilon_max': 0.5022871556667635,
                'et_0': 46.11587710399446}
 
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(400,
+
+
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, TR = Model(700,
                                                                                 best_values['beta_0'],
                                                                                 best_values['t_0'],
                                                                                 best_values['beta_min'],
@@ -158,10 +163,10 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(
                                                                                 best_values['epsilon_0'],
                                                                                 best_values['s'],
                                                                                 best_values['epsilon_max'],
-                                                                                best_values['et_0'],1.2)
-[TI1, DR1, R1, D1, CI1, CR1] = [TI, DR, R, D, (I + A + Q + H + C + R), C]
+                                                                                best_values['et_0'],1/250)
+[TI1, DR1, R1, D1, CI1, CR1] = [TI, DR, TR, D, (I + A + Q + H + C + TR), C]
 
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(400,
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, TR = Model(700,
                                                                                 best_values['beta_0'],
                                                                                 best_values['t_0'],
                                                                                 best_values['beta_min'],
@@ -169,10 +174,10 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(
                                                                                 best_values['epsilon_0'],
                                                                                 best_values['s'],
                                                                                 best_values['epsilon_max'],
-                                                                                best_values['et_0'],1.4)
-[TI2, DR2, R2, D2, CI2, CR2] = [TI, DR, R, D, (I + A + Q + H + C + R), C]
+                                                                                best_values['et_0'],1/200)
+[TI2, DR2, R2, D2, CI2, CR2] = [TI, DR, TR, D, (I + A + Q + H + C + TR), C]
 
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(400,
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, TR = Model(700,
                                                                                 best_values['beta_0'],
                                                                                 best_values['t_0'],
                                                                                 best_values['beta_min'],
@@ -180,10 +185,10 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(
                                                                                 best_values['epsilon_0'],
                                                                                 best_values['s'],
                                                                                 best_values['epsilon_max'],
-                                                                                best_values['et_0'],1.6)
-[TI3, DR3, R3, D3, CI3, CR3] = [TI, DR, R, D, (I + A + Q + H + C + R), C]
+                                                                                best_values['et_0'],1/150)
+[TI3, DR3, R3, D3, CI3, CR3] = [TI, DR, TR, D, (I + A + Q + H + C + TR), C]
 
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(400,
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, TR = Model(700,
                                                                                 best_values['beta_0'],
                                                                                 best_values['t_0'],
                                                                                 best_values['beta_min'],
@@ -191,10 +196,10 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(
                                                                                 best_values['epsilon_0'],
                                                                                 best_values['s'],
                                                                                 best_values['epsilon_max'],
-                                                                                best_values['et_0'],1.8)
-[TI4, DR4, R4, D4, CI4, CR4] = [TI, DR, R, D, (I + A + Q + H + C + R), C]
+                                                                                best_values['et_0'],1/100)
+[TI4, DR4, R4, D4, CI4, CR4] = [TI, DR, TR, D, (I + A + Q + H + C + TR), C]
 
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(400,
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, TR = Model(700,
                                                                                 best_values['beta_0'],
                                                                                 best_values['t_0'],
                                                                                 best_values['beta_min'],
@@ -202,10 +207,11 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(
                                                                                 best_values['epsilon_0'],
                                                                                 best_values['s'],
                                                                                 best_values['epsilon_max'],
-                                                                                best_values['et_0'],2)
-[TI5, DR5, R5, D5, CI5, CR5] = [TI, DR, R, D, (I + A + Q + H + C + R), C]
+                                                                                best_values['et_0'],1/50)
+[TI5, DR5, R5, D5, CI5, CR5] = [TI, DR, TR, D, (I + A + Q + H + C + TR), C]
 
-plot_sensitivity_epsilon_india(t,
+
+plot_scenario_reinfection_india(t,
                             TI1, DR1, R1, D1, CI1, CR1,
                             TI2, DR2, R2, D2, CI2, CR2,
                             TI3, DR3, R3, D3, CI3, CR3,

@@ -16,21 +16,21 @@ parser.add_argument('--step', type=float, default=0.01, help='Time-step - discre
 parser.add_argument('--country', type=str, default='India', help='Total population')
 
 ### Model parameters
-parser.add_argument('--kappa', type=float, default=0.5, help='infectiousness factor asymptomatic')
+parser.add_argument('--kappa', type=float, default=0.6, help='infectiousness factor asymptomatic')
 parser.add_argument('--omega', type=float, default=0.0114, help='infectiousness factor quarantined')
 parser.add_argument('--rho', type=float, default=0.0114, help='infectiousness factor isolated')
 parser.add_argument('--sigma', type=float, default=0.1923, help='transition rate exposed to infectious')
-parser.add_argument('--alpha', type=float, default=0.65, help='fraction of infections that become symptomatic')
+parser.add_argument('--alpha', type=float, default=0.3, help='fraction of infections that become symptomatic')
 parser.add_argument('--nu', type=float, default=0.1254, help='transition rate  asymptomatic to symptomatic')
 parser.add_argument('--varphi', type=float, default=0.1254, help='rate of quarantined to isolation')
 parser.add_argument('--theta', type=float, default=0.371, help='rate of detection of symptomatic')
 parser.add_argument('--tau', type=float, default=0.0274, help='rate of developing life-threatening symptoms in isolation')
 parser.add_argument('--lamda', type=float, default=0.0171, help='rate of developing life-threatening symptoms for symptomatic')
-parser.add_argument('--gamma', type=float, default=0.0642, help='recovery rate of asymptomatic')
-parser.add_argument('--eta', type=float, default=0.0271, help='recovery rate of symptomatic')
-parser.add_argument('--mu', type=float, default=0.0442, help='recovery rate of quarantined')
-parser.add_argument('--psi', type=float, default=0.0551, help='recovery rate of isolated')
-parser.add_argument('--zeta', type=float, default=0.0591, help='recovery rate of critical')
+parser.add_argument('--gamma', type=float, default=0.06, help='recovery rate of asymptomatic')
+parser.add_argument('--eta', type=float, default=0.14, help='recovery rate of symptomatic')
+parser.add_argument('--mu', type=float, default=0.0742, help='recovery rate of quarantined')
+parser.add_argument('--psi', type=float, default=0.073, help='recovery rate of isolated')
+parser.add_argument('--zeta', type=float, default=0.078, help='recovery rate of critical')
 parser.add_argument('--delta', type=float, default=0.01, help='mortality rate')
 
 
@@ -102,7 +102,7 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, m):
         if t < t_0:
             return beta_0
         else:
-            if t < 208 - 60:
+            if t < 239 - 41:
                 beta_0_now = beta_min + (beta_0 - beta_min) * np.exp(-r * (t - t_0))
                 return beta_0_now
             else:
@@ -138,17 +138,18 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, m):
 
     return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time
 
-outbreak_shift = 45
-till_day = 208-60
+outbreak_shift = 41
+till_day = 239-41
 
-best_values = {'beta_0': 1.0093420928352093,
-               't_0': 8.591632825550331,
-               'beta_min': 0.5216732833353994,
-               'r': 0.045120495147028164,
-               'epsilon_0': 0.2062230247800943,
-               's': 0.0010001187098723364,
-               'epsilon_max': 0.5000000000000001,
-               'et_0': 75.81650064436906}
+best_values = {'beta_0': 0.8090335200647616,
+               't_0': 8.08386394436345,
+               'beta_min': 0.43441975778861147,
+               'r': 0.023768650534936653,
+               'epsilon_0': 0.07734723080740596,
+               's': 0.0010758136180701358,
+               'epsilon_max': 0.5022871556667635,
+               'et_0': 46.11587710399446}
+
 
 
 

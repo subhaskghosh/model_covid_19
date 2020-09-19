@@ -65,7 +65,7 @@ def prepare():
     filename_deaths = '../data/time_series_covid19_deaths_global.csv'
     filename_recovered = '../data/time_series_covid19_recovered_global.csv'
 
-    countryList = [("India", None), ("Australia", "Victoria")]
+    countryList = [("India", None)]
 
     # Load population data from The World Bank Group
     # https://data.worldbank.org/indicator/SP.POP.TOTL?end=2019&start=1960&view=chart&year=2019

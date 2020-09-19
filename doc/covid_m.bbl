@@ -5,6 +5,91 @@
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
 
+\bibitem{taaa021}
+Y.~Liu, A.~A. Gayle, A.~Wilder-Smith, J.~Rocklöv,
+  \href{https://doi.org/10.1093/jtm/taaa021}{The reproductive number of
+  covid-19 is higher compared to sars coronavirus}, Journal of Travel Medicine
+  27~(2).
+\newblock \href {http://dx.doi.org/10.1093/jtm/taaa021}
+  {\path{doi:10.1093/jtm/taaa021}}.
+\newline\urlprefix\url{https://doi.org/10.1093/jtm/taaa021}
+
+\bibitem{pmid32146694}
+Z.~Hu, C.~Song, C.~Xu, G.~Jin, Y.~Chen, X.~Xu, H.~Ma, W.~Chen, Y.~Lin,
+  Y.~Zheng, J.~Wang, Z.~Hu, Y.~Yi, H.~Shen, {{C}linical characteristics of 24
+  asymptomatic infections with {C}{O}{V}{I}{D}-19 screened among close contacts
+  in {N}anjing, {C}hina}, Sci China Life Sci 63~(5) (2020) 706--711.
+
+\bibitem{pmid32179137}
+H.~Nishiura, T.~Kobayashi, T.~Miyama, A.~Suzuki, S.~M. Jung, K.~Hayashi,
+  R.~Kinoshita, Y.~Yang, B.~Yuan, A.~R. Akhmetzhanov, N.~M. Linton,
+  {{E}stimation of the asymptomatic ratio of novel coronavirus infections
+  ({C}{O}{V}{I}{D}-19)}, Int. J. Infect. Dis. 94 (2020) 154--155.
+
+\bibitem{pmid32083643}
+Y.~Bai, L.~Yao, T.~Wei, F.~Tian, D.~Y. Jin, L.~Chen, M.~Wang, {{P}resumed
+  {A}symptomatic {C}arrier {T}ransmission of {C}{O}{V}{I}{D}-19}, JAMA 323~(14)
+  (2020) 1406--1407.
+
+\bibitem{Kenji2020}
+K.~Mizumoto, K.~Kagaya, A.~Zarebski, G.~Chowell,
+  \href{https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.10.2000180}{Estimating
+  the asymptomatic proportion of coronavirus disease 2019 (covid-19) cases on
+  board the diamond princess cruise ship, yokohama, japan, 2020},
+  Eurosurveillance 25~(10).
+\newblock \href
+  {http://dx.doi.org/https://doi.org/10.2807/1560-7917.ES.2020.25.10.2000180}
+  {\path{doi:https://doi.org/10.2807/1560-7917.ES.2020.25.10.2000180}}.
+\newline\urlprefix\url{https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2020.25.10.2000180}
+
+\bibitem{Long2020}
+Q.-X. Long, X.-J. Tang, Q.-L. Shi, Q.~Li, H.-J. Deng, J.~Yuan, J.-L. Hu, W.~Xu,
+  Y.~Zhang, F.-J. Lv, K.~Su, F.~Zhang, J.~Gong, B.~Wu, X.-M. Liu, J.-J. Li,
+  J.-F. Qiu, J.~Chen, A.-L. Huang,
+  \href{https://doi.org/10.1038/s41591-020-0965-6}{Clinical and immunological
+  assessment of asymptomatic sars-cov-2 infections}, Nature Medicine 26~(8)
+  (2020) 1200--1204.
+\newblock \href {http://dx.doi.org/10.1038/s41591-020-0965-6}
+  {\path{doi:10.1038/s41591-020-0965-6}}.
+\newline\urlprefix\url{https://doi.org/10.1038/s41591-020-0965-6}
+
+\bibitem{539a5e40c4cf4e6a8dc8035b3930c45d}
+O.~Diekmann, J.~Heesterbeek, Mathematical epidemiology of infectious diseases:
+  model building, analysis and interpretation, Wiley series in mathematical and
+  computational biology, John Wiley and Sons, United States, 2000.
+
+\bibitem{doi:10.1098/rspb.2004.2800}
+A.~B. Gumel, S.~Ruan, T.~Day, J.~Watmough, F.~Brauer, P.~van~den Driessche,
+  D.~Gabrielson, C.~Bowman, M.~E. Alexander, S.~Ardal, J.~Wu, B.~M. Sahai,
+  \href{https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2004.2800}{Modelling
+  strategies for controlling sars outbreaks}, Proceedings of the Royal Society
+  of London. Series B: Biological Sciences 271~(1554) (2004) 2223--2232.
+\newblock \href
+  {http://arxiv.org/abs/https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2004.2800}
+  {\path{arXiv:https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2004.2800}},
+  \href {http://dx.doi.org/10.1098/rspb.2004.2800}
+  {\path{doi:10.1098/rspb.2004.2800}}.
+\newline\urlprefix\url{https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2004.2800}
+
+\bibitem{Giordano2020}
+G.~Giordano, F.~Blanchini, R.~Bruno, P.~Colaneri, A.~Di~Filippo, A.~Di~Matteo,
+  M.~Colaneri, \href{https://doi.org/10.1038/s41591-020-0883-7}{Modelling the
+  covid-19 epidemic and implementation of population-wide interventions in
+  italy}, Nature Medicine 26~(6) (2020) 855--860.
+\newblock \href {http://dx.doi.org/10.1038/s41591-020-0883-7}
+  {\path{doi:10.1038/s41591-020-0883-7}}.
+\newline\urlprefix\url{https://doi.org/10.1038/s41591-020-0883-7}
+
+\bibitem{Peng2020.02.16.20023465}
+L.~Peng, W.~Yang, D.~Zhang, C.~Zhuge, L.~Hong,
+  \href{https://www.medrxiv.org/content/early/2020/02/18/2020.02.16.20023465}{Epidemic
+  analysis of covid-19 in china by dynamical modeling}, medRxiv\href
+  {http://arxiv.org/abs/https://www.medrxiv.org/content/early/2020/02/18/2020.02.16.20023465.full.pdf}
+  {\path{arXiv:https://www.medrxiv.org/content/early/2020/02/18/2020.02.16.20023465.full.pdf}},
+  \href {http://dx.doi.org/10.1101/2020.02.16.20023465}
+  {\path{doi:10.1101/2020.02.16.20023465}}.
+\newline\urlprefix\url{https://www.medrxiv.org/content/early/2020/02/18/2020.02.16.20023465}
+
 \bibitem{TANG2020248}
 B.~Tang, N.~L. Bragazzi, Q.~Li, S.~Tang, Y.~Xiao, J.~Wu, An updated estimation
   of the risk of transmission of the novel coronavirus (2019-ncov), Infectious
@@ -20,16 +105,32 @@ S.~E. Eikenberry, M.~Mancuso, E.~Iboi, T.~Phan, K.~Eikenberry, Y.~Kuang,
 \newblock \href {http://dx.doi.org/https://doi.org/10.1016/j.idm.2020.04.001}
   {\path{doi:https://doi.org/10.1016/j.idm.2020.04.001}}.
 
-\bibitem{Long2020}
-Q.-X. Long, X.-J. Tang, Q.-L. Shi, Q.~Li, H.-J. Deng, J.~Yuan, J.-L. Hu, W.~Xu,
-  Y.~Zhang, F.-J. Lv, K.~Su, F.~Zhang, J.~Gong, B.~Wu, X.-M. Liu, J.-J. Li,
-  J.-F. Qiu, J.~Chen, A.-L. Huang,
-  \href{https://doi.org/10.1038/s41591-020-0965-6}{Clinical and immunological
-  assessment of asymptomatic sars-cov-2 infections}, Nature Medicine 26~(8)
-  (2020) 1200--1204.
-\newblock \href {http://dx.doi.org/10.1038/s41591-020-0965-6}
-  {\path{doi:10.1038/s41591-020-0965-6}}.
-\newline\urlprefix\url{https://doi.org/10.1038/s41591-020-0965-6}
+\bibitem{Chhabra2020.07.10.20150631}
+M.~Chhabra, T.~Agrawal,
+  \href{https://www.medrxiv.org/content/early/2020/07/11/2020.07.10.20150631}{A
+  comprehensive analysis of r0 with different lockdown phase during covid-19 in
+  india}, medRxiv\href
+  {http://arxiv.org/abs/https://www.medrxiv.org/content/early/2020/07/11/2020.07.10.20150631.full.pdf}
+  {\path{arXiv:https://www.medrxiv.org/content/early/2020/07/11/2020.07.10.20150631.full.pdf}},
+  \href {http://dx.doi.org/10.1101/2020.07.10.20150631}
+  {\path{doi:10.1101/2020.07.10.20150631}}.
+\newline\urlprefix\url{https://www.medrxiv.org/content/early/2020/07/11/2020.07.10.20150631}
+
+\bibitem{MARIMUTHU2020}
+S.~Marimuthu, M.~Joy, B.~Malavika, A.~Nadaraj, E.~S. Asirvatham, L.~Jeyaseelan,
+  \href{http://www.sciencedirect.com/science/article/pii/S221339842030169X}{Modelling
+  of reproduction number for covid-19 in india and high incidence states},
+  Clinical Epidemiology and Global Health\href
+  {http://dx.doi.org/https://doi.org/10.1016/j.cegh.2020.06.012}
+  {\path{doi:https://doi.org/10.1016/j.cegh.2020.06.012}}.
+\newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S221339842030169X}
+
+\bibitem{Saul2020}
+C.~B. M. S. C. B. H.~M. Saul~A, Scott~N,
+  \href{https://www.mja.com.au/journal/2020/victorias-response-resurgence-covid-19-has-averted-9000-37000-cases-july-2020}{Victoria’s
+  response to a resurgence of covid-19 has averted 9,000-37,000 cases in july
+  2020}, Med J Aust.
+\newline\urlprefix\url{https://www.mja.com.au/journal/2020/victorias-response-resurgence-covid-19-has-averted-9000-37000-cases-july-2020}
 
 \bibitem{Zhou2020}
 F.~Zhou, T.~Yu, R.~Du, G.~Fan, Y.~Liu, Z.~Liu, J.~Xiang, Y.~Wang, B.~Song,
@@ -68,15 +169,6 @@ N.~Ferguson, D.~Laydon, G.~Nedjati-Gilani, N.~Imai, K.~Ainslie, M.~Baguelin,
   interventions (npis) to reduce covid-19 mortality and healthcare demand\href
   {http://dx.doi.org/10.25561/77482} {\path{doi:10.25561/77482}}.
 
-\bibitem{Giordano2020}
-G.~Giordano, F.~Blanchini, R.~Bruno, P.~Colaneri, A.~Di~Filippo, A.~Di~Matteo,
-  M.~Colaneri, \href{https://doi.org/10.1038/s41591-020-0883-7}{Modelling the
-  covid-19 epidemic and implementation of population-wide interventions in
-  italy}, Nature Medicine 26~(6) (2020) 855--860.
-\newblock \href {http://dx.doi.org/10.1038/s41591-020-0883-7}
-  {\path{doi:10.1038/s41591-020-0883-7}}.
-\newline\urlprefix\url{https://doi.org/10.1038/s41591-020-0883-7}
-
 \bibitem{Lauer2020.02.02.20020016}
 S.~A. Lauer, K.~H. Grantz, Q.~Bi, F.~K. Jones, Q.~Zheng, H.~Meredith, A.~S.
   Azman, N.~G. Reich, J.~Lessler, The incubation period of 2019-ncov from
@@ -112,16 +204,6 @@ L.~F. Moriarty, M.~M. Plucinski, B.~J. Marston, E.~V. Kurbatova, B.~Knust,
   {\path{doi:10.15585/mmwr.mm6912e3}}.
 \newline\urlprefix\url{https://doi.org/10.15585/mmwr.mm6912e3}
 
-\bibitem{Hu2020}
-Z.~Hu, C.~Song, C.~Xu, G.~Jin, Y.~Chen, X.~Xu, H.~Ma, W.~Chen, Y.~Lin,
-  Y.~Zheng, J.~Wang, Z.~Hu, Y.~Yi, H.~Shen,
-  \href{https://doi.org/10.1007/s11427-020-1661-4}{Clinical characteristics of
-  24 asymptomatic infections with {COVID}-19 screened among close contacts in
-  nanjing, china}, Science China Life Sciences 63~(5) (2020) 706--711.
-\newblock \href {http://dx.doi.org/10.1007/s11427-020-1661-4}
-  {\path{doi:10.1007/s11427-020-1661-4}}.
-\newline\urlprefix\url{https://doi.org/10.1007/s11427-020-1661-4}
-
 \bibitem{Diekmann1990}
 O.~Diekmann, J.~A.~P. Heesterbeek, J.~A.~J. Metz,
   \href{https://doi.org/10.1007/BF00178324}{On the definition and the
@@ -141,5 +223,40 @@ P.~{van den Driessche}, J.~Watmough,
   {http://dx.doi.org/https://doi.org/10.1016/S0025-5564(02)00108-6}
   {\path{doi:https://doi.org/10.1016/S0025-5564(02)00108-6}}.
 \newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0025556402001086}
+
+\bibitem{doi:10.1098/rspb.2015.0347}
+A.~A. King, M.~Domenech~de Cellès, F.~M.~G. Magpantay, P.~Rohani,
+  \href{https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2015.0347}{Avoidable
+  errors in the modelling of outbreaks of emerging pathogens, with special
+  reference to ebola}, Proceedings of the Royal Society B: Biological Sciences
+  282~(1806) (2015) 20150347.
+\newblock \href
+  {http://arxiv.org/abs/https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2015.0347}
+  {\path{arXiv:https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2015.0347}},
+  \href {http://dx.doi.org/10.1098/rspb.2015.0347}
+  {\path{doi:10.1098/rspb.2015.0347}}.
+\newline\urlprefix\url{https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2015.0347}
+
+\bibitem{doi:10.1137/0904010}
+L.~Petzold, \href{https://doi.org/10.1137/0904010}{Automatic selection of
+  methods for solving stiff and nonstiff systems of ordinary differential
+  equations}, SIAM Journal on Scientific and Statistical Computing 4~(1) (1983)
+  136--148.
+\newblock \href {http://arxiv.org/abs/https://doi.org/10.1137/0904010}
+  {\path{arXiv:https://doi.org/10.1137/0904010}}, \href
+  {http://dx.doi.org/10.1137/0904010} {\path{doi:10.1137/0904010}}.
+\newline\urlprefix\url{https://doi.org/10.1137/0904010}
+
+\bibitem{HindmarshSep2005}
+A.~C. Hindmarsh, L.~R. Petzold, Lsoda, ordinary differential equation solver
+  for stiff or non-stiff system, mATHEMATICAL METHODS AND COMPUTING (Sep 2005).
+
+\bibitem{LMFIT}
+M.~Newville, T.~Stensitzki, D.~B. Allen, A.~Ingargiola,
+  \href{https://zenodo.org/record/11813}{Lmfit: Non-linear least-square
+  minimization and curve-fitting for python} (2014).
+\newblock \href {http://dx.doi.org/10.5281/ZENODO.11813}
+  {\path{doi:10.5281/ZENODO.11813}}.
+\newline\urlprefix\url{https://zenodo.org/record/11813}
 
 \end{thebibliography}
