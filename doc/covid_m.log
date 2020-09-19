@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  19 SEP 2020 20:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.31)  19 SEP 2020 20:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1239,10 +1239,10 @@ fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2020/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2020/texmf-dist/font
 s/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on covid_m.pdf (30 pages, 801721 bytes).
+Output written on covid_m.pdf (30 pages, 801825 bytes).
 PDF statistics:
- 1024 PDF objects out of 1200 (max. 8388607)
- 895 compressed objects within 9 object streams
+ 1026 PDF objects out of 1200 (max. 8388607)
+ 897 compressed objects within 9 object streams
  147 named destinations out of 1000 (max. 500000)
  271 words of extra memory for PDF output out of 10000 (max. 10000000)
 

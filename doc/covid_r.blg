@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: covid_r.aux
+The style file: naturemag-doi.bst
+Database file #1: covid_m.bib
+Repeated entry---line 410 of file covid_m.bib
+ : @article{Long2020
+ :                  ,
+I'm skipping whatever remains of this entry
+`journal' is a missing field, not a string, for entry Ferguson2020
+while executing---line 1558 of file naturemag-doi.bst
+You've used 27 entries,
+            2380 wiz_defined-function locations,
+            1215 strings with 20437 characters,
+and the built_in function-call counts, 9955 in all, are:
+= -- 686
+> -- 268
+< -- 0
++ -- 134
+- -- 67
+* -- 1277
+:= -- 1139
+add.period$ -- 86
+call.type$ -- 27
+change.case$ -- 27
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 890
+empty$ -- 906
+format.name$ -- 93
+if$ -- 1973
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 208
+newline$ -- 150
+num.names$ -- 27
+pop$ -- 156
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 151
+stack$ -- 0
+substring$ -- 376
+swap$ -- 856
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 47
+width$ -- 29
+write$ -- 327
+(There were 2 error messages)

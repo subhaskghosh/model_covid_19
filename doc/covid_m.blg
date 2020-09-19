@@ -7,39 +7,33 @@ Repeated entry---line 410 of file covid_m.bib
  : @article{Long2020
  :                  ,
 I'm skipping whatever remains of this entry
-Too many commas in name 1 of "Saul A, Scott N, Crabb BS, Majumdar SS, Coghlan B, Hellard ME." for entry Saul2020
-while executing---line 1495 of file elsarticle-num.bst
-Too many commas in name 1 of "Saul A, Scott N, Crabb BS, Majumdar SS, Coghlan B, Hellard ME." for entry Saul2020
-while executing---line 1495 of file elsarticle-num.bst
-Too many commas in name 1 of "Saul A, Scott N, Crabb BS, Majumdar SS, Coghlan B, Hellard ME." for entry Saul2020
-while executing---line 1495 of file elsarticle-num.bst
 Warning--empty journal in Ferguson2020
 You've used 27 entries,
             2937 wiz_defined-function locations,
-            894 strings with 16545 characters,
-and the built_in function-call counts, 11218 in all, are:
-= -- 845
-> -- 933
+            894 strings with 16593 characters,
+and the built_in function-call counts, 11291 in all, are:
+= -- 847
+> -- 948
 < -- 0
-+ -- 329
-- -- 302
-* -- 1185
-:= -- 1834
++ -- 334
+- -- 307
+* -- 1196
+:= -- 1849
 add.period$ -- 42
 call.type$ -- 27
 change.case$ -- 27
 chr.to.int$ -- 0
 cite$ -- 28
-duplicate$ -- 229
+duplicate$ -- 230
 empty$ -- 884
-format.name$ -- 327
-if$ -- 2574
+format.name$ -- 333
+if$ -- 2586
 int.to.chr$ -- 0
 int.to.str$ -- 27
 missing$ -- 26
 newline$ -- 121
 num.names$ -- 27
-pop$ -- 154
+pop$ -- 155
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -55,4 +49,4 @@ warning$ -- 1
 while$ -- 47
 width$ -- 29
 write$ -- 273
-(There were 4 error messages)
+(There was 1 error message)

@@ -1,0 +1,950 @@
+\documentclass[fleqn,10pt]{wlscirep}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{subcaption}
+%%\usepackage{amsmath}
+%%\usepackage{amssymb}
+\usepackage{amsthm}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%% \usepackage{lineno}
+%%\usepackage[table]{xcolor}
+\usepackage{tabularx}
+%%\usepackage{enumitem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}{Proposition}
+
+\usepackage{tikz}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt  
+
+\title{COVID-19: Risks of Re-emergence, Re-infection, and Control Measures -- A Long Term Modeling Study}
+
+\author[1,a]{Subhas Kumar Ghosh}
+\author[2]{Sachchit Ghosh}
+
+\affil[1]{Commonwealth Bank of Australia, Sydney, New South Wales, 2000, Australia}
+\affil[2]{The University of Sydney, Camperdown, NSW 2006, Australia}
+\affil[a]{subhas.ghosh@cba.com.au}
+
+\keywords{COVID-19, SARS-CoV-2, Mathematical modeling, Epidemic, Intervention, Vaccination}
+
+\begin{abstract}
+		In this work we define a modified SEIR model that accounts for the spread of infection during the latent period, infections from asymptomatic or pauci-symptomatic infected individuals, potential loss of acquired immunity, people’s increasing awareness of social distancing and the use of vaccination as well as non-pharmaceutical interventions like social confinement. We estimate model parameters in three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. Our result shows the benefit of long term confinement of 50\% or above population and extensive testing. With respect to loss of acquired immunity, our model suggests higher impact for Italy. We also show that a reasonably effective vaccine with mass vaccination program  can be successful in significantly controlling the size of infected population. We show that for India, a reduction in contact rate by 50\% compared to a reduction of 10\% in the current stage can reduce death from 0.0268\% to 0.0141\% of population. Similarly, for Italy we show that reducing contact rate by half can reduce a potential peak infection of 15\% population to less than 1.5\% of population, and potential deaths from 0.48\% to 0.04\%. With respect to vaccination, we show that even a 75\% efficient vaccine administered to 50\% population can reduce the peak number of infected population by nearly 50\% in Italy. Similarly, for India, a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
+\end{abstract}
+
+\begin{document}
+	\flushbottom
+	\maketitle
+	% * <john.hammersley@gmail.com> 2015-02-09T12:07:31.197Z:
+	%
+	%  Click the title above to edit the author information and abstract
+	%
+	\thispagestyle{empty}
+
+\section*{Introduction}
+\label{SEC1}
+In December 2019, an outbreak occurred in Wuhan, China involving a zoonotic coronavirus, similar to the SARS coronavirus and MERS coronavirus  \cite{taaa021}. Subsequently, the virus has been named Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2), and the disease caused by the virus has been named the coronavirus disease 2019 (COVID-19). Since then the ongoing pandemic has infected more than 30 million people and has caused more than 900 thousand deaths worldwide.
+
+Patients with SARS-CoV-2 infections have mild to severe respiratory illness with symptoms such as fever, cough and shortness of breath. For majority of the patients, these symptoms appear 2–14 days after exposure, and for majority the symptoms are not life threatening. However, it has been reported that there are patients who are diagnosed by a positive RT–PCR test but are either asymptomatic or minimally symptomatic \cite{pmid32146694,pmid32179137,pmid32083643,Kenji2020,Long2020}. There are reasonable evidence to consider that such asymptomatic or minimally symptomatic individuals have longer duration of viral shedding than the symptomatic individuals and can spread the virus to susceptible group\cite{Long2020}.  Hence, it is possible that the spread of SARS-CoV-2 is much higher and such undetermined transmission has been playing an important role in sustaining the community spread. 
+
+Mathematical Modeling plays an important role in understanding the trajectory of epidemic and design effective control measures under set of assumptions \cite{539a5e40c4cf4e6a8dc8035b3930c45d,doi:10.1098/rspb.2004.2800,Giordano2020}. Here, we propose a new deterministic compartmental model for the COVID-19 epidemic that extends the classical SEIR (susceptible, exposed, infectious, recovered) model. We define the model and its parameters to address three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. In our model we also consider long term scenarios including re-emergence, re-infection, and control measures like mass vaccination program. Other than simulating these scenarios, another important distinction of our model is that we use parametric functions for contact rate, testing and vaccination.
+
+We use a deterministic compartmental model that is an extension of the SEIR model \cite{Peng2020.02.16.20023465,doi:10.1098/rspb.2004.2800} in which we include current experience with SARS-CoV-2. We partition the total population into susceptible individuals ($S(t)$), exposed individuals ($E(t)$), Asymptomatic, undetected and infected individuals ($A(t)$), Symptomatic, undetected, and infected individuals ($I(t)$), Asymptomatic, diagnosed and infected individuals ($Q(t)$), Symptomatic, diagnosed, and infected individuals ($H(t)$), individuals with acute symptoms and in critical care ($C(t)$), and recovered ($R(t)$) and deceased ($D(t)$), see Figure \ref{fig1}.
+
+\begin{figure*}
+	\centering
+	
+	\begin{tikzpicture}[x=0.7pt,y=0.7pt,yscale=-0.7,xscale=0.7]
+	%Rounded Rect [id:dp09957357672412392] 
+	\draw  [fill={rgb, 255:red, 184; green, 233; blue, 134 }  ,fill opacity=1 ] (3,196) .. controls (3,191.58) and (6.58,188) .. (11,188) -- (65,188) .. controls (69.42,188) and (73,191.58) .. (73,196) -- (73,220) .. controls (73,224.42) and (69.42,228) .. (65,228) -- (11,228) .. controls (6.58,228) and (3,224.42) .. (3,220) -- cycle ;
+	%Rounded Rect [id:dp5050898332419083] 
+	\draw  [fill={rgb, 255:red, 251; green, 236; blue, 236 }  ,fill opacity=1 ] (154,196) .. controls (154,191.58) and (157.58,188) .. (162,188) -- (216,188) .. controls (220.42,188) and (224,191.58) .. (224,196) -- (224,220) .. controls (224,224.42) and (220.42,228) .. (216,228) -- (162,228) .. controls (157.58,228) and (154,224.42) .. (154,220) -- cycle ;
+	%Straight Lines [id:da4780903246666828] 
+	\draw    (73,208.5) -- (152,208.5) ;
+	\draw [shift={(154,208.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Rounded Rect [id:dp054279151026649375] 
+	\draw  [fill={rgb, 255:red, 246; green, 212; blue, 157 }  ,fill opacity=1 ] (280,100.2) .. controls (280,93.46) and (285.46,88) .. (292.2,88) -- (376.8,88) .. controls (383.54,88) and (389,93.46) .. (389,100.2) -- (389,136.8) .. controls (389,143.54) and (383.54,149) .. (376.8,149) -- (292.2,149) .. controls (285.46,149) and (280,143.54) .. (280,136.8) -- cycle ;
+	%Rounded Rect [id:dp37056908804655486] 
+	\draw  [fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (546,100.2) .. controls (546,93.46) and (551.46,88) .. (558.2,88) -- (636.8,88) .. controls (643.54,88) and (649,93.46) .. (649,100.2) -- (649,136.8) .. controls (649,143.54) and (643.54,149) .. (636.8,149) -- (558.2,149) .. controls (551.46,149) and (546,143.54) .. (546,136.8) -- cycle ;
+	%Curve Lines [id:da275515948455739] 
+	\draw    (224,196) .. controls (263.6,166.3) and (240.47,144.44) .. (278.82,114.9) ;
+	\draw [shift={(280,114)}, rotate = 503.13] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Rounded Rect [id:dp899914045285406] 
+	\draw  [fill={rgb, 255:red, 249; green, 195; blue, 195 }  ,fill opacity=1 ] (284,255.2) .. controls (284,248.46) and (289.46,243) .. (296.2,243) -- (380.8,243) .. controls (387.54,243) and (393,248.46) .. (393,255.2) -- (393,291.8) .. controls (393,298.54) and (387.54,304) .. (380.8,304) -- (296.2,304) .. controls (289.46,304) and (284,298.54) .. (284,291.8) -- cycle ;
+	%Curve Lines [id:da4853002885061428] 
+	\draw    (224,220) .. controls (259.64,223.96) and (234.51,273) .. (282.52,281.75) ;
+	\draw [shift={(284,282)}, rotate = 189.09] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Straight Lines [id:da550796713766323] 
+	\draw    (336,149) -- (336.2,240) ;
+	\draw [shift={(336.2,242)}, rotate = 269.88] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Straight Lines [id:da12362578932888679] 
+	\draw    (388,120.5) -- (545,118.53) ;
+	\draw [shift={(547,118.5)}, rotate = 539.28] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Rounded Rect [id:dp06713306289293852] 
+	\draw  [fill={rgb, 255:red, 239; green, 148; blue, 148 }  ,fill opacity=1 ] (547,256.2) .. controls (547,249.46) and (552.46,244) .. (559.2,244) -- (641.8,244) .. controls (648.54,244) and (654,249.46) .. (654,256.2) -- (654,292.8) .. controls (654,299.54) and (648.54,305) .. (641.8,305) -- (559.2,305) .. controls (552.46,305) and (547,299.54) .. (547,292.8) -- cycle ;
+	%Straight Lines [id:da1253450039391395] 
+	\draw    (394,276.5) -- (547,275.51) ;
+	\draw [shift={(549,275.5)}, rotate = 539.63] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Straight Lines [id:da6862249627192569] 
+	\draw    (598,149) -- (598.2,240) ;
+	\draw [shift={(598.2,242)}, rotate = 269.88] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Rounded Rect [id:dp1447067410775078] 
+	\draw  [fill={rgb, 255:red, 244; green, 113; blue, 129 }  ,fill opacity=1 ] (547,412.2) .. controls (547,405.46) and (552.46,400) .. (559.2,400) -- (639.8,400) .. controls (646.54,400) and (652,405.46) .. (652,412.2) -- (652,448.8) .. controls (652,455.54) and (646.54,461) .. (639.8,461) -- (559.2,461) .. controls (552.46,461) and (547,455.54) .. (547,448.8) -- cycle ;
+	%Straight Lines [id:da28419373453425867] 
+	\draw    (598,305) -- (598.2,396) ;
+	\draw [shift={(598.2,398)}, rotate = 269.88] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Curve Lines [id:da3849374732000981] 
+	\draw    (375,303.5) .. controls (378.98,333.35) and (468.1,435.47) .. (545.83,428.61) ;
+	\draw [shift={(547,428.5)}, rotate = 534.14] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Rounded Rect [id:dp8810237408095514] 
+	\draw   (570,523.5) .. controls (570,519.36) and (573.36,516) .. (577.5,516) -- (627.5,516) .. controls (631.64,516) and (635,519.36) .. (635,523.5) -- (635,546) .. controls (635,550.14) and (631.64,553.5) .. (627.5,553.5) -- (577.5,553.5) .. controls (573.36,553.5) and (570,550.14) .. (570,546) -- cycle ;
+	%Straight Lines [id:da7788924470393608] 
+	\draw    (600,462) -- (600.96,511.5) ;
+	\draw [shift={(601,513.5)}, rotate = 268.89] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Rounded Rect [id:dp9291512820572525] 
+	\draw   (218,418.5) .. controls (218,414.36) and (221.36,411) .. (225.5,411) -- (275.5,411) .. controls (279.64,411) and (283,414.36) .. (283,418.5) -- (283,441) .. controls (283,445.14) and (279.64,448.5) .. (275.5,448.5) -- (225.5,448.5) .. controls (221.36,448.5) and (218,445.14) .. (218,441) -- cycle ;
+	%Curve Lines [id:da7389727414268923] 
+	\draw    (321,149.5) .. controls (310.11,185.14) and (212.97,357.99) .. (225.1,409.48) ;
+	\draw [shift={(225.5,411)}, rotate = 253.67000000000002] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Curve Lines [id:da3764144481947651] 
+	\draw    (296.2,304) .. controls (272.44,338.65) and (249.46,354.19) .. (244.16,407.86) ;
+	\draw [shift={(244,409.5)}, rotate = 275.19] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Curve Lines [id:da8506962083711958] 
+	\draw    (549,143.5) .. controls (511.19,198.23) and (343.69,377.69) .. (282.91,411.01) ;
+	\draw [shift={(282,411.5)}, rotate = 331.93] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Straight Lines [id:da04908465476788049] 
+	\draw    (547,439.5) -- (285,440.99) ;
+	\draw [shift={(283,441)}, rotate = 359.66999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	%Curve Lines [id:da10892599229549393] 
+	\draw    (552,302.5) .. controls (488.32,351.26) and (362.27,401.99) .. (286.14,427.12) ;
+	\draw [shift={(285,427.5)}, rotate = 341.78999999999996] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+	
+	% Text Node
+	\draw (23,199.4) node [anchor=north west][inner sep=0.75pt]    {$S( t)$};
+	% Text Node
+	\draw (175,199.4) node [anchor=north west][inner sep=0.75pt]    {$E( t)$};
+	% Text Node
+	\draw (316,108.4) node [anchor=north west][inner sep=0.75pt]    {$A( t)$};
+	% Text Node
+	\draw (580,107.4) node [anchor=north west][inner sep=0.75pt]    {$Q( t)$};
+	% Text Node
+	\draw (323,264.4) node [anchor=north west][inner sep=0.75pt]    {$I( t)$};
+	% Text Node
+	\draw (180,145.4) node [anchor=north west][inner sep=0.75pt]    {$( 1-\alpha ) \sigma $};
+	% Text Node
+	\draw (209,242.4) node [anchor=north west][inner sep=0.75pt]    {$\alpha \sigma $};
+	% Text Node
+	\draw (341,171) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ] [align=left] {symptom};
+	% Text Node
+	\draw (99,184.4) node [anchor=north west][inner sep=0.75pt]    {$\beta ( t)$};
+	% Text Node
+	\draw (444,126) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 65; green, 117; blue, 5 }  ,opacity=1 ] [align=left] {detection};
+	% Text Node
+	\draw (583,263.4) node [anchor=north west][inner sep=0.75pt]    {$H( t)$};
+	% Text Node
+	\draw (447,283) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 65; green, 117; blue, 5 }  ,opacity=1 ] [align=left] {detection};
+	% Text Node
+	\draw (603,188) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ] [align=left] {symptom};
+	% Text Node
+	\draw (586,420.4) node [anchor=north west][inner sep=0.75pt]    {$C( t)$};
+	% Text Node
+	\draw (602,345) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ] [align=left] {acute symptom};
+	% Text Node
+	\draw (451,379) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ] [align=left] {acute symptom};
+	% Text Node
+	\draw (233,200.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 245; green, 166; blue, 35 }  ,opacity=1 ] [align=left] {onset};
+	% Text Node
+	\draw (320,174) node [anchor=north west][inner sep=0.75pt]    {$\nu $};
+	% Text Node
+	\draw (470,254.9) node [anchor=north west][inner sep=0.75pt]    {$\theta $};
+	% Text Node
+	\draw (459,94.9) node [anchor=north west][inner sep=0.75pt]    {$\epsilon ( t)$};
+	% Text Node
+	\draw (579,185.9) node [anchor=north west][inner sep=0.75pt]    {$\varphi $};
+	% Text Node
+	\draw (429,387.9) node [anchor=north west][inner sep=0.75pt]    {$\lambda $};
+	% Text Node
+	\draw (579,342.9) node [anchor=north west][inner sep=0.75pt]    {$\tau $};
+	% Text Node
+	\draw (588,526.4) node [anchor=north west][inner sep=0.75pt]    {$D( t)$};
+	% Text Node
+	\draw (613,481.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {death};
+	% Text Node
+	\draw (581,479.9) node [anchor=north west][inner sep=0.75pt]    {$\delta $};
+	% Text Node
+	\draw (235,420.4) node [anchor=north west][inner sep=0.75pt]    {$R( t)$};
+	% Text Node
+	\draw (258,368.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 126; green, 211; blue, 33 }  ,opacity=1 ] [align=left] {recovery};
+	% Text Node
+	\draw (78,227) node [anchor=north west][inner sep=0.75pt]  [font=\small,color={rgb, 255:red, 144; green, 19; blue, 254 }  ,opacity=1 ] [align=left] {contagion};
+	% Text Node
+	\draw (212,355.9) node [anchor=north west][inner sep=0.75pt]    {$\gamma $};
+	% Text Node
+	\draw (262,311.9) node [anchor=north west][inner sep=0.75pt]    {$\eta $};
+	% Text Node
+	\draw (337,339.9) node [anchor=north west][inner sep=0.75pt]    {$\mu $};
+	% Text Node
+	\draw (339,381.9) node [anchor=north west][inner sep=0.75pt]    {$\psi $};
+	% Text Node
+	\draw (337,418.9) node [anchor=north west][inner sep=0.75pt]    {$\zeta $};
+	\end{tikzpicture}
+	
+	\caption[Model]{The model consists of following bins: susceptible $S(t)$,, exposed $E(t)$, asymptomatic $A(t)$, symptomatic $I(t)$, quarantined $Q(t)$, isolated $H(t)$,  deceased ($D(t)$ and recovered $R(t)$ individuals in a population of $N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t)$ individuals.}
+	\label{fig1} 
+\end{figure*}
+
+The transmission dynamics of COVID-19 in the basic model is given by the following deterministic system of nonlinear differential equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}):
+%%
+\begin{equation}
+\frac{dE}{dt} = \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - \sigma E, 
+\label{eqn:base-model-1}
+\end{equation}
+%%
+\begin{equation}
+\frac{dI}{dt} = \alpha \sigma E + \nu A - \left( \eta + \theta + \lambda \right) I,
+\label{eqn:base-model-2}
+\end{equation}
+%%
+\begin{equation}
+\frac{dA}{dt} =  \left( 1-\alpha \right) \sigma E - \left( \epsilon(t) + \nu + \gamma \right) A,
+\label{eqn:base-model-3}
+\end{equation}
+%%
+\begin{equation}
+\frac{dQ}{dt} = \epsilon(t) A - \left( \varphi + \mu \right) Q,
+\label{eqn:base-model-4}
+\end{equation}
+%%
+\begin{equation}
+\frac{dH}{dt} = \theta I + \varphi Q - \left( \tau + \psi \right) H ,
+\label{eqn:base-model-5}
+\end{equation}
+%%
+\begin{equation}
+\frac{dC}{dt} =  \tau H + \lambda I - \left( \delta + \zeta \right) C,
+\label{eqn:base-model-6}
+\end{equation}
+%%
+\begin{equation}
+\frac{dD}{dt} =  \delta C,
+\label{eqn:base-model-7}
+\end{equation}
+%%
+\begin{equation}
+\frac{dR}{dt} =  \left( \eta I +  \gamma A + \mu Q + \psi H + \zeta C \right),
+\label{eqn:base-model-8}
+\end{equation}
+%%
+\begin{equation}
+\frac{dS}{dt} = -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N},
+\label{eqn:base-model-9}
+\end{equation}
+%%
+where,
+\begin{equation}
+N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t),
+\label{eqn:base-model-10}
+\end{equation}
+is the total population. 
+\subsubsection*{Susceptible individuals: $S(t)$}
+In our model, the susceptible individuals gets exposed to infection, and move to exposed group $E(t)$, from coming in contact with an infected individual, who may be symptomatic, asymptomatic, quarantined, or isolated. $\beta(t)$ is the baseline infectious contact rate, which can vary with time or assumed constant for the analysis of our baseline model. We assume that a person who is infected with symptom, and is not isolated, has the basic transmission coefficient of $\beta(t)$, that is changing over time. Based on \cite{TANG2020248, EIKENBERRY2020293}, we define $\beta(t)$ to have a value $\beta_0$ till time $t_0$ and then as a decreasing function with respect to time $t$, to reaching $\beta_{\min}$. 
+\begin{equation}
+\beta(t) = 
+\begin{cases}
+\beta_0 & t < t_0 \\
+\beta_{\min} + \left( \beta_0 - \beta_{\min}\right) e^{-r\left( t - t_0\right) } & t \geq t_0
+\end{cases}
+\label{eqn:base-model-11}
+\end{equation}
+We would like to note that in certain countries, stringency measures were in place at an earlier stages of the epidemic and was relaxed over time leading to a higher contact rate. Under such scenario, we use an increasing function for $\beta(t)$ after an initial phase of reaching or nearing $\beta_{\min}$ as 
+%
+%
+\begin{equation}
+\beta(t) = 
+\begin{cases}
+\beta_0 & t < t_0 \\
+\beta_{\min} + \left( \beta_0 - \beta_{\min}\right) e^{-r\left( t - t_0\right) } & t_0 \leq t < t_1\\
+\beta_{new} - (\beta_{new} - \beta_{min}) e^{-u \left( t - t_1\right) } & t \geq t_1
+\end{cases}
+\label{eqn:base-model-12}
+\end{equation}
+%
+%
+We assume that the asymptomatic individuals infect with a lower contact rate ($\kappa < 1$) than the symptomatic individuals. Once someone symptomatic is diagnosed, they can only infect healthcare workers and this lower contact rate is captured by the parameter ($\rho < 1$). Similarly, quarantined individuals have much lower contact rate of ($\omega < 1$). Overall rate of change for the susceptible population is thus defined by equation (\ref{eqn:base-model-9}).
+
+\subsubsection*{Exposed individuals: $E(t)$}
+Individuals in compartment $E$, are exposed to the virus, and are not contagious during a period of latent time. An individual in $E$ becomes infectious, and moves to compartment $A$ as asymptomatic or to $I$ as symptomatic. We assume that $\sigma$ is the transition rate from exposed to infectious, and a fraction $\alpha$ of them show symptoms. Overall rate of change for the exposed population is thus defined by equation (\ref{eqn:base-model-1}).
+
+\subsubsection*{Symptomatic individuals: $I(t)$}
+Symptomatic individuals can get diagnosed ($\theta$) and be isolated, or show acute symptoms and be hospitalized ($\lambda$), or can recover at the rate $\eta$. It has been observed that $\eta \geq \gamma$, where symptomatic individuals recover at faster rate than asymptomatic individuals, and asymptomatic individuals have longer duration of viral shedding \cite{Long2020}. Overall rate of change is given by equation (\ref{eqn:base-model-2}).
+
+\subsubsection*{Asymptomatic individuals: $A(t)$}
+Asymptomatic individuals can eventually show symptoms and move to $I$ at rate $\nu$ or can have a positive diagnosis and move to quarantine. We model testing of asymptomatic population as a function of time as the community testing process ramps up. Testing rate has been captured as $\epsilon(t)$. Finally, they can recover at the rate $\gamma$. Overall rate of change is given by equation (\ref{eqn:base-model-3}). A note on testing rate is in order. We model it as following:
+%
+%
+\begin{equation}
+\epsilon(t) = 
+\begin{cases}
+\epsilon_0 & t < t_2 \\
+\epsilon_{\max} - (\epsilon_{\max} - \epsilon_0) e^{-s \left( t-t_2\right) } & t > t_2
+\end{cases}
+\label{eqn:base-model-13}
+\end{equation}
+%
+%
+Here, we set the testing rate as an increasing function of time, because of the increasing production of detection kits and the improvement of detection techniques. Where, $1/ \epsilon_0$ can be thought of waiting time for an individual to get tested in the start of an outbreak and $1/\epsilon_{\max}$ is the reduced waiting time at a later point during the epidemic. In other words, $\lim_{t \rightarrow \infty}  \epsilon(t) =  \epsilon_{\max} \geq \epsilon_0$.
+%
+%
+\subsubsection*{Quarantined individuals: $Q(t)$}
+Quarantined individuals are asymptomatic population after diagnosis and they have very low contact rate ($\omega < 1$). This is mostly by infecting the other family members or by breach of protocol. They however, may develop symptoms and move to $H$ or recover. Overall rate of change is given by equation (\ref{eqn:base-model-4}).
+
+\subsubsection*{Isolated individuals: $H(t)$}
+Isolated individuals are showing symptoms and has been either home isolated or has been hospitalized. They can pass the infection to a limited number of health care professional or caregiver ($\rho$). They can become critical and require treatments in intensive care ($\tau$), and a large number of them recover ($\psi$). Overall rate of change is given by equation (\ref{eqn:base-model-5}).
+
+\subsubsection*{Critical, Recovered and Deceased individuals: $C(t), R(t), D(t)$}
+These counters collect information on population that are critical, recovered or have deceased. Overall rate of change is given by equations (\ref{eqn:base-model-6}) -  (\ref{eqn:base-model-8}). We assume that in the base model, recovered individuals possess lasting immunity against SARS-CoV-2 over the period of simulation, however, we extend the model to consider the possibility of re-infection in later section of this paper.
+
+\section*{Results}
+\label{SEC2}
+\subsection*{Italy}
+For the COVID-19 epidemic in Italy, we estimate the model parameters based on data from 24th February 2020 (day 1) to 27th August 2020 (day 186) and show the effects of social confinement that is in effect since 9 March 2020, in controlling the spread of the epidemic, and subsequently easing the restriction from 4th May 2020 has again increased contact rate leading to re-emergence. We also model possible longer-term scenarios illustrating the effects of different countermeasures, including social distancing, population-wide testing, vaccination to contain SARS-CoV-2, as well as possible effects of re-infection and loss of immunity.
+%
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Italy_plot_model_data.pdf}
+	\end{subfigure}
+	\caption{Model simulation compared to real data (Italy) - Comparison between the official data (histogram) and the results with our model. Description of panels: \textbf{(a):} Number of currently active cases, $\left( Q(t) + H(t) + C(t)\right)$, \textbf{(b):} number of reported recovered individuals. $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$, \textbf{(c):} number of reported infected with life-threatening symptoms, admitted to ICU, $C(t)$, \textbf{(d):} Number of deceased individuals $D(t)$, \textbf{(e):} number of reported infected with no (or mild) symptoms, who are quarantined at home. $Q(t)$ , \textbf{(f):} number of reported infected with symptoms, who are hospitalized. $H(t)$}
+	\label{fig2A} 
+\end{figure*}
+%
+
+Model simulation compared to real data is shown in Figure \ref{fig2A}. We have estimated $R_0$ according to equation (\ref*{eqn:Rnot}). In our estimate $R_0 = 4.09$ in the beginning and then reduces to $0.779$ after 45 days, and to $0.18$ after 90 days. Subsequently, after 110 days it starts increasing and reaches a value $1.67$ on day 186.
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Italy_evolution.pdf}
+	\end{subfigure}
+	\caption{Model simulation compared to real data (Italy) - Epidemic evolution predicted by the model based on the available data. Description of panels: \textbf{(a, c):} The short-term epidemic evolution obtained by reproducing the data trend with the model, \textbf{(b, d):} Long term epidemic evolution over 700 days. Plots refers to all cases of infection, both diagnosed and non-diagnosed, predicted by the model, although non-diagnosed cases are of course not counted in the data. Note that not all panels are in the same scale.}
+	\label{fig2B} 
+\end{figure*}
+%
+
+In Figure \ref{fig2B}, we show both short term and long term evolution after fitting the model to data. Result shows that without any control measure in long term a significant portion of population getting infected. Hence, we consider the effect of continued social distancing, awareness and confinement measures by sensitivity analysis of contact rate parameter $\beta(t)$. We consider reducing $\beta(t)$ by $50\%, 40\%, 30\%, 20\%$ and $10\%$ from current contact rate. Figure \ref{fig3A}, indicates that reducing contact rate by half can reduce a potential peak infection of 15\% population to less than 1.5\% of population, and potential deaths from 0.48\% to 0.04\%. 
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_sensitivity_beta.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\beta(t)$ with $50\%, 40\%, 30\%, 20\%$ and $10\%$ reduction from current contact rate (Italy). Note that not all panels are in the same scale.}
+	\label{fig3A} 
+\end{figure*}
+%
+
+Subsequently, we also consider the effects of testing and rate of detection of latent cases $\epsilon(t)$. We consider changing the current testing rate by $2, 4, 6, 8$ and $10$ times the current rate. Figure \ref{fig3B}, the simulation of the model after fitting current data indicates that an increased testing rate by 10 times will reduce potential peak infection rate from 18\% of population to 14\%, deaths from 0.48\% to 0.42\%. Our model confirms that extensive testing campaigns can reduce the infection peak (as the diagnosed population enters quarantine and is therefore less likely to affect the susceptible population) and help end the epidemic more quickly. However, it can be observed that sensitivity of contact rate is much more significant than testing. This is also due to that fact that in our model we have considered $\epsilon$ as a parameter that impacts how asymptomatic cases are moved to quarantine, while infection from asymptomatic cases are lower compared to symptomatic cases. 
+
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_sensitivity_epsilon.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\epsilon(t)$ with changed rate of testing by $2, 4, 6, 8$ and $10$ times the current rate (Italy). Note that not all panels are in the same scale.}
+	\label{fig3B} 
+\end{figure*}
+%
+As described by extended model in equation - (\ref{eqn:loss_immunity-model-8}) and (\ref{eqn:loss_immunity-model-9}), we consider the possibility of losing acquired immunity over time and having a reinfection, we use parameter $\chi(t)$ to capture this. In our simulation we consider that $\chi$ varies from $1/250$ to $1/50$. This can be thought as number of days to lose immunity and hence corresponds to $250$ days to $50$ days. As expected, the simulation shows that if loss of immunity occurs within 3 months, there is a significant chance of subsequent waves of epidemic.  
+
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_scenario_reinfection.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $250, 200, 150, 100$ and $50$ days (Italy). Note that not all panels are in the same scale.}
+	\label{fig4} 
+\end{figure*}
+%
+
+Finally, we simulate mass vaccination scenarios (see Figure \ref{fig5A} and Figure \ref{fig5B}) according to equation (\ref{eqn:vaccination-model-1}), (\ref{eqn:vaccination-model-2}), (\ref{eqn:vaccination-model-3}), (\ref{eqn:vaccination-model-5}) and (\ref{eqn:vaccination-model-10}). We assume that vaccine is available after 90 days from 27th August 2020. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) and $\xi_{\max} = 0.5$ and $\xi_{\max} = 0.9$. It can be concluded that even a 75\% efficient vaccine can be significantly effective in reducing the impact.
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.5.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.5$, i.e. maximum of 50\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
+	\label{fig5A} 
+\end{figure*}
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.8.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.9$. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
+	\label{fig5B} 
+\end{figure*}
+%
+\subsection*{India}
+India had one of the most strict stay home order across the country in first phase of the lock-down between 25 March 2020 – 14 April 2020 (21 days), where an entire population of 1.3 billion people was put under restricted movement. Overall the lock-down had multiple phases, second phase was from 15th of April 2020 to 3rd of May 2020, and third phase was 4th of May to 17th of May, 2020.
+
+We use data from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). We use data from 2nd March 2020 (Day 1) to 16th September 2020 (Day 198). Figure \ref{fig6A} compares the fitted model with actual data. Based on our estimate, initial value of $R_0$ was $1.762$, which reduces to $1.68$ after a month when lockdown as in place. At the end of lockdown phases it is about $1.5$, and finally after 194 days it reaches $1.03$. These values are comparable with findings in \cite{Chhabra2020.07.10.20150631,MARIMUTHU2020}.
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_plot_model_data.pdf}
+	\end{subfigure}
+	\caption{Model simulation compared to real data (India) - Comparison between the official data (histogram) and the results with our model. Description of panels: \textbf{(a):} Number of currently active cases, $\left( Q(t) + H(t) + C(t)\right)$, \textbf{(b):} number of reported recovered individuals. $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$, \textbf{(c):} Number of deceased individuals $D(t)$}
+	\label{fig6A} 
+\end{figure*}
+
+We have simulated the long term evolution of the epidemic for India after estimating the parameters as shown in Figure \ref{fig6B}. Simulation suggests that peak in India will be reached around 275 days from 2nd March 2020 with about 2.6\% population getting infected. 
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_evolution.pdf}
+	\end{subfigure}
+	\caption{Model simulation compared to real data (India) - Epidemic evolution predicted by the model based on the available data. Description of panels: \textbf{(a, c):} The short-term epidemic evolution obtained by reproducing the data trend with the model for 90 days, \textbf{(b, d):} Long term epidemic evolution over 700 days. Plots refers to all cases of infection, both diagnosed and non-diagnosed, predicted by the model, although non-diagnosed cases are of course not counted in the data. Note that not all panels are in the same scale.}
+	\label{fig6B} 
+\end{figure*}
+
+Simulation studies on impact of reducing contact rate and testing is captured in Figure \ref{fig7A} and Figure \ref{fig7B} respectively. From the simulation we can observe that the sensitivity to contact rate is higher compared to increased testing. A reduction in contact rate by 50\% compared to a reduction of 10\% can reduce death from 0.0268\% to 0.0141\% of population.
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_sensitivity_beta.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\beta(t)$ with $50\%, 40\%, 30\%, 20\%$ and $10\%$ reduction from current contact rate (India). Note that not all panels are in the same scale.}
+	\label{fig7A} 
+\end{figure*}
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_sensitivity_epsilon.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\epsilon(t)$ with changed rate of testing by $1.2, 1.4, 1.6, 1.8$ and $2$ times the current rate (India). Note that not all panels are in the same scale.}
+	\label{fig7B} 
+\end{figure*}
+
+Figure \ref{fig8} show the simulation study loss of acquired immunity for scenario in India. We note that this model is not very sensitive to $\chi(t)$.  This is due to the size of the population and current state of the epidemic in India - reinfection within 2 months changes total number of infected population from 2.66\% to 2.98\%, while reinfection after 250 days changes this to 2.768\%.
+
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_scenario_reinfection.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $250, 200, 150, 100$ and $50$ days (India). Note that not all panels are in the same scale.}
+	\label{fig8} 
+\end{figure*}
+
+Simulation studies for vaccination is presented in Figure \ref{fig9A} and Figure \ref{fig9B}. We assume that the vaccine is available from 90 days after 16th September 2020. Simulation suggests that a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
+%
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.3.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.3$, i.e. maximum of 30\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
+	\label{fig9A} 
+\end{figure*}
+%
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.7.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.7$, i.e. maximum of 70\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
+	\label{fig9B} 
+\end{figure*}
+
+\subsection*{Victoria, Australia}
+For Victoria, Australia we use data from 27 February, 2020 (day 1) to 9 September, 2020 (day 195). Consistent with other places Victoria had initial outbreak during March and April 2020 - which was effectively controlled.  Control measures were relaxed during June 2020 to revive economic activities.  Based on our estimate $R_0$ in Victoria was $2.72$ in the beginning of July.  A stricter confinement was placed in selected localities on 1 July 2020, which was extended to the whole of metropolitan Melbourne and Mitchell Shire on 8 July. Estimated by our model, $R_0$ was $2.86$ at that time. However, the restriction was effective to bring down $R_0$ to $1.13$ by 30, July, 2020. We note that our findings are similar to \cite{Saul2020}. In our estimate, current $R_0$ is well below $1$. 
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Victoria_plot_model_data.pdf}
+	\end{subfigure}
+	\caption{Model simulation compared to real data (Victoria, Australia) - Comparison between the official data (histogram) and the results with our model. Description of panels: \textbf{(a):} Number of currently active cases, $\left( Q(t) + H(t) + C(t)\right)$, \textbf{(b):} number of reported recovered individuals. $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$, \textbf{(c):} number of reported infected with life-threatening symptoms, admitted to ICU, $C(t)$, \textbf{(d):} Number of deceased individuals $D(t)$, \textbf{(e):} Cumulative number of cases, $Q(t) + H(t) + C(t) + D(t) + \int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$ \textbf{(f):} number of reported infected with symptoms, who are hospitalized. $H(t)$}
+	\label{fig10A} 
+\end{figure*}
+%
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[b]{\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Victoria_evolution.pdf}
+	\end{subfigure}
+	\caption{Model simulation compared to real data (Victoria, Australia) - Epidemic evolution predicted by the model based on the available data. Description of panels: \textbf{(a, c):} The short-term epidemic evolution obtained by reproducing the data trend with the model, \textbf{(b, d):} Long term epidemic evolution over 350 days. Plots refers to all cases of infection, both diagnosed and non-diagnosed, predicted by the model, although non-diagnosed cases are of course not counted in the data. Note that not all panels are in the same scale.}
+	\label{fig10B} 
+\end{figure*}
+%
+%
+\section*{Methods}
+\label{SEC4}
+\subsection*{Baseline mathematical models}
+\subsubsection*{Baseline epidemiological parameters}
+In this section we describe the estimated values of various parameters based on the current literature. It has been noted in the literature that the clinical course of the disease is typically quite long. Average total duration of illness has been estimated to be three weeks in \cite{Zhou2020}. Parameter $\beta_0$ is strongly dependent on the population behavior. We select a default value that has been estimated in \cite{Shen2020.01.23.916726} for pre-lockdown period. Baseline values for various parameters are listed in the Table - \ref{Table1}.
+%
+%
+	\begin{table*}
+	\centering
+	\begin{tabularx}{\textwidth}[t]{p{0.09\textwidth}p{0.35\textwidth}p{0.3\textwidth}p{0.15\textwidth}}
+		\hline
+		\textbf{Param} &  \textbf{Description} &  \textbf{Possible Range} &  \textbf{Default}\\ [0.5ex]
+		\hline
+		$\beta_0$ &  infectious contact rate & $0.5$-$1.5$ $ day^{-1}$ \cite{Li489,Shen2020.01.23.916726} & $1.14$ $day^{-1}$\\
+		\hline
+		$\kappa$ &  infectiousness factor asymptomatic & $0.4$-$0.6$ \cite{Li489,Ferguson2020} & $0.5$\\
+		\hline
+		$\omega$ &  infectiousness factor quarantined & $0.005$-$0.0114$ \cite{Giordano2020} & $0.0114$\\
+		\hline
+		$\rho$ &  infectiousness factor isolated & $0.005$-$0.0114$ \cite{Giordano2020} & $0.0114$\\
+		\hline
+		$\sigma$ &  transition rate exposed to infectious & $1/14$-$1/3$ $day^{-1}$ \cite{Li489,Lauer2020.02.02.20020016} & $1/5.2$ $day^{-1}$\\
+		\hline
+		$\alpha$ &  fraction of infections that become symptomatic & $0.15$-$0.7$  \cite{Li489,Ferguson2020,Moriarty2020} & $0.5$\\
+		\hline
+		$\nu$ &  transition rate  asymptomatic to symptomatic & $0.025$-$0.125$ \cite{Giordano2020} & $0.125$\\
+		\hline
+		$\epsilon_0$ &  detection rate asymptomatic & $0.171$ \cite{Giordano2020} & $0.171$ \\
+		\hline
+		$\varphi$ &  rate of quarantined to isolation & $0.025$-$0.125$ \cite{Giordano2020} & $0.125$\\
+		\hline
+		$\theta$ &  rate of detection of symptomatic & $0.371$ & $0.371$\\
+		\hline
+		$\tau$ &  rate of developing life-threatening symptoms in isolation & $0.027$ & $0.027$\\
+		\hline
+		$\lambda$ &  rate of developing life-threatening symptoms for symptomatic& $0.017$ & $0.017$\\
+		\hline
+		$\gamma$ &  recovery rate of asymptomatic & $0.034$ & $0.034$\\
+		\hline
+		$\eta$ &  recovery rate of symptomatic & $0.017$ & $0.017$\\
+		\hline
+		$\mu$ &  recovery rate of quarantined & $0.034$ & $0.034$\\
+		\hline
+		$\psi$ & recovery rate of isolated & $0.017$ & $0.017$\\
+		\hline
+		$\zeta$ &  recovery rate of critical & $0.017$ & $0.017$\\
+		\hline
+		$\delta$ &  mortality rate & $0.01$-$0.015$ & $0.015$\\ [1ex] 
+		\hline
+	\end{tabularx}
+	\caption{Baseline parameters, brief description, possible ranges based on modeling and clinical studies, and default value chosen for this study.}
+	\label{Table1}
+\end{table*}
+
+\subsubsection*{The basic reproduction number for baseline model}
+The basic reproduction number is calculated for the special case when we have $\beta(t) = \beta_0, \epsilon(t) = \epsilon_0$. In following we explore the local stability of the disease-free equilibrium (DFE) using the next generation operator method \cite{Diekmann1990,VANDENDRIESSCHE200229}. Following \cite{VANDENDRIESSCHE200229}, we define the system of equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}), in more compact form as:
+%
+%
+\begin{equation}
+\dot{X} = f(X) = \mathcal{F}(X) - \mathcal{V}(X), 
+\label{eqn:baseline-compact-1}
+\end{equation}
+%
+%
+where, $X = \left( E, I, A, Q, H, C, D, R, S \right)^t $, and $\mathcal{F}(X) $ containing rate of appearance of new infections defined as:
+%
+%
+\begin{equation}
+\mathcal{F}(X) = 
+\begin{pmatrix}
+\beta_0 \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} \\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix}, 
+\label{eqn:baseline-compact-2}
+\end{equation}
+%
+%
+and, $\mathcal{V}(X)$ capturing the movement between the compartments, with $\mathcal{V}^{-}(X)$ as the rate of outward transfer, and $\mathcal{V}^{+}(X)$ as the rate of inward transfer for each compartment, we have,
+%
+%
+\begin{equation}
+\begin{split}
+\mathcal{V}(X) &= \mathcal{V}^{-}(X) - \mathcal{V}^{+}(X)\\
+&= \begin{pmatrix}
+\sigma E \\
+\left( \eta + \theta + \lambda \right) I\\
+\left( \epsilon_0 + \nu + \gamma \right) A\\
+\left( \varphi + \mu \right) Q\\
+\left( \tau + \psi \right) H\\
+\left( \delta + \zeta \right) C\\
+0\\
+0\\
+\beta_0 \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N}
+\end{pmatrix} - 
+\begin{pmatrix}
+0 \\
+\alpha \sigma E + \nu A\\
+\left( 1 - \alpha \right)\sigma E  \\
+\epsilon_0 A\\
+\theta I + \varphi Q\\
+\tau H + \lambda I\\
+\delta C\\
+\left( \eta I +  \gamma A + \mu Q + \psi H + \zeta C \right)\\
+0
+\end{pmatrix}
+\end{split}
+\label{eqn:baseline-compact-3A}
+\end{equation}
+%
+\begin{equation}
+\begin{split}
+\mathcal{V}(X) = \begin{pmatrix}
+\sigma E \\
+\left( \eta + \theta + \lambda \right) I - \alpha \sigma E - \nu A\\
+\left( \epsilon_0 + \nu + \gamma \right) A - \left( 1 - \alpha \right)\sigma E\\
+\left( \varphi + \mu \right) Q - \epsilon_0 A\\
+\left( \tau + \psi \right) H - \theta I - \varphi Q\\
+\left( \delta + \zeta \right) C - \tau H - \lambda I\\
+-\delta C\\
+-\left( \eta I +  \gamma A + \mu Q + \psi H + \zeta C \right)\\
+\beta_0 \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N}
+\end{pmatrix}
+\end{split}
+\label{eqn:baseline-compact-3B}
+\end{equation}
+%
+%
+We also define $\mathcal{X}_s$, as the set of all possible disease free states. In order to directly apply the results in \cite{VANDENDRIESSCHE200229}, following shall hold for equation $\dot{X} = f(x) = \mathcal{F}(X) - \mathcal{V}(X)$:
+\begin{enumerate}
+	\item Functions $\mathcal{F}(X)$, $\mathcal{V}^{-}(X)$ and $\mathcal{V}^{+}(X)$, are all non-negative, when $X > 0$.
+	\item If $X \in \mathcal{X}_s$, then $\mathcal{V}^{-}(x)=\mathcal{F}(x)=\mathcal{V}^{+}(x)=0$ for $x \in \{E, I, A, Q, H, C, D, R\}$.
+	\item Let $Df(X_0)$ be the Jacobian matrix evaluated at DFE $X_0$, and defined as the partial derivative $[{\partial f}/{\partial x}]$ for $x \in \{E, I, A, Q, H, C, D, R, S\}$. If $\mathcal{F}(X) = 0$, then all eigenvalues of $Df(X_0)$ has negative real parts.
+\end{enumerate}
+We note that each function represents a directed transfer of individuals, and they are all non-negative. (1) and (2), can be observed from the equations (\ref{eqn:baseline-compact-2}) and (\ref{eqn:baseline-compact-3B}).  For (3), setting $\mathcal{F}(X) = 0$, we consider linearized system $\dot{X} = - D\mathcal{V}(X_0)(X-X_0)$, near DFE. From equation (\ref{eqn:DFE-3}) we observe that eigenvalues corresponding to $Df(X_0)$ has zero eigenvalues of multiplicity $3$ with associated eigenvectors in the directions of $D, R, S$. The results in \cite{VANDENDRIESSCHE200229} still holds for our system for stability in the directions of the susceptible and recovered compartment (note that )as $D$ is a counting compartment), this however, has no consequence in the meaning of the threshold $\mathcal{R}_0$. In fact this technicality can be resolved by adding natural birth and death rates proportional to the compartments $S$ and $R$ that is arbitrarily small and positive. 
+%
+%
+Let $X_0 \in \mathcal{X}_s$ be a DFE. Then $X_0 = \left( 0, 0, 0, 0, 0, 0, 0, 0, S_0 \right) $, and with $S_0/N_0=1$ we have, 
+%
+%
+\begin{equation}
+\begin{split}
+D \mathcal{F}(X_0) \\
+&=  \begin{pmatrix}
+0 & \beta_0 & \kappa \beta_0 & \omega \beta_0 & \rho \beta_0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0
+ \end{pmatrix}\\
+ &=  \begin{pmatrix}
+ F & 0\\
+ 0 & 0
+  \end{pmatrix}
+\end{split}
+\label{eqn:DFE-1}
+\end{equation}
+%
+%
+With,
+%
+%
+\begin{equation}
+F = \begin{pmatrix}
+0 & \beta_0 & \kappa \beta_0 & \omega \beta_0 & \rho \beta_0 \\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0
+  \end{pmatrix}
+  \label{eqn:DFE-2}
+\end{equation}
+%
+%
+Similarly, we have 
+%
+%
+\begin{equation}
+\begin{split}
+D \mathcal{V}(X_0) = \\
+\begin{pmatrix}
+\sigma & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
+-\alpha \sigma & \left( \eta + \theta + \lambda\right)  & - \nu & 0 & 0 & 0 &0 & 0 &0 \\
+-\left( 1- \alpha \right) \sigma & 0 & \left( \epsilon_0 + \nu + \gamma \right) & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & - \epsilon_0 & \left( \varphi + \mu\right)  & 0 & 0 &0 & 0 &0 \\
+0 & -\theta & 0 & -\varphi & \left( \tau + \psi\right)  & 0 &0 & 0 &0 \\
+0 & -\lambda & 0 & 0 & -\tau & \left( \delta + \zeta\right)  &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & -\delta &0 & 0 &0 \\
+0 & -\eta & -\gamma & -\mu & -\psi & -\zeta &0 & 0 &0 \\
+0 & \beta_0 & \kappa\beta_0 & \omega\beta_0 & \rho\beta_0 & 0 &0 & 0 &0
+  \end{pmatrix}\\
+  =\begin{pmatrix}
+  V & 0\\
+  J_3 & J_4
+  \end{pmatrix}
+\end{split}
+\label{eqn:DFE-3}
+\end{equation}
+%
+%
+With,
+%
+%
+\begin{equation}
+V = \begin{pmatrix}
+\sigma & 0 & 0 & 0 & 0\\
+-\alpha \sigma & \left( \eta + \theta + \lambda\right)  & - \nu & 0 & 0\\
+-\left( 1- \alpha \right) \sigma & 0 & \left( \epsilon_0 + \nu + \gamma \right) & 0 & 0\\
+0 & 0 & - \epsilon_0 & \left( \varphi + \mu\right)  & 0\\
+0 & -\theta & 0 & -\varphi & \left( \tau + \psi\right)
+\end{pmatrix}
+\label{eqn:DFE-4}
+\end{equation}
+%
+%
+and,
+%
+%
+\begin{equation}
+V^{-1} = 
+\begin{pmatrix}
+\frac{1}{\sigma} & 0 & 0 & 0 & 0\\
+- \frac{\alpha \nu - \alpha r_{3} - \nu}{r_{1} r_{3}} & \frac{1}{r_{1}} & \frac{\nu}{r_{1} r_{3}} & 0 & 0\\
+- \frac{\alpha}{r_{3}} + \frac{1}{r_{3}} & 0 & \frac{1}{r_{3}} & 0 & 0\\
+- \frac{\alpha \epsilon - \epsilon}{r_{3} r_{4}} & 0 & \frac{\epsilon}{r_{3} r_{4}} & \frac{1}{r_{4}} & 0\\
+- \frac{\alpha \epsilon r_{1} \varphi + \alpha \nu r_{4} \theta - \alpha r_{3} r_{4} \theta - \epsilon r_{1} \varphi - \nu r_{4} \theta}{r_{1} r_{2} r_{3} r_{4}} & \frac{\theta}{r_{1} r_{2}} & \frac{\epsilon r_{1} \varphi + \nu r_{4} \theta}{r_{1} r_{2} r_{3} r_{4}} & \frac{\varphi}{r_{2} r_{4}} & \frac{1}{r_{2}}
+\end{pmatrix}
+\label{eqn:DFE-5}
+\end{equation}
+%
+%
+Defining $\rho(A) = \max {\{ | \lambda_1 |, \ldots,  | \lambda_n |\} }$ as the spectral radius of an $n \times n$ matrix $A$, with eigenvalues $\lambda_1 \ldots \lambda_n$, and $|\dot|$ denoting absolute values. According to \cite{VANDENDRIESSCHE200229}, basic reproduction number $\mathcal{R}_0$ associated to the system can be computed as $\mathcal{R}_0 = \rho(FV^{-1})$. Hence, based on the discussion above, for the baseline model we have,
+%
+%
+\begin{equation}
+\begin{split}
+\mathcal{R}_0 =  \beta_0 \left( \frac{\alpha}{r_1} + \frac{\nu \left(1-\alpha \right) }{r_1 r_3}\right) + \kappa \beta_0 \left( \frac{1-\alpha}{r_3} \right) + \omega \beta_0 \left( \frac{\epsilon_0 \left( 1-\alpha\right) }{r_3 r_4}\right) \\
++ \rho \beta_0 \left( \frac{\alpha \theta}{r_1 r_2} + \frac{\left( 1-\alpha\right) \epsilon_0 \varphi}{r_2 r_3 r_4} + \frac{\left( 1-\alpha\right) \nu \theta}{r_1 r_2 r_3}\right) 
+\end{split}
+\label{eqn:Rnot}
+\end{equation}
+%
+%
+where, $r_1 = \left( \eta + \theta + \lambda \right) $, $r_2 = \left( \tau + \psi \right) $, $r_3 = \left( \epsilon_0 + \nu + \gamma\right) $, and $r_4 =  \left( \varphi + \mu\right)$.
+%
+%
+When the epidemic is over, we will have the condition that $\bar{E}=\bar{I}=\bar{A}=\bar{Q}=\bar{H}=\bar{C}=0,  \bar{D}\geq 0, \bar{R}\geq 0, \bar{S}\geq 0$, with $\bar{D} + \bar{R} + \bar{S} = 1$. That is, only the susceptible, the recovered and the deceased individuals are eventually present.
+%
+%
+\begin{proposition}
+The system of equation with susceptible population $\bar{S}$ is asymptotically stable if and only if
+\begin{equation}
+\bar{S} \leq \bar{S}^* = \frac{1}{R_0}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The dynamical system matrix of the linearized system near a DFE is given by:
+\begin{equation}
+M = 
+\begin{pmatrix}
+-\sigma & \beta_0 \bar{S}& \kappa \beta_0 \bar{S}& \omega \beta_0 \bar{S}& \rho \beta_0 \bar{S}& 0 &0 & 0 &0 \\
+\alpha \sigma & -r_1  & \nu & 0 & 0 & 0 &0 & 0 &0 \\
+\left( 1- \alpha \right) \sigma & 0 & -r_3 & 0 & 0 & 0 &0 & 0 &0 \\
+0 & 0 & \epsilon_0 & -r_4  & 0 & 0 &0 & 0 &0 \\
+0 & \theta & 0 & \varphi & -r_2  & 0 &0 & 0 &0 \\
+0 & \lambda & 0 & 0 & \tau & -r_5 &0 & 0 &0 \\
+0 & 0 & 0 & 0 & 0 & \delta &0 & 0 &0 \\
+0 & \eta & \gamma & \mu & \psi & \zeta &0 & 0 &0 \\
+0 & -\beta_0 \bar{S}& -\kappa \beta_0 \bar{S}& -\omega \beta_0 \bar{S}& -\rho \beta_0 \bar{S}& 0 &0 & 0 &0
+\end{pmatrix}
+\end{equation}
+Where $r_1 = \left( \eta + \theta + \lambda \right) $, $r_2 = \left( \tau + \psi \right) $, $r_3 = \left( \epsilon_0 + \nu + \gamma\right) $, $r_4 =  \left( \varphi + \mu\right)$. and $r_5=\left( \delta + \zeta\right)$. Using $\det(sI-M) = 0$, we have the characteristic polynomial of $M$ having following form:  $s^{3} \left(r_{5} + s\right) p(s)$. Hence, the matrix has three null eigenvalues, one eigenvalue of $-\left( \delta + \zeta\right)$, and five eigenvalues that are roots of the polynomial $p(s)$, where,
+\begin{equation}
+p(s) = D(s) - \bar{S}N(s)
+\end{equation}
+%
+with, 
+\begin{equation}
+\begin{split}
+D(s) = \\
+& s^{5} + s^{4} \left(r_{1} + r_{2} + r_{3} + r_{4} + \sigma\right) + \\
+& s^{3} \left(r_{1} r_{2} + r_{1} r_{3} + r_{1} r_{4} + r_{1} \sigma + r_{2} r_{3} + r_{2} r_{4} + r_{2} \sigma + r_{3} r_{4} + r_{3} \sigma + r_{4} \sigma\right) + \\
+& s^{2} (r_{1} r_{2} r_{3} + r_{1} r_{2} r_{4} + r_{1} r_{2} \sigma + r_{1} r_{3} r_{4} + r_{1} r_{3} \sigma + r_{1} r_{4} \sigma + r_{2} r_{3} r_{4} +\\
+& r_{2} r_{3} \sigma + r_{2} r_{4} \sigma + r_{3} r_{4} \sigma) + \\ 
+& s \left(r_{1} r_{2} r_{3} r_{4} + r_{1} r_{2} r_{3} \sigma + r_{1} r_{2} r_{4} \sigma + r_{1} r_{3} r_{4} \sigma + r_{2} r_{3} r_{4} \sigma\right) +\\ 
+& r_{1} r_{2} r_{3} r_{4} \sigma 
+\end{split}
+\end{equation}
+%
+and,
+\begin{equation}
+\begin{split}
+N(s) = \\
+& s^{3} \beta_0 \sigma \left( 1-  \alpha\right) \kappa + s^{3} \beta_0 \sigma \alpha \\
+& s^{2} \beta_0 \sigma \left( 1-\alpha\right)\left( \epsilon_0 \omega + \nu + \kappa \left( r_1+r_2+r_4\right) \right) + s^{2} \beta_0 \sigma \alpha \left( \rho \theta + \left( r_2+r_3+r_4\right) \right) + \\
+& s \beta_0 \sigma (1-\alpha) (\epsilon ( \omega r_1+  \omega r_2 + \rho \varphi ) + \kappa (r_1r_2+r_1r_4+r_2r_4) + \nu (r_2+r_4+\rho \theta)) + \\
+& s \beta_0 \sigma \alpha (r_2r_3+r_2r_4+r_3r_4+r_3 \rho \theta + r_4 \rho \theta) + \sigma r_1 r_2 r_3 r_4 R_0
+\end{split}
+\end{equation}
+%
+%
+Defining $G(s) = N(s)/D(s)$, and noting that the system is positive, and hence $H_{\infty}$ norm of $G(s)$ is equal to the static gain $G(0) = N(0)/D(0) = R_0$. To have the real part of every root of the polynomial to be zero or negative (Hurwitz), we should have $\bar{S}^* = {1}/{G(0)} = {1}/{R_0}$. Note that the stability of the equilibrium occurs for $\bar{S}R_0 < 1$. Since in the beginning of an epidemic we have $\bar{S}$ very close to $1$, it should be noted that $R_0 < 1$ is required to have  small effect and stability.
+\end{proof}
+%
+%
+\subsubsection*{Fitting of the model for the COVID-19 outbreak: Italy and India}
+We consider three scenarios to fit and estimate parameters for our model. First, for Italy, where the epidemic was controlled and currently have a resurgence with increasing number of cases. Second, for India, which is observing significant number of cases in recent times. Third, for Victoria, Australia, where a second reemergence is controlled with strict intervention.
+
+For Italy, we use data from the official source (the Department of Civil Protection - Presidency of the Council of Ministers) about the evolution of the epidemic in Italy from 2020-02-24 to 2020-08-27. We convert this data to fraction of population by taking total population data from The World Bank Group (about 60297396, in 2019). The estimated parameter values are based on the data about the number of currently infected individuals that can be observed and roughly corresponding to $\left( Q(t) + H(t) + C(t)\right) $, and the number of recovered individuals that can be observed and roughly corresponding to $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$. To avoid the pitfalls described by authors in \cite{doi:10.1098/rspb.2015.0347}, we do not fit the model to cumulative number of cases or cumulative number of deaths - however, we present them for comparison.
+
+The ordinary differential equation (ODE) system was solved using LSODA \cite{doi:10.1137/0904010, HindmarshSep2005}. We use lmfit python package \cite{LMFIT} for non-linear least-squares and minimize of the sum of the squares of the errors using trust region reflective method and obtaining goodness of fit measure of $\chi^2= 5.3331e^{-07}$ for Italy. Confidence interval for the fit is shown in Figure \ref{fig-fitness-1A}. The problem to minimize error is shown in following equation for fitting parameter set $p$:
+%
+\begin{equation}
+\hat{p} \in \argmin_p S(p) =  \argmin_p \sum_{i=1}^{m}{\left[y_i - f_i(x_i,p)\right]^2 }
+\end{equation}
+%
+where $y_i$ are observations and $f_i$ is the model output.
+
+For India (population 1366417754, in 2019), we use data from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). We use data from 2020-03-02 to 2020-09-16. The estimated parameter values are based on the data about the number of currently infected individuals that can be observed and roughly corresponding to $\left( Q(t) + H(t) + C(t)\right) $. In this case we obtain a goodness of fit measure of $\chi^2= 4.4811e^{-08}$ and confidence interval for the fit is shown in Figure \ref{fig-fitness-1B}. Parameters $\beta_0, \beta_{\min}, \beta_{new}, t_0, t_1, r, u, \epsilon_0, \epsilon_{\max}, t_2$ and $s$ have all been estimated from fitting the model to data. It is important to note that contact rat $\beta(t)$ and testing rate $\epsilon(t)$ has been modeled as time variant functions.
+
+For the state of Victoria, Australia, we use data from Covid19data.com.au, which is independent and voluntarily-run. We use data from 2020-02-27 to 2020-09-09. The estimated parameter values are based on the data about the number of currently infected individuals, and we obtain a goodness of fit measure of $\chi^2= 1.6701e^{-06}$. 
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Italy_model_confidence.pdf}
+		\caption{Fitting model to data, Italy}
+		\label{fig-fitness-1A}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{India_model_confidence.pdf}
+		\caption{Fitting model to data, India}
+		\label{fig-fitness-1B}
+	\end{subfigure}
+	\caption{Parameter estimation and fitting model to actual data for Italy and India using lmfit. The plot show actual data, best fit by minimizing sum of the squares of the errors, and 2-$\sigma$ uncertainty band  }
+	\label{fig-fitness-1}
+\end{figure*}
+
+\subsection*{Extending the baseline model}
+In this section we consider various extension of the model and parameters. 
+
+\subsubsection*{Scenario: Confinement}
+First extension is to model confinement - where a large proportion of susceptible population is placed under restricted movement, and thereby reducing the probability of contact. Such restriction has been modeled by introducing another compartment $L$. Individuals from $S$ move to $L$ at rate $u(t)$. In many countries, confinement was spread over several weeks followed by a period of de-confinement. We model de-confinement by individuals moving from $L$ to $S$ at rate $p(t)$. In specific we modify equation (\ref{eqn:base-model-9}) as follows
+%%
+\begin{equation}
+\frac{dS}{dt} = p(t)L -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - u(t)S,
+\label{eqn:lockdown-model-1}
+\end{equation}
+%
+%
+We also add following dynamics to the baseline model 
+%%
+\begin{equation}
+\frac{dL}{dt} = u(t)S - p(t)L,
+\label{eqn:lockdown-model-2}
+\end{equation}
+%%
+Thus, equations (\ref{eqn:base-model-1}-\ref{eqn:base-model-8}), equation (\ref{eqn:lockdown-model-1}), and (\ref{eqn:lockdown-model-2}) along with equation (\ref{eqn:base-model-10}), defines the confinement - de-confinement scenario. A few remarks are in place for the time dependent functions $u(t)$ and $p(t)$.
+
+\subsubsection*{Scenario: Loss of immunity}
+To consider the possibility of loosing acquired immunity over time and having a reinfection, we modify  equation (\ref{eqn:base-model-9}) and add a term $+\chi R$ and modify equation (\ref{eqn:base-model-8}) by adding term $-\chi R$ to obtain:
+%
+%
+\begin{equation}
+\frac{dS}{dt} = -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} +\chi R,
+\label{eqn:loss_immunity-model-8}
+\end{equation}
+%
+%
+\begin{equation}
+\frac{dR}{dt} =  \left( \eta I +  \gamma A + \mu Q + \psi H + \zeta C \right) -\chi R,
+\label{eqn:loss_immunity-model-9}
+\end{equation}
+%
+\subsubsection*{Scenario: Mass Vaccination }
+In this scenario, we assume that the susceptible individuals are vaccinated at rate $\xi(t)$. Initially $\xi(t)$ can be small and as more vaccines are produced at a larger scale, the waiting time to receive vaccine reduces (see equation (\ref{eqn:vaccination-model-10})). 
+%
+%
+\begin{equation}
+ \xi(t) = 
+\begin{cases}
+\xi_0 & t < t_0 \\
+\xi_{\max} - (\xi_{\max} - \xi_0) e^{-s \left( t-t_0\right) } & t > t_0
+\end{cases}
+\label{eqn:vaccination-model-10}
+\end{equation}
+%
+%
+We also assume a vaccine efficiency parameter, and assume that vaccine does not confer immunity to all vaccine recipients, and hence a vaccinated individuals may become infected but at a lower rate than un-vaccinated. Hence, by $(1-\phi)$ we denote vaccine efficiency. Thus, effective contact rate is multiplied by a scaling factor of $\phi : 0 \leq \phi \leq 1$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection.
+
+The vaccinated individuals will be denoted with compartment $V$. With that, the augmented model can be represented with following system of equations, where we replace equation (\ref{eqn:base-model-1}) with (\ref{eqn:vaccination-model-1}), equation (\ref{eqn:base-model-9}) with (\ref{eqn:vaccination-model-3}), remaining equations (\ref{eqn:base-model-2})-(\ref{eqn:base-model-8}) remains same and we add equations (\ref{eqn:vaccination-model-2}), and ((\ref{eqn:vaccination-model-5}):
+%
+%
+\begin{equation}
+\frac{dE}{dt} = \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} + \phi \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{V}{N} - \sigma E, 
+\label{eqn:vaccination-model-1}
+\end{equation}
+%
+%
+\begin{equation}
+\frac{dV}{dt} =  \xi(t) S - \phi  \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{V}{N},
+\label{eqn:vaccination-model-2}
+\end{equation}
+%%
+\begin{equation}
+\frac{dS}{dt} = -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - \xi(t) S,
+\label{eqn:vaccination-model-3}
+\end{equation}
+%
+%
+where,
+\begin{equation}
+N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t) + V(t),
+\label{eqn:vaccination-model-5}
+\end{equation}
+is the total population. 
+\section*{Data availability}
+All of the data are publicly available and were extracted from \url{https://github.com/pcm-dpc/COVID-19}, and from \url{https://github.com/CSSEGISandData/COVID-19}.
+
+\section*{Code availability}
+Python codes were used for model implementation. All source codes can be accessed from \url{https://github.com/subhaskghosh/model_covid_19}
+
+\section*{Authors' contributions}
+\label{SEC5}
+
+%% References
+\bibliography{covid_m.bib}	
+\end{document}

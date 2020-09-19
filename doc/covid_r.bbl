@@ -1,0 +1,244 @@
+\begin{thebibliography}{10}
+\urlstyle{rm}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname doiprefix\endcsname\relax\def\doiprefix{DOI: }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{taaa021}
+\bibinfo{author}{Liu, Y.}, \bibinfo{author}{Gayle, A.~A.},
+  \bibinfo{author}{Wilder-Smith, A.} \& \bibinfo{author}{Rocklöv, J.}
+\newblock \bibinfo{journal}{\bibinfo{title}{The reproductive number of covid-19
+  is higher compared to sars coronavirus}}.
+\newblock {\emph{\JournalTitle{Journal of Travel Medicine}}}
+  \textbf{\bibinfo{volume}{27}}, \doiprefix\url{10.1093/jtm/taaa021}
+  (\bibinfo{year}{2020}).
+
+\bibitem{pmid32146694}
+\bibinfo{author}{Hu, Z.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{{{C}linical characteristics of 24
+  asymptomatic infections with {C}{O}{V}{I}{D}-19 screened among close contacts
+  in {N}anjing, {C}hina}}}.
+\newblock {\emph{\JournalTitle{Sci China Life Sci}}}
+  \textbf{\bibinfo{volume}{63}}, \bibinfo{pages}{706--711}
+  (\bibinfo{year}{2020}).
+
+\bibitem{pmid32179137}
+\bibinfo{author}{Nishiura, H.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{{{E}stimation of the asymptomatic
+  ratio of novel coronavirus infections ({C}{O}{V}{I}{D}-19)}}}.
+\newblock {\emph{\JournalTitle{Int. J. Infect. Dis.}}}
+  \textbf{\bibinfo{volume}{94}}, \bibinfo{pages}{154--155}
+  (\bibinfo{year}{2020}).
+
+\bibitem{pmid32083643}
+\bibinfo{author}{Bai, Y.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{{{P}resumed {A}symptomatic
+  {C}arrier {T}ransmission of {C}{O}{V}{I}{D}-19}}}.
+\newblock {\emph{\JournalTitle{JAMA}}} \textbf{\bibinfo{volume}{323}},
+  \bibinfo{pages}{1406--1407} (\bibinfo{year}{2020}).
+
+\bibitem{Kenji2020}
+\bibinfo{author}{Mizumoto, K.}, \bibinfo{author}{Kagaya, K.},
+  \bibinfo{author}{Zarebski, A.} \& \bibinfo{author}{Chowell, G.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Estimating the asymptomatic
+  proportion of coronavirus disease 2019 (covid-19) cases on board the diamond
+  princess cruise ship, yokohama, japan, 2020}}.
+\newblock {\emph{\JournalTitle{Eurosurveillance}}}
+  \textbf{\bibinfo{volume}{25}},
+  \doiprefix\url{https://doi.org/10.2807/1560-7917.ES.2020.25.10.2000180}
+  (\bibinfo{year}{2020}).
+
+\bibitem{Long2020}
+\bibinfo{author}{Long, Q.-X.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Clinical and immunological
+  assessment of asymptomatic sars-cov-2 infections}}.
+\newblock {\emph{\JournalTitle{Nature Medicine}}}
+  \textbf{\bibinfo{volume}{26}}, \bibinfo{pages}{1200--1204},
+  \doiprefix\url{10.1038/s41591-020-0965-6} (\bibinfo{year}{2020}).
+
+\bibitem{539a5e40c4cf4e6a8dc8035b3930c45d}
+\bibinfo{author}{Diekmann, O.} \& \bibinfo{author}{Heesterbeek, J.}
+\newblock \emph{\bibinfo{title}{Mathematical epidemiology of infectious
+  diseases: model building, analysis and interpretation}}.
+\newblock Wiley series in mathematical and computational biology
+  (\bibinfo{publisher}{John Wiley and Sons}, \bibinfo{address}{United States},
+  \bibinfo{year}{2000}).
+
+\bibitem{doi:10.1098/rspb.2004.2800}
+\bibinfo{author}{Gumel, A.~B.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Modelling strategies for
+  controlling sars outbreaks}}.
+\newblock {\emph{\JournalTitle{Proceedings of the Royal Society of London.
+  Series B: Biological Sciences}}} \textbf{\bibinfo{volume}{271}},
+  \bibinfo{pages}{2223--2232}, \doiprefix\url{10.1098/rspb.2004.2800}
+  (\bibinfo{year}{2004}).
+\newblock
+  \eprint{https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2004.2800}.
+
+\bibitem{Giordano2020}
+\bibinfo{author}{Giordano, G.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Modelling the covid-19 epidemic and
+  implementation of population-wide interventions in italy}}.
+\newblock {\emph{\JournalTitle{Nature Medicine}}}
+  \textbf{\bibinfo{volume}{26}}, \bibinfo{pages}{855--860},
+  \doiprefix\url{10.1038/s41591-020-0883-7} (\bibinfo{year}{2020}).
+
+\bibitem{Peng2020.02.16.20023465}
+\bibinfo{author}{Peng, L.}, \bibinfo{author}{Yang, W.}, \bibinfo{author}{Zhang,
+  D.}, \bibinfo{author}{Zhuge, C.} \& \bibinfo{author}{Hong, L.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Epidemic analysis of covid-19 in
+  china by dynamical modeling}}.
+\newblock {\emph{\JournalTitle{medRxiv}}}
+  \doiprefix\url{10.1101/2020.02.16.20023465} (\bibinfo{year}{2020}).
+\newblock
+  \eprint{https://www.medrxiv.org/content/early/2020/02/18/2020.02.16.20023465.full.pdf}.
+
+\bibitem{TANG2020248}
+\bibinfo{author}{Tang, B.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{An updated estimation of the risk
+  of transmission of the novel coronavirus (2019-ncov)}}.
+\newblock {\emph{\JournalTitle{Infectious Disease Modelling}}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{248 -- 255},
+  \doiprefix\url{https://doi.org/10.1016/j.idm.2020.02.001}
+  (\bibinfo{year}{2020}).
+
+\bibitem{EIKENBERRY2020293}
+\bibinfo{author}{Eikenberry, S.~E.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{To mask or not to mask: Modeling
+  the potential for face mask use by the general public to curtail the covid-19
+  pandemic}}.
+\newblock {\emph{\JournalTitle{Infectious Disease Modelling}}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{293 -- 308},
+  \doiprefix\url{https://doi.org/10.1016/j.idm.2020.04.001}
+  (\bibinfo{year}{2020}).
+
+\bibitem{Chhabra2020.07.10.20150631}
+\bibinfo{author}{Chhabra, M.} \& \bibinfo{author}{Agrawal, T.}
+\newblock \bibinfo{journal}{\bibinfo{title}{A comprehensive analysis of r0 with
+  different lockdown phase during covid-19 in india}}.
+\newblock {\emph{\JournalTitle{medRxiv}}}
+  \doiprefix\url{10.1101/2020.07.10.20150631} (\bibinfo{year}{2020}).
+\newblock
+  \eprint{https://www.medrxiv.org/content/early/2020/07/11/2020.07.10.20150631.full.pdf}.
+
+\bibitem{MARIMUTHU2020}
+\bibinfo{author}{Marimuthu, S.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Modelling of reproduction number
+  for covid-19 in india and high incidence states}}.
+\newblock {\emph{\JournalTitle{Clinical Epidemiology and Global Health}}}
+  \doiprefix\url{https://doi.org/10.1016/j.cegh.2020.06.012}
+  (\bibinfo{year}{2020}).
+
+\bibitem{Saul2020}
+\bibinfo{author}{Saul, A.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Victoria’s response to a
+  resurgence of covid-19 has averted 9,000-37,000 cases in july 2020}}.
+\newblock {\emph{\JournalTitle{Med J Aust}}}  (\bibinfo{year}{2020}).
+
+\bibitem{Zhou2020}
+\bibinfo{author}{Zhou, F.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Clinical course and risk factors
+  for mortality of adult inpatients with covid-19 in wuhan, china: a
+  retrospective cohort study}}.
+\newblock {\emph{\JournalTitle{The Lancet}}} \textbf{\bibinfo{volume}{395}},
+  \bibinfo{pages}{1054--1062}, \doiprefix\url{10.1016/S0140-6736(20)30566-3}
+  (\bibinfo{year}{2020}).
+
+\bibitem{Shen2020.01.23.916726}
+\bibinfo{author}{Shen, M.}, \bibinfo{author}{Peng, Z.}, \bibinfo{author}{Xiao,
+  Y.} \& \bibinfo{author}{Zhang, L.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Modelling the epidemic trend of the
+  2019 novel coronavirus outbreak in china}}.
+\newblock {\emph{\JournalTitle{bioRxiv}}}
+  \doiprefix\url{10.1101/2020.01.23.916726} (\bibinfo{year}{2020}).
+
+\bibitem{Li489}
+\bibinfo{author}{Li, R.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Substantial undocumented infection
+  facilitates the rapid dissemination of novel coronavirus (sars-cov-2)}}.
+\newblock {\emph{\JournalTitle{Science}}} \textbf{\bibinfo{volume}{368}},
+  \bibinfo{pages}{489--493}, \doiprefix\url{10.1126/science.abb3221}
+  (\bibinfo{year}{2020}).
+\newblock
+  \eprint{https://science.sciencemag.org/content/368/6490/489.full.pdf}.
+
+\bibitem{Ferguson2020}
+\bibinfo{author}{Ferguson, N.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Report 9: Impact of
+  non-pharmaceutical interventions (npis) to reduce covid-19 mortality and
+  healthcare demand}}.
+\newblock  \doiprefix\url{10.25561/77482} (\bibinfo{year}{2020}).
+
+\bibitem{Lauer2020.02.02.20020016}
+\bibinfo{author}{Lauer, S.~A.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{The incubation period of 2019-ncov
+  from publicly reported confirmed cases: estimation and application}}.
+\newblock {\emph{\JournalTitle{medRxiv}}}
+  \doiprefix\url{10.1101/2020.02.02.20020016} (\bibinfo{year}{2020}).
+
+\bibitem{Moriarty2020}
+\bibinfo{author}{Moriarty, L.~F.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Public health responses to
+  {COVID}-19 outbreaks on cruise ships {\textemdash} worldwide,
+  february{\textendash}march 2020}}.
+\newblock {\emph{\JournalTitle{{MMWR}. Morbidity and Mortality Weekly Report}}}
+  \textbf{\bibinfo{volume}{69}}, \bibinfo{pages}{347--352},
+  \doiprefix\url{10.15585/mmwr.mm6912e3} (\bibinfo{year}{2020}).
+
+\bibitem{Diekmann1990}
+\bibinfo{author}{Diekmann, O.}, \bibinfo{author}{Heesterbeek, J. A.~P.} \&
+  \bibinfo{author}{Metz, J. A.~J.}
+\newblock \bibinfo{journal}{\bibinfo{title}{On the definition and the
+  computation of the basic reproduction ratio r0 in models for infectious
+  diseases in heterogeneous populations}}.
+\newblock {\emph{\JournalTitle{Journal of Mathematical Biology}}}
+  \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{365--382},
+  \doiprefix\url{10.1007/BF00178324} (\bibinfo{year}{1990}).
+
+\bibitem{VANDENDRIESSCHE200229}
+\bibinfo{author}{{van den Driessche}, P.} \& \bibinfo{author}{Watmough, J.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Reproduction numbers and
+  sub-threshold endemic equilibria for compartmental models of disease
+  transmission}}.
+\newblock {\emph{\JournalTitle{Mathematical Biosciences}}}
+  \textbf{\bibinfo{volume}{180}}, \bibinfo{pages}{29 -- 48},
+  \doiprefix\url{https://doi.org/10.1016/S0025-5564(02)00108-6}
+  (\bibinfo{year}{2002}).
+
+\bibitem{doi:10.1098/rspb.2015.0347}
+\bibinfo{author}{King, A.~A.}, \bibinfo{author}{Domenech~de Cellès, M.},
+  \bibinfo{author}{Magpantay, F. M.~G.} \& \bibinfo{author}{Rohani, P.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Avoidable errors in the modelling
+  of outbreaks of emerging pathogens, with special reference to ebola}}.
+\newblock {\emph{\JournalTitle{Proceedings of the Royal Society B: Biological
+  Sciences}}} \textbf{\bibinfo{volume}{282}}, \bibinfo{pages}{20150347},
+  \doiprefix\url{10.1098/rspb.2015.0347} (\bibinfo{year}{2015}).
+\newblock
+  \eprint{https://royalsocietypublishing.org/doi/pdf/10.1098/rspb.2015.0347}.
+
+\bibitem{doi:10.1137/0904010}
+\bibinfo{author}{Petzold, L.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Automatic selection of methods for
+  solving stiff and nonstiff systems of ordinary differential equations}}.
+\newblock {\emph{\JournalTitle{SIAM Journal on Scientific and Statistical
+  Computing}}} \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{136--148},
+  \doiprefix\url{10.1137/0904010} (\bibinfo{year}{1983}).
+\newblock \eprint{https://doi.org/10.1137/0904010}.
+
+\bibitem{HindmarshSep2005}
+\bibinfo{author}{Hindmarsh, A.~C.} \& \bibinfo{author}{Petzold, L.~R.}
+\newblock \bibinfo{title}{Lsoda, ordinary differential equation solver for
+  stiff or non-stiff system} (\bibinfo{year}{Sep 2005}).
+\newblock \bibinfo{note}{MATHEMATICAL METHODS AND COMPUTING}.
+
+\bibitem{LMFIT}
+\bibinfo{author}{Newville, M.}, \bibinfo{author}{Stensitzki, T.},
+  \bibinfo{author}{Allen, D.~B.} \& \bibinfo{author}{Ingargiola, A.}
+\newblock \bibinfo{title}{Lmfit: Non-linear least-square minimization and
+  curve-fitting for python}, \doiprefix\url{10.5281/ZENODO.11813}
+  (\bibinfo{year}{2014}).
+
+\end{thebibliography}
