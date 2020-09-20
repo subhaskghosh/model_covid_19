@@ -131,7 +131,7 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 	% Text Node
 	\draw (323,264.4) node [anchor=north west][inner sep=0.75pt]    {$I( t)$};
 	% Text Node
-	\draw (180,145.4) node [anchor=north west][inner sep=0.75pt]    {$( 1-\alpha ) \sigma $};
+	\draw (170,140) node [anchor=north west][inner sep=0.75pt]    {$( 1-\alpha ) \sigma $};
 	% Text Node
 	\draw (209,242.4) node [anchor=north west][inner sep=0.75pt]    {$\alpha \sigma $};
 	% Text Node
@@ -190,7 +190,7 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 	\draw (337,418.9) node [anchor=north west][inner sep=0.75pt]    {$\zeta $};
 	\end{tikzpicture}
 	
-	\caption[Model]{The model consists of following bins: susceptible $S(t)$,, exposed $E(t)$, asymptomatic $A(t)$, symptomatic $I(t)$, quarantined $Q(t)$, isolated $H(t)$,  deceased ($D(t)$ and recovered $R(t)$ individuals in a population of $N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t)$ individuals.}
+	\caption[Model]{The model consists of following compartments: susceptible $S(t)$,, exposed $E(t)$, asymptomatic $A(t)$, symptomatic $I(t)$, quarantined $Q(t)$, isolated $H(t)$,  deceased ($D(t)$ and recovered $R(t)$ individuals in a population of $N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t)$ individuals.}
 	\label{fig1} 
 \end{figure*}
 
@@ -521,7 +521,7 @@ In this section we describe the estimated values of various parameters based on 
 		\hline
 		\textbf{Param} &  \textbf{Description} &  \textbf{Possible Range} &  \textbf{Default}\\ [0.5ex]
 		\hline
-		$\beta_0$ &  infectious contact rate & $0.5$-$1.5$ $ day^{-1}$ \cite{Li489,Shen2020.01.23.916726} & $1.14$ $day^{-1}$\\
+		$\beta$ &  infectious contact rate & $0.5$-$1.5$ $ day^{-1}$ \cite{Li489,Shen2020.01.23.916726} & $1.14$ $day^{-1}$\\
 		\hline
 		$\kappa$ &  infectiousness factor asymptomatic & $0.4$-$0.6$ \cite{Li489,Ferguson2020} & $0.5$\\
 		\hline
@@ -531,34 +531,34 @@ In this section we describe the estimated values of various parameters based on 
 		\hline
 		$\sigma$ &  transition rate exposed to infectious & $1/14$-$1/3$ $day^{-1}$ \cite{Li489,Lauer2020.02.02.20020016} & $1/5.2$ $day^{-1}$\\
 		\hline
-		$\alpha$ &  fraction of infections that become symptomatic & $0.15$-$0.7$  \cite{Li489,Ferguson2020,Moriarty2020} & $0.5$\\
+		$\alpha$ &  fraction of infections that become symptomatic & $0.15$-$0.7$  \cite{Li489,Ferguson2020,Moriarty2020} & $0.3$\\
 		\hline
 		$\nu$ &  transition rate  asymptomatic to symptomatic & $0.025$-$0.125$ \cite{Giordano2020} & $0.125$\\
 		\hline
-		$\epsilon_0$ &  detection rate asymptomatic & $0.171$ \cite{Giordano2020} & $0.171$ \\
+		$\epsilon$ &  detection rate asymptomatic & $0.171$ \cite{Giordano2020} & $0.171$ \\
 		\hline
 		$\varphi$ &  rate of quarantined to isolation & $0.025$-$0.125$ \cite{Giordano2020} & $0.125$\\
 		\hline
-		$\theta$ &  rate of detection of symptomatic & $0.371$ & $0.371$\\
+		$\theta$ &  rate of detection of symptomatic & $0.371$ \cite{Giordano2020} & $0.371$\\
 		\hline
-		$\tau$ &  rate of developing life-threatening symptoms in isolation & $0.027$ & $0.027$\\
+		$\tau$ &  rate of developing life-threatening symptoms in isolation & $0.027$ \cite{Giordano2020} & $0.027$\\
 		\hline
-		$\lambda$ &  rate of developing life-threatening symptoms for symptomatic& $0.017$ & $0.017$\\
+		$\lambda$ &  rate of developing life-threatening symptoms for symptomatic & $0.017$ \cite{Giordano2020} & $0.017$\\
 		\hline
-		$\gamma$ &  recovery rate of asymptomatic & $0.034$ & $0.034$\\
+		$\gamma$ &  recovery rate of asymptomatic & $0.034$ \cite{Giordano2020} & $0.034$\\
 		\hline
-		$\eta$ &  recovery rate of symptomatic & $0.017$ & $0.017$\\
+		$\eta$ &  recovery rate of symptomatic & $0.017$ \cite{Giordano2020} & $0.017$\\
 		\hline
-		$\mu$ &  recovery rate of quarantined & $0.034$ & $0.034$\\
+		$\mu$ &  recovery rate of quarantined & $0.034$ \cite{Giordano2020} & $0.034$\\
 		\hline
-		$\psi$ & recovery rate of isolated & $0.017$ & $0.017$\\
+		$\psi$ & recovery rate of isolated & $0.017$ \cite{Giordano2020} & $0.017$\\
 		\hline
-		$\zeta$ &  recovery rate of critical & $0.017$ & $0.017$\\
+		$\zeta$ &  recovery rate of critical & $0.017$ \cite{Giordano2020,Moriarty2020} & $0.017$\\
 		\hline
-		$\delta$ &  mortality rate & $0.01$-$0.015$ & $0.015$\\ [1ex] 
+		$\delta$ &  mortality rate & $0.01$-$0.05$ \cite{Ferguson2020,Giordano2020,Modi2020.04.15.20067074} & $0.01$\\ [1ex] 
 		\hline
 	\end{tabularx}
-	\caption{Baseline parameters, brief description, possible ranges based on modeling and clinical studies, and default value chosen for this study.}
+	\caption{Baseline parameters, brief description, possible ranges based on modeling and clinical studies, and default value chosen for this study. Note that these parameters were estimated to fit the model to real data}
 	\label{Table1}
 \end{table*}
 
@@ -656,8 +656,7 @@ Let $X_0 \in \mathcal{X}_s$ be a DFE. Then $X_0 = \left( 0, 0, 0, 0, 0, 0, 0, 0,
 %
 \begin{equation}
 \begin{split}
-D \mathcal{F}(X_0) \\
-&=  \begin{pmatrix}
+D \mathcal{F}(X_0) =  \begin{pmatrix}
 0 & \beta_0 & \kappa \beta_0 & \omega \beta_0 & \rho \beta_0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
 0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
@@ -667,8 +666,7 @@ D \mathcal{F}(X_0) \\
 0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
 0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
 0 & 0 & 0 & 0 & 0 & 0 &0 & 0 &0
- \end{pmatrix}\\
- &=  \begin{pmatrix}
+ \end{pmatrix}\ =  \begin{pmatrix}
  F & 0\\
  0 & 0
   \end{pmatrix}
@@ -698,7 +696,7 @@ Similarly, we have
 \begin{equation}
 \begin{split}
 D \mathcal{V}(X_0) = \\
-\begin{pmatrix}
+&\begin{pmatrix}
 \sigma & 0 & 0 & 0 & 0 & 0 &0 & 0 &0 \\
 -\alpha \sigma & \left( \eta + \theta + \lambda\right)  & - \nu & 0 & 0 & 0 &0 & 0 &0 \\
 -\left( 1- \alpha \right) \sigma & 0 & \left( \epsilon_0 + \nu + \gamma \right) & 0 & 0 & 0 &0 & 0 &0 \\
@@ -708,8 +706,7 @@ D \mathcal{V}(X_0) = \\
 0 & 0 & 0 & 0 & 0 & -\delta &0 & 0 &0 \\
 0 & -\eta & -\gamma & -\mu & -\psi & -\zeta &0 & 0 &0 \\
 0 & \beta_0 & \kappa\beta_0 & \omega\beta_0 & \rho\beta_0 & 0 &0 & 0 &0
-  \end{pmatrix}\\
-  =\begin{pmatrix}
+  \end{pmatrix} =\begin{pmatrix}
   V & 0\\
   J_3 & J_4
   \end{pmatrix}
@@ -844,13 +841,13 @@ For the state of Victoria, Australia, we use data from Covid19data.com.au, which
 	\centering
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Italy_model_confidence.pdf}
+		\includegraphics[width=0.7\linewidth]{Italy_model_confidence.pdf}
 		\caption{Fitting model to data, Italy}
 		\label{fig-fitness-1A}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{India_model_confidence.pdf}
+		\includegraphics[width=0.7\linewidth]{India_model_confidence.pdf}
 		\caption{Fitting model to data, India}
 		\label{fig-fitness-1B}
 	\end{subfigure}

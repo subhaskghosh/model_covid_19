@@ -170,7 +170,7 @@
 \newblock \bibinfo{journal}{\bibinfo{title}{Report 9: Impact of
   non-pharmaceutical interventions (npis) to reduce covid-19 mortality and
   healthcare demand}}.
-\newblock  \doiprefix\url{10.25561/77482} (\bibinfo{year}{2020}).
+\newblock \doiprefix\url{10.25561/77482} (\bibinfo{year}{2020}).
 
 \bibitem{Lauer2020.02.02.20020016}
 \bibinfo{author}{Lauer, S.~A.} \emph{et~al.}
@@ -187,6 +187,17 @@
 \newblock {\emph{\JournalTitle{{MMWR}. Morbidity and Mortality Weekly Report}}}
   \textbf{\bibinfo{volume}{69}}, \bibinfo{pages}{347--352},
   \doiprefix\url{10.15585/mmwr.mm6912e3} (\bibinfo{year}{2020}).
+
+\bibitem{Modi2020.04.15.20067074}
+\bibinfo{author}{Modi, C.}, \bibinfo{author}{Boehm, V.},
+  \bibinfo{author}{Ferraro, S.}, \bibinfo{author}{Stein, G.} \&
+  \bibinfo{author}{Seljak, U.}
+\newblock \bibinfo{journal}{\bibinfo{title}{How deadly is covid-19? a rigorous
+  analysis of excess mortality and age-dependent fatality rates in italy}}.
+\newblock {\emph{\JournalTitle{medRxiv}}}
+  \doiprefix\url{10.1101/2020.04.15.20067074} (\bibinfo{year}{2020}).
+\newblock
+  \eprint{https://www.medrxiv.org/content/early/2020/05/14/2020.04.15.20067074.full.pdf}.
 
 \bibitem{Diekmann1990}
 \bibinfo{author}{Diekmann, O.}, \bibinfo{author}{Heesterbeek, J. A.~P.} \&
