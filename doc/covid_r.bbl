@@ -86,6 +86,148 @@
   \textbf{\bibinfo{volume}{26}}, \bibinfo{pages}{855--860},
   \doiprefix\url{10.1038/s41591-020-0883-7} (\bibinfo{year}{2020}).
 
+\bibitem{KUCHARSKI2020553}
+\bibinfo{author}{Kucharski, A.~J.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Early dynamics of transmission and
+  control of covid-19: a mathematical modelling study}}.
+\newblock {\emph{\JournalTitle{The Lancet Infectious Diseases}}}
+  \textbf{\bibinfo{volume}{20}}, \bibinfo{pages}{553--558},
+  \doiprefix\url{https://doi.org/10.1016/S1473-3099(20)30144-4}
+  (\bibinfo{year}{2020}).
+
+\bibitem{refId0}
+\bibinfo{author}{{Kocha\'{}nczyk, Marek}}, \bibinfo{author}{{Grabowski,
+  Frederic}} \& \bibinfo{author}{{Lipniacki, Tomasz}}.
+\newblock \bibinfo{journal}{\bibinfo{title}{Dynamics of covid-19 pandemic at
+  constant and time-dependent contact rates}}.
+\newblock {\emph{\JournalTitle{Math. Model. Nat. Phenom.}}}
+  \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{28},
+  \doiprefix\url{10.1051/mmnp/2020011} (\bibinfo{year}{2020}).
+
+\bibitem{ACUNAZEGARRA2020108370}
+\bibinfo{author}{Acuña-Zegarra, M.~A.}, \bibinfo{author}{Santana-Cibrian, M.}
+  \& \bibinfo{author}{Velasco-Hernandez, J.~X.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Modeling behavioral change and
+  covid-19 containment in mexico: A trade-off between lockdown and
+  compliance}}.
+\newblock {\emph{\JournalTitle{Mathematical Biosciences}}}
+  \textbf{\bibinfo{volume}{325}}, \bibinfo{pages}{108370},
+  \doiprefix\url{https://doi.org/10.1016/j.mbs.2020.108370}
+  (\bibinfo{year}{2020}).
+
+\bibitem{XIANG2021324}
+\bibinfo{author}{Xiang, Y.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Covid-19 epidemic prediction and
+  the impact of public health interventions: A review of covid-19 epidemic
+  models}}.
+\newblock {\emph{\JournalTitle{Infectious Disease Modelling}}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{324--342},
+  \doiprefix\url{https://doi.org/10.1016/j.idm.2021.01.001}
+  (\bibinfo{year}{2021}).
+
+\bibitem{EIKENBERRY2020293}
+\bibinfo{author}{Eikenberry, S.~E.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{To mask or not to mask: Modeling
+  the potential for face mask use by the general public to curtail the covid-19
+  pandemic}}.
+\newblock {\emph{\JournalTitle{Infectious Disease Modelling}}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{293--308},
+  \doiprefix\url{https://doi.org/10.1016/j.idm.2020.04.001}
+  (\bibinfo{year}{2020}).
+
+\bibitem{YYL2021}
+\bibinfo{author}{Yang, C.}, \bibinfo{author}{Yang, Y.} \& \bibinfo{author}{Li,
+  Y.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Assessing vaccination priorities
+  for different ages and age-specific vaccination strategies of covid-19 using
+  an seir modelling approach}}.
+\newblock {\emph{\JournalTitle{PLOS ONE}}} \textbf{\bibinfo{volume}{16}},
+  \bibinfo{pages}{1--17}, \doiprefix\url{10.1371/journal.pone.0261236}
+  (\bibinfo{year}{2021}).
+
+\bibitem{Ghosh2020}
+\bibinfo{author}{Ghosh, S.~K.} \& \bibinfo{author}{Ghosh, S.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Covid-19: Risks of re-emergence,
+  re-infection, and control measures {\textendash} a long term modeling
+  study}}.
+\newblock {\emph{\JournalTitle{medRxiv}}}
+  \doiprefix\url{10.1101/2020.09.19.20198051} (\bibinfo{year}{2020}).
+\newblock
+  \eprint{https://www.medrxiv.org/content/early/2020/09/22/2020.09.19.20198051.full.pdf}.
+
+\bibitem{ANGGRIANI2022113}
+\bibinfo{author}{Anggriani, N.}, \bibinfo{author}{Ndii, M.~Z.},
+  \bibinfo{author}{Amelia, R.}, \bibinfo{author}{Suryaningrat, W.} \&
+  \bibinfo{author}{Pratama, M. A.~A.}
+\newblock \bibinfo{journal}{\bibinfo{title}{A mathematical covid-19 model
+  considering asymptomatic and symptomatic classes with waning immunity}}.
+\newblock {\emph{\JournalTitle{Alexandria Engineering Journal}}}
+  \textbf{\bibinfo{volume}{61}}, \bibinfo{pages}{113--124},
+  \doiprefix\url{https://doi.org/10.1016/j.aej.2021.04.104}
+  (\bibinfo{year}{2022}).
+
+\bibitem{NARAIGH2020108496}
+\bibinfo{author}{N\'{}araigh, L.~O.} \& \bibinfo{author}{Byrne, A.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Piecewise-constant optimal control
+  strategies for controlling the outbreak of covid-19 in the irish
+  population}}.
+\newblock {\emph{\JournalTitle{Mathematical Biosciences}}}
+  \textbf{\bibinfo{volume}{330}}, \bibinfo{pages}{108496},
+  \doiprefix\url{https://doi.org/10.1016/j.mbs.2020.108496}
+  (\bibinfo{year}{2020}).
+
+\bibitem{abk3445}
+\bibinfo{author}{Maher, M.~C.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Predicting the mutational drivers
+  of future sars-cov-2 variants of concern}}.
+\newblock {\emph{\JournalTitle{Science Translational Medicine}}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{eabk3445},
+  \doiprefix\url{10.1126/scitranslmed.abk3445} (\bibinfo{year}{2022}).
+\newblock
+  \eprint{https://www.science.org/doi/pdf/10.1126/scitranslmed.abk3445}.
+
+\bibitem{Dutta2022}
+\bibinfo{author}{Dutta, A.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Covid-19 waves: variant dynamics
+  and control}}.
+\newblock {\emph{\JournalTitle{Scientific Reports}}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{9332},
+  \doiprefix\url{10.1038/s41598-022-13371-2} (\bibinfo{year}{2022}).
+
+\bibitem{Rella21}
+\bibinfo{author}{Rella, S.~A.}, \bibinfo{author}{Kulikova, Y.~A.},
+  \bibinfo{author}{Dermitzakis, E.~T.} \& \bibinfo{author}{Kondrashov, F.~A.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Rates of sars-cov-2 transmission
+  and vaccination impact the fate of vaccine-resistant strains}}.
+\newblock {\emph{\JournalTitle{Scientific Reports}}}
+  \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{15729},
+  \doiprefix\url{10.1038/s41598-021-95025-3} (\bibinfo{year}{2021}).
+
+\bibitem{Marquioni21}
+\bibinfo{author}{Marquioni, V.~M.} \& \bibinfo{author}{de~Aguiar, M. A.~M.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Modeling neutral viral mutations in
+  the spread of sars-cov-2 epidemics}}.
+\newblock {\emph{\JournalTitle{PLOS ONE}}} \textbf{\bibinfo{volume}{16}},
+  \bibinfo{pages}{1--18}, \doiprefix\url{10.1371/journal.pone.0255438}
+  (\bibinfo{year}{2021}).
+
+\bibitem{Schwarzendahl22}
+\bibinfo{author}{Schwarzendahl, F.~J.}, \bibinfo{author}{Grauer, J.},
+  \bibinfo{author}{Liebchen, B.} \& \bibinfo{author}{L{\"o}wen, H.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Mutation induced infection waves in
+  diseases like covid-19}}.
+\newblock {\emph{\JournalTitle{Scientific Reports}}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{9641},
+  \doiprefix\url{10.1038/s41598-022-13137-w} (\bibinfo{year}{2022}).
+
+\bibitem{Barnard22}
+\bibinfo{author}{Barnard, R.~C.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Modelling the medium-term dynamics
+  of sars-cov-2 transmission in england in the omicron era}}.
+\newblock {\emph{\JournalTitle{Nature Communications}}}
+  \textbf{\bibinfo{volume}{13}}, \bibinfo{pages}{4879},
+  \doiprefix\url{10.1038/s41467-022-32404-y} (\bibinfo{year}{2022}).
+
 \bibitem{Peng2020.02.16.20023465}
 \bibinfo{author}{Peng, L.}, \bibinfo{author}{Yang, W.}, \bibinfo{author}{Zhang,
   D.}, \bibinfo{author}{Zhuge, C.} \& \bibinfo{author}{Hong, L.}
@@ -105,15 +247,34 @@
   \doiprefix\url{https://doi.org/10.1016/j.idm.2020.02.001}
   (\bibinfo{year}{2020}).
 
-\bibitem{EIKENBERRY2020293}
-\bibinfo{author}{Eikenberry, S.~E.} \emph{et~al.}
-\newblock \bibinfo{journal}{\bibinfo{title}{To mask or not to mask: Modeling
-  the potential for face mask use by the general public to curtail the covid-19
-  pandemic}}.
-\newblock {\emph{\JournalTitle{Infectious Disease Modelling}}}
-  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{293 -- 308},
-  \doiprefix\url{https://doi.org/10.1016/j.idm.2020.04.001}
-  (\bibinfo{year}{2020}).
+\bibitem{Anggriani_2013}
+\bibinfo{author}{Anggriani, N.}, \bibinfo{author}{Supriatna, A.~K.} \&
+  \bibinfo{author}{Soewono, E.}
+\newblock \bibinfo{journal}{\bibinfo{title}{A critical protection level derived
+  from dengue infection mathematical model considering asymptomatic and
+  symptomatic classes}}.
+\newblock {\emph{\JournalTitle{Journal of Physics: Conference Series}}}
+  \textbf{\bibinfo{volume}{423}}, \bibinfo{pages}{012056},
+  \doiprefix\url{10.1088/1742-6596/423/1/012056} (\bibinfo{year}{2013}).
+
+\bibitem{PANS2019716118}
+\bibinfo{author}{Subramanian, R.}, \bibinfo{author}{He, Q.} \&
+  \bibinfo{author}{Pascual, M.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Quantifying asymptomatic infection
+  and transmission of covid-19 in new york city using observed cases, serology,
+  and testing capacity}}.
+\newblock {\emph{\JournalTitle{Proceedings of the National Academy of
+  Sciences}}} \textbf{\bibinfo{volume}{118}}, \bibinfo{pages}{e2019716118},
+  \doiprefix\url{10.1073/pnas.2019716118} (\bibinfo{year}{2021}).
+\newblock \eprint{https://www.pnas.org/doi/pdf/10.1073/pnas.2019716118}.
+
+\bibitem{Layton22}
+\bibinfo{author}{Layton, A.~T.} \& \bibinfo{author}{Sadria, M.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Understanding the dynamics of
+  sars-cov-2 variants of concern in ontario, canada: a modeling study}}.
+\newblock {\emph{\JournalTitle{Scientific Reports}}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{2114},
+  \doiprefix\url{10.1038/s41598-022-06159-x} (\bibinfo{year}{2022}).
 
 \bibitem{Chhabra2020.07.10.20150631}
 \bibinfo{author}{Chhabra, M.} \& \bibinfo{author}{Agrawal, T.}
@@ -133,7 +294,7 @@
   (\bibinfo{year}{2020}).
 
 \bibitem{Saul2020}
-\bibinfo{author}{Saul, A.} \emph{et~al.}
+\bibinfo{author}{A, S.} \emph{et~al.}
 \newblock \bibinfo{journal}{\bibinfo{title}{Victoria’s response to a
   resurgence of covid-19 has averted 9,000-37,000 cases in july 2020}}.
 \newblock {\emph{\JournalTitle{Med J Aust}}}  (\bibinfo{year}{2020}).
@@ -166,11 +327,10 @@
   \eprint{https://science.sciencemag.org/content/368/6490/489.full.pdf}.
 
 \bibitem{Ferguson2020}
-\bibinfo{author}{Ferguson, N.} \emph{et~al.}
-\newblock \bibinfo{journal}{\bibinfo{title}{Report 9: Impact of
-  non-pharmaceutical interventions (npis) to reduce covid-19 mortality and
-  healthcare demand}}.
-\newblock \doiprefix\url{10.25561/77482} (\bibinfo{year}{2020}).
+\bibinfo{author}{N~Ferguson, D.~L.} \& \bibinfo{author}{et~al., G. N.~G.}
+\newblock \bibinfo{title}{Report 9: Impact of non-pharmaceutical interventions
+  (npis) to reduce covid19 mortality and healthcare demand},
+  \doiprefix\url{10.25561/77482} (\bibinfo{year}{2020}).
 
 \bibitem{Lauer2020.02.02.20020016}
 \bibinfo{author}{Lauer, S.~A.} \emph{et~al.}
@@ -189,7 +349,7 @@
   \doiprefix\url{10.15585/mmwr.mm6912e3} (\bibinfo{year}{2020}).
 
 \bibitem{Modi2020.04.15.20067074}
-\bibinfo{author}{Modi, C.}, \bibinfo{author}{Boehm, V.},
+\bibinfo{author}{Modi, C.}, \bibinfo{author}{B{\"o}hm, V.},
   \bibinfo{author}{Ferraro, S.}, \bibinfo{author}{Stein, G.} \&
   \bibinfo{author}{Seljak, U.}
 \newblock \bibinfo{journal}{\bibinfo{title}{How deadly is covid-19? a rigorous
@@ -251,5 +411,22 @@
 \newblock \bibinfo{title}{Lmfit: Non-linear least-square minimization and
   curve-fitting for python}, \doiprefix\url{10.5281/ZENODO.11813}
   (\bibinfo{year}{2014}).
+
+\bibitem{Marino2008}
+\bibinfo{author}{Marino, S.}, \bibinfo{author}{Hogue, I.},
+  \bibinfo{author}{Ray, C.} \& \bibinfo{author}{Kirschner, D.}
+\newblock \bibinfo{journal}{\bibinfo{title}{A methodology for performing global
+  uncertainty and sensitivity analysis in systems biology}}.
+\newblock {\emph{\JournalTitle{Journal of Theoretical Biology}}}
+  \textbf{\bibinfo{volume}{254}}, \bibinfo{pages}{178--196},
+  \doiprefix\url{10.1016/j.jtbi.2008.04.011} (\bibinfo{year}{2008}).
+
+\bibitem{Harvey2021}
+\bibinfo{author}{Harvey, W.~T.} \emph{et~al.}
+\newblock \bibinfo{journal}{\bibinfo{title}{Sars-cov-2 variants, spike
+  mutations and immune escape}}.
+\newblock {\emph{\JournalTitle{Nature Reviews Microbiology}}}
+  \textbf{\bibinfo{volume}{19}}, \bibinfo{pages}{409--424},
+  \doiprefix\url{10.1038/s41579-021-00573-0} (\bibinfo{year}{2021}).
 
 \end{thebibliography}

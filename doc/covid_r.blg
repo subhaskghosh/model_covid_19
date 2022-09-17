@@ -1,53 +1,53 @@
-This is BibTeX, Version 0.99d (TeX Live 2020)
+This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: covid_r.aux
 The style file: naturemag-doi.bst
 Database file #1: covid_m.bib
-Repeated entry---line 410 of file covid_m.bib
- : @article{Long2020
- :                  ,
+Warning--entry type for "Ferguson2020" isn't style-file defined
+--line 145 of file covid_m.bib
+Repeated entry---line 744 of file covid_m.bib
+ : @article{ANGGRIANI2022113
+ :                          ,
 I'm skipping whatever remains of this entry
-`journal' is a missing field, not a string, for entry Ferguson2020
-while executing---line 1558 of file naturemag-doi.bst
-You've used 28 entries,
+You've used 47 entries,
             2380 wiz_defined-function locations,
-            1222 strings with 20846 characters,
-and the built_in function-call counts, 10351 in all, are:
-= -- 710
-> -- 288
+            1388 strings with 28190 characters,
+and the built_in function-call counts, 17842 in all, are:
+= -- 1215
+> -- 492
 < -- 0
-+ -- 144
-- -- 72
-* -- 1330
-:= -- 1184
-add.period$ -- 90
-call.type$ -- 28
-change.case$ -- 28
++ -- 246
+- -- 123
+* -- 2354
+:= -- 2013
+add.period$ -- 149
+call.type$ -- 47
+change.case$ -- 47
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 925
-empty$ -- 935
-format.name$ -- 99
-if$ -- 2049
+cite$ -- 47
+duplicate$ -- 1589
+empty$ -- 1606
+format.name$ -- 168
+if$ -- 3522
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 217
-newline$ -- 156
-num.names$ -- 28
-pop$ -- 166
+int.to.str$ -- 47
+missing$ -- 379
+newline$ -- 253
+num.names$ -- 47
+pop$ -- 255
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 159
+skip$ -- 269
 stack$ -- 0
-substring$ -- 376
-swap$ -- 892
+substring$ -- 687
+swap$ -- 1579
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 48
-width$ -- 30
-write$ -- 340
-(There were 2 error messages)
+while$ -- 87
+width$ -- 49
+write$ -- 571
+(There was 1 error message)

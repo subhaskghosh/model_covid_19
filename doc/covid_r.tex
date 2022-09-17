@@ -1,4 +1,4 @@
-\documentclass[fleqn,10pt]{wlscirep}
+\documentclass[10pt]{wlscirep}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{subcaption}
@@ -18,39 +18,38 @@
 \usepackage{tikz}
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt  
 
-\title{COVID-19: Risks of Re-emergence, Re-infection, and Control Measures -- A Long Term Modeling Study}
+\title{A Mathematical Model for COVID-19 Considering Waning Immunity, Vaccination and Control Measures}
 
 \author[1,a]{Subhas Kumar Ghosh}
 \author[2]{Sachchit Ghosh}
 
-\affil[1]{Commonwealth Bank of Australia, Sydney, New South Wales, 2000, Australia}
+\affil[1]{National Australia Bank, Sydney, New South Wales, 2000, Australia}
 \affil[2]{The University of Sydney, Camperdown, NSW 2006, Australia}
-\affil[a]{subhas.ghosh@cba.com.au}
+\affil[a]{subhas.ghosh@nab.com.au}
 
 \keywords{COVID-19, SARS-CoV-2, Mathematical modeling, Epidemic, Intervention, Vaccination}
 
 \begin{abstract}
-		In this work we define a modified SEIR model that accounts for the spread of infection during the latent period, infections from asymptomatic or pauci-symptomatic infected individuals, potential loss of acquired immunity, people’s increasing awareness of social distancing and the use of vaccination as well as non-pharmaceutical interventions like social confinement. We estimate model parameters in three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. Our result shows the benefit of long term confinement of 50\% or above population and extensive testing. With respect to loss of acquired immunity, our model suggests higher impact for Italy. We also show that a reasonably effective vaccine with mass vaccination program  can be successful in significantly controlling the size of infected population. We show that for India, a reduction in contact rate by 50\% compared to a reduction of 10\% in the current stage can reduce death from 0.0268\% to 0.0141\% of population. Similarly, for Italy we show that reducing contact rate by half can reduce a potential peak infection of 15\% population to less than 1.5\% of population, and potential deaths from 0.48\% to 0.04\%. With respect to vaccination, we show that even a 75\% efficient vaccine administered to 50\% population can reduce the peak number of infected population by nearly 50\% in Italy. Similarly, for India, a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
+		In this work we define a modified SEIR model that accounts for the spread of infection during the latent period, infections from asymptomatic or pauci-symptomatic infected individuals, potential loss of acquired immunity, people’s increasing awareness of social distancing and the use of vaccination as well as non-pharmaceutical interventions like social confinement. We estimate model parameters in three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. Our result shows the benefit of long term confinement of 50\% or above population and extensive testing. With respect to loss of acquired immunity, our model suggests higher impact for Italy. We also show that a reasonably effective vaccine with mass vaccination program  are successful measures in significantly controlling the size of infected population. We show that for population a dynamics in a country like India, a reduction in contact rate by 50\% compared to a reduction of 10\% reduces death from 0.0268\% to 0.0141\% of population. Similarly, for a country like Italy we show that reducing contact rate by half can reduce a potential peak infection of 15\% population to less than 1.5\% of population, and potential deaths from 0.48\% to 0.04\%. With respect to vaccination, we show that even a 75\% efficient vaccine administered to 50\% population can reduce the peak number of infected population by nearly 50\% in Italy. Similarly, for India, a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
 \end{abstract}
 
 \begin{document}
-	\flushbottom
-	\maketitle
-	% * <john.hammersley@gmail.com> 2015-02-09T12:07:31.197Z:
-	%
-	%  Click the title above to edit the author information and abstract
-	%
-	\thispagestyle{empty}
+	
+\flushbottom
+\maketitle
+\thispagestyle{empty}
 
 \section*{Introduction}
 \label{SEC1}
-In December 2019, an outbreak occurred in Wuhan, China involving a zoonotic coronavirus, similar to the SARS coronavirus and MERS coronavirus  \cite{taaa021}. Subsequently, the virus has been named Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2), and the disease caused by the virus has been named the coronavirus disease 2019 (COVID-19). Since then the ongoing pandemic has infected more than 30 million people and has caused more than 900 thousand deaths worldwide.
+In December 2019, an outbreak occurred in Wuhan, China involving a zoonotic coronavirus, similar to the SARS coronavirus and MERS coronavirus  \cite{taaa021}. Subsequently, the virus has been named Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2), and the disease caused by the virus has been named the coronavirus disease 2019 (COVID-19). Since then the ongoing pandemic has seen emergence and spread of the Alpha B.1.1.7, Beta B.1.351, Gamma P.1, Delta B.1.617.2, and Omicron B.1.1.529, BA.1, BA.1.1, BA.2, BA.3, BA.4 and BA.5 VOCs as waves of infection with varied infectivity and so far the pandemic has infected more than 600 million people and has caused more than 6 million deaths worldwide.
 
 Patients with SARS-CoV-2 infections have mild to severe respiratory illness with symptoms such as fever, cough and shortness of breath. For majority of the patients, these symptoms appear 2–14 days after exposure, and for majority the symptoms are not life threatening. However, it has been reported that there are patients who are diagnosed by a positive RT–PCR test but are either asymptomatic or minimally symptomatic \cite{pmid32146694,pmid32179137,pmid32083643,Kenji2020,Long2020}. There are reasonable evidence to consider that such asymptomatic or minimally symptomatic individuals have longer duration of viral shedding than the symptomatic individuals and can spread the virus to susceptible group\cite{Long2020}.  Hence, it is possible that the spread of SARS-CoV-2 is much higher and such undetermined transmission has been playing an important role in sustaining the community spread. 
 
-Mathematical Modeling plays an important role in understanding the trajectory of epidemic and design effective control measures under set of assumptions \cite{539a5e40c4cf4e6a8dc8035b3930c45d,doi:10.1098/rspb.2004.2800,Giordano2020}. Here, we propose a new deterministic compartmental model for the COVID-19 epidemic that extends the classical SEIR (susceptible, exposed, infectious, recovered) model. We define the model and its parameters to address three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. In our model we also consider long term scenarios including re-emergence, re-infection, and control measures like mass vaccination program. Other than simulating these scenarios, another important distinction of our model is that we use parametric functions for contact rate, testing and vaccination.
+Mathematical modelling plays an important role in understanding the trajectory of epidemic and design effective control measures under set of assumptions \cite{539a5e40c4cf4e6a8dc8035b3930c45d,doi:10.1098/rspb.2004.2800,Giordano2020}. Here, we propose a new deterministic compartmental model for the COVID-19 epidemic that extends the classical SEIR (susceptible, exposed, infectious, recovered) model. We define the model and its parameters to address three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. In our model we also consider long term scenarios including re-emergence, re-infection, and control measures like mass vaccination program. Other than simulating these scenarios, another important distinction of our model is that we use parametric functions for contact rate, testing and vaccination.
 
-We use a deterministic compartmental model that is an extension of the SEIR model \cite{Peng2020.02.16.20023465,doi:10.1098/rspb.2004.2800} in which we include current experience with SARS-CoV-2. We partition the total population into susceptible individuals ($S(t)$), exposed individuals ($E(t)$), Asymptomatic, undetected and infected individuals ($A(t)$), Symptomatic, undetected, and infected individuals ($I(t)$), Asymptomatic, diagnosed and infected individuals ($Q(t)$), Symptomatic, diagnosed, and infected individuals ($H(t)$), individuals with acute symptoms and in critical care ($C(t)$), and recovered ($R(t)$) and deceased ($D(t)$), see Figure \ref{fig1}.
+Compartmental models that involve non-linear dynamical systems based on some combination of susceptible/S, infected/I, recovered/R together with some additional compartments have been utilized to predict the initial evolution of this pandemic \cite{Giordano2020, KUCHARSKI2020553, refId0, ACUNAZEGARRA2020108370, XIANG2021324, ACUNAZEGARRA2020108370}. Earlier models also include questions on effectiveness of using masks in public \cite{EIKENBERRY2020293}. With the progress on efficacious vaccines being developed by late 2020, these models needed to include the vaccination rates, its effectiveness and possibility of waning immunity acquired from infection or vaccination\cite{YYL2021}. In an earlier version of this work \cite{Ghosh2020} we have considered vaccination rates, its effectiveness and possibility of waning immunity. Waning immunity was modelled considering asymptomatic and symptomatic compartments \cite{ANGGRIANI2022113}. Optimal control based strategies in minimizing number of infections over a time horizon has been considered including economic aspects \cite{NARAIGH2020108496}. Since early 2021, it became  important to model and understand emergence of increasingly contagious mutations to design effective mitigation policy\cite{abk3445}. Non-linear coupled dynamical system is introduced in \cite{Dutta2022}. To understand probability of emergence and establishment of a vaccine-resistant strain an extended SIR model with initial stochastic dynamics was presented \cite{Rella21}, where every individual infected with a strain there is a small probability that a vaccine-resistant strain emerges in that individual. An alternative model using mutation probability of nucleotides was presented in \cite{Marquioni21}. A model with continuous emergence of new strains with a rate that is dependent on number of infected individuals was presented \cite{Schwarzendahl22}.  Emergence and spread of the Alpha B.1.1.7, Delta B.1.617.2, and Omicron B.1.1.529 VOCs including cross infection across age restricted compartmental model was presented in \cite{Barnard22}.
+
+In this work, we use a deterministic compartmental model that is an extension of the SEIR model \cite{Peng2020.02.16.20023465,doi:10.1098/rspb.2004.2800} in which we include current experience with SARS-CoV-2. We partition the total population into susceptible individuals ($S(t)$), exposed individuals ($E(t)$), Asymptomatic, undetected and infected individuals ($A(t)$), Symptomatic, undetected, and infected individuals ($I(t)$), Asymptomatic, diagnosed and infected individuals ($Q(t)$), Symptomatic, diagnosed, and infected individuals ($H(t)$), individuals with acute symptoms and in critical care ($C(t)$), and recovered ($R(t)$) and deceased ($D(t)$), see Figure \ref{fig1}.
 
 \begin{figure*}
 	\centering
@@ -194,7 +193,7 @@ We use a deterministic compartmental model that is an extension of the SEIR mode
 	\label{fig1} 
 \end{figure*}
 
-The transmission dynamics of COVID-19 in the basic model is given by the following deterministic system of nonlinear differential equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}):
+The transmission dynamics of COVID-19 in the basic model is given by the following deterministic system of non-linear differential equations (\ref{eqn:base-model-1})-(\ref{eqn:base-model-10}):
 %%
 \begin{equation}
 \frac{dE}{dt} = \beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - \sigma E, 
@@ -274,7 +273,7 @@ We would like to note that in certain countries, stringency measures were in pla
 We assume that the asymptomatic individuals infect with a lower contact rate ($\kappa < 1$) than the symptomatic individuals. Once someone symptomatic is diagnosed, they can only infect healthcare workers and this lower contact rate is captured by the parameter ($\rho < 1$). Similarly, quarantined individuals have much lower contact rate of ($\omega < 1$). Overall rate of change for the susceptible population is thus defined by equation (\ref{eqn:base-model-9}).
 
 \subsubsection*{Exposed individuals: $E(t)$}
-Individuals in compartment $E$, are exposed to the virus, and are not contagious during a period of latent time. An individual in $E$ becomes infectious, and moves to compartment $A$ as asymptomatic or to $I$ as symptomatic. We assume that $\sigma$ is the transition rate from exposed to infectious, and a fraction $\alpha$ of them show symptoms. Overall rate of change for the exposed population is thus defined by equation (\ref{eqn:base-model-1}).
+Individuals in compartment $E$, are exposed to the virus, and are not contagious during a period of latent time. An individual in $E$ becomes infectious, and moves to compartment $A$ as asymptomatic or to $I$ as symptomatic. We assume that $\sigma$ is the transition rate from exposed to infectious, and a fraction $\alpha$ of them show symptoms.  It is important to note that following ideas from other extended SEIR model e.g. \cite{Anggriani_2013, EIKENBERRY2020293, ANGGRIANI2022113,PANS2019716118,Layton22} we have extended standard SEIR model to include symptomatic and asymptomatic classes, and the fact the in SARS-CoV-2, it has been observed that asymptomatic classes can infect susceptible individuals\cite{PANS2019716118}. Overall rate of change for the exposed population is thus defined by equation (\ref{eqn:base-model-1}).
 
 \subsubsection*{Symptomatic individuals: $I(t)$}
 Symptomatic individuals can get diagnosed ($\theta$) and be isolated, or show acute symptoms and be hospitalized ($\lambda$), or can recover at the rate $\eta$. It has been observed that $\eta \geq \gamma$, where symptomatic individuals recover at faster rate than asymptomatic individuals, and asymptomatic individuals have longer duration of viral shedding \cite{Long2020}. Overall rate of change is given by equation (\ref{eqn:base-model-2}).
@@ -308,7 +307,7 @@ These counters collect information on population that are critical, recovered or
 \section*{Results}
 \label{SEC2}
 \subsection*{Italy}
-For the COVID-19 epidemic in Italy, we estimate the model parameters based on data from 24th February 2020 (day 1) to 27th August 2020 (day 186) and show the effects of social confinement that is in effect since 9 March 2020, in controlling the spread of the epidemic, and subsequently easing the restriction from 4th May 2020 has again increased contact rate leading to re-emergence. We also model possible longer-term scenarios illustrating the effects of different countermeasures, including social distancing, population-wide testing, vaccination to contain SARS-CoV-2, as well as possible effects of re-infection and loss of immunity.
+For the COVID-19 epidemic in Italy, we estimate the model parameters based on data from 24th February 2020 (day 1) to 5th March 2022 (day 740) and show the effects of social confinement that is in effect since 9 March 2020, in controlling the spread of the epidemic, and subsequently easing the restriction from 4th May 2020 has again increased contact rate leading to re-emergence. We also model possible longer-term scenarios illustrating the effects of different countermeasures, including social distancing, population-wide testing, vaccination to contain SARS-CoV-2, as well as possible effects of re-infection and loss of immunity.
 %
 %
 \begin{figure*}[t!]
@@ -322,7 +321,7 @@ For the COVID-19 epidemic in Italy, we estimate the model parameters based on da
 \end{figure*}
 %
 
-Model simulation compared to real data is shown in Figure \ref{fig2A}. We have estimated $R_0$ according to equation (\ref*{eqn:Rnot}). In our estimate $R_0 = 4.09$ in the beginning and then reduces to $0.779$ after 45 days, and to $0.18$ after 90 days. Subsequently, after 110 days it starts increasing and reaches a value $1.67$ on day 186.
+Model simulation compared to real data is shown in Figure \ref{fig2A}. We have estimated $R_0$ according to equation (\ref*{eqn:Rnot}). In our estimate $R_0 = 4.09$ in the beginning and then reduces to $0.779$ after 45 days, and to $0.18$ after $90$ days. Subsequently, after $110$ days it starts increasing and reaches a value $1.67$ on day $186$.
 %
 \begin{figure*}[t!]
 	\centering
@@ -361,46 +360,11 @@ Subsequently, we also consider the effects of testing and rate of detection of l
 	\label{fig3B} 
 \end{figure*}
 %
-As described by extended model in equation - (\ref{eqn:loss_immunity-model-8}) and (\ref{eqn:loss_immunity-model-9}), we consider the possibility of losing acquired immunity over time and having a reinfection, we use parameter $\chi(t)$ to capture this. In our simulation we consider that $\chi$ varies from $1/250$ to $1/50$. This can be thought as number of days to lose immunity and hence corresponds to $250$ days to $50$ days. As expected, the simulation shows that if loss of immunity occurs within 3 months, there is a significant chance of subsequent waves of epidemic.  
 
-%
-\begin{figure*}[t!]
-	\centering
-	\begin{subfigure}[b]{\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{Italy_scenario_reinfection.pdf}
-	\end{subfigure}
-	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $250, 200, 150, 100$ and $50$ days (Italy). Note that not all panels are in the same scale.}
-	\label{fig4} 
-\end{figure*}
-%
-
-Finally, we simulate mass vaccination scenarios (see Figure \ref{fig5A} and Figure \ref{fig5B}) according to equation (\ref{eqn:vaccination-model-1}), (\ref{eqn:vaccination-model-2}), (\ref{eqn:vaccination-model-3}), (\ref{eqn:vaccination-model-5}) and (\ref{eqn:vaccination-model-10}). We assume that vaccine is available after 90 days from 27th August 2020. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) and $\xi_{\max} = 0.5$ and $\xi_{\max} = 0.9$. It can be concluded that even a 75\% efficient vaccine can be significantly effective in reducing the impact.
-
-\begin{figure*}[t!]
-	\centering
-	\begin{subfigure}[b]{\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.5.pdf}
-	\end{subfigure}
-	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.5$, i.e. maximum of 50\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
-	\label{fig5A} 
-\end{figure*}
-
-\begin{figure*}[t!]
-	\centering
-	\begin{subfigure}[b]{\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.8.pdf}
-	\end{subfigure}
-	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.9$. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
-	\label{fig5B} 
-\end{figure*}
-%
 \subsection*{India}
 India had one of the most strict stay home order across the country in first phase of the lock-down between 25 March 2020 – 14 April 2020 (21 days), where an entire population of 1.3 billion people was put under restricted movement. Overall the lock-down had multiple phases, second phase was from 15th of April 2020 to 3rd of May 2020, and third phase was 4th of May to 17th of May, 2020.
 
-We use data from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). We use data from 2nd March 2020 (Day 1) to 16th September 2020 (Day 198). Figure \ref{fig6A} compares the fitted model with actual data. Based on our estimate, initial value of $R_0$ was $1.762$, which reduces to $1.68$ after a month when lockdown as in place. At the end of lockdown phases it is about $1.5$, and finally after 194 days it reaches $1.03$. These values are comparable with findings in \cite{Chhabra2020.07.10.20150631,MARIMUTHU2020}.
+We use data from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). We use data from 9nd March 2020 (Day 1) to 4th August 2021 (Day 514). Figure \ref{fig6A} compares the fitted model with actual data. From August 2021 onwards  recovery data is not available and hence we could not compare the model with actual number of currently active cases  to which we fit our model for parameter estimation. Based on our estimate, initial value of $R_0$ was $1.762$, which reduces to $1.68$ after a month when lockdown as in place. At the end of lockdown phases it is about $1.5$, and finally after 194 days it reaches $1.03$. These values are comparable with findings in \cite{Chhabra2020.07.10.20150631,MARIMUTHU2020}.
 
 \begin{figure*}[t!]
 	\centering
@@ -412,7 +376,7 @@ We use data from Johns Hopkins University Center for Systems Science and Enginee
 	\label{fig6A} 
 \end{figure*}
 
-We have simulated the long term evolution of the epidemic for India after estimating the parameters as shown in Figure \ref{fig6B}. Simulation suggests that peak in India will be reached around 275 days from 2nd March 2020 with about 2.6\% population getting infected. 
+We have simulated the long term evolution of the epidemic for India after estimating the parameters as shown in Figure \ref{fig6B}. Simulation suggested that peak in India for the first wave will be reached around 275 days from 2nd March 2020 with about 2.6\% population getting infected. 
 
 \begin{figure*}[t!]
 	\centering
@@ -446,45 +410,10 @@ Simulation studies on impact of reducing contact rate and testing is captured in
 	\label{fig7B} 
 \end{figure*}
 
-Figure \ref{fig8} show the simulation study loss of acquired immunity for scenario in India. We note that this model is not very sensitive to $\chi(t)$.  This is due to the size of the population and current state of the epidemic in India - reinfection within 2 months changes total number of infected population from 2.66\% to 2.98\%, while reinfection after 250 days changes this to 2.768\%.
 
-%
-\begin{figure*}[t!]
-	\centering
-	\begin{subfigure}[b]{\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{India_scenario_reinfection.pdf}
-	\end{subfigure}
-	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $250, 200, 150, 100$ and $50$ days (India). Note that not all panels are in the same scale.}
-	\label{fig8} 
-\end{figure*}
-
-Simulation studies for vaccination is presented in Figure \ref{fig9A} and Figure \ref{fig9B}. We assume that the vaccine is available from 90 days after 16th September 2020. Simulation suggests that a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
-%
-%
-\begin{figure*}[t!]
-	\centering
-	\begin{subfigure}[b]{\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.3.pdf}
-	\end{subfigure}
-	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.3$, i.e. maximum of 30\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
-	\label{fig9A} 
-\end{figure*}
-%
-%
-\begin{figure*}[t!]
-	\centering
-	\begin{subfigure}[b]{\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.7.pdf}
-	\end{subfigure}
-	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.7$, i.e. maximum of 70\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
-	\label{fig9B} 
-\end{figure*}
 
 \subsection*{Victoria, Australia}
-For Victoria, Australia we use data from 27 February, 2020 (day 1) to 9 September, 2020 (day 195). Consistent with other places Victoria had initial outbreak during March and April 2020 - which was effectively controlled.  Control measures were relaxed during June 2020 to revive economic activities.  Based on our estimate $R_0$ in Victoria was $2.72$ in the beginning of July.  A stricter confinement was placed in selected localities on 1 July 2020, which was extended to the whole of metropolitan Melbourne and Mitchell Shire on 8 July. Estimated by our model, $R_0$ was $2.86$ at that time. However, the restriction was effective to bring down $R_0$ to $1.13$ by 30, July, 2020. We note that our findings are similar to \cite{Saul2020}. In our estimate, current $R_0$ is well below $1$. 
+For Victoria, Australia we use data from 11th March, 2020 (day 1) to 13th January, 2022 (day 650). Consistent with other places Victoria had initial outbreak during March and April 2020 - which was effectively controlled.  Control measures were relaxed during June 2020 to revive economic activities.  Based on our estimate $R_0$ in Victoria was $2.72$ in the beginning of July.  A stricter confinement was placed in selected localities on 1 July 2020, which was extended to the whole of metropolitan Melbourne and Mitchell Shire on 8 July. Estimated by our model, $R_0$ was $2.86$ at that time. However, the restriction was effective to bring down $R_0$ to $1.13$ by 30, July, 2020. We note that our findings are similar to \cite{Saul2020}. 
 
 \begin{figure*}[t!]
 	\centering
@@ -512,7 +441,7 @@ For Victoria, Australia we use data from 27 February, 2020 (day 1) to 9 Septembe
 \label{SEC4}
 \subsection*{Baseline mathematical models}
 \subsubsection*{Baseline epidemiological parameters}
-In this section we describe the estimated values of various parameters based on the current literature. It has been noted in the literature that the clinical course of the disease is typically quite long. Average total duration of illness has been estimated to be three weeks in \cite{Zhou2020}. Parameter $\beta_0$ is strongly dependent on the population behavior. We select a default value that has been estimated in \cite{Shen2020.01.23.916726} for pre-lockdown period. Baseline values for various parameters are listed in the Table - \ref{Table1}.
+In this section we describe the estimated values of various parameters based on the current literature. It has been noted in the literature that the clinical course of the disease is typically quite long. Average total duration of illness has been estimated to be three weeks in \cite{Zhou2020}. Parameter $\beta_0$ is strongly dependent on the population behaviour. We select a default value that has been estimated in \cite{Shen2020.01.23.916726} for pre-lockdown period. Baseline values for various parameters are listed in the Table - \ref{Table1}.
 %
 %
 	\begin{table*}
@@ -621,6 +550,7 @@ and, $\mathcal{V}(X)$ capturing the movement between the compartments, with $\ma
 0
 \end{pmatrix}
 \end{split}
+\nonumber
 \label{eqn:baseline-compact-3A}
 \end{equation}
 %
@@ -671,6 +601,7 @@ D \mathcal{F}(X_0) =  \begin{pmatrix}
  0 & 0
   \end{pmatrix}
 \end{split}
+\nonumber
 \label{eqn:DFE-1}
 \end{equation}
 %
@@ -686,6 +617,7 @@ F = \begin{pmatrix}
 0 & 0 & 0 & 0 & 0\\
 0 & 0 & 0 & 0 & 0
   \end{pmatrix}
+\nonumber
   \label{eqn:DFE-2}
 \end{equation}
 %
@@ -726,6 +658,7 @@ V = \begin{pmatrix}
 0 & 0 & - \epsilon_0 & \left( \varphi + \mu\right)  & 0\\
 0 & -\theta & 0 & -\varphi & \left( \tau + \psi\right)
 \end{pmatrix}
+\nonumber
 \label{eqn:DFE-4}
 \end{equation}
 %
@@ -742,6 +675,7 @@ V^{-1} =
 - \frac{\alpha \epsilon - \epsilon}{r_{3} r_{4}} & 0 & \frac{\epsilon}{r_{3} r_{4}} & \frac{1}{r_{4}} & 0\\
 - \frac{\alpha \epsilon r_{1} \varphi + \alpha \nu r_{4} \theta - \alpha r_{3} r_{4} \theta - \epsilon r_{1} \varphi - \nu r_{4} \theta}{r_{1} r_{2} r_{3} r_{4}} & \frac{\theta}{r_{1} r_{2}} & \frac{\epsilon r_{1} \varphi + \nu r_{4} \theta}{r_{1} r_{2} r_{3} r_{4}} & \frac{\varphi}{r_{2} r_{4}} & \frac{1}{r_{2}}
 \end{pmatrix}
+\nonumber
 \label{eqn:DFE-5}
 \end{equation}
 %
@@ -768,7 +702,9 @@ When the epidemic is over, we will have the condition that $\bar{E}=\bar{I}=\bar
 The system of equation with susceptible population $\bar{S}$ is asymptotically stable if and only if
 \begin{equation}
 \bar{S} \leq \bar{S}^* = \frac{1}{R_0}
+\nonumber
 \end{equation}
+\label{PROPOSITION-1}
 \end{proposition}
 \begin{proof}
 The dynamical system matrix of the linearized system near a DFE is given by:
@@ -785,10 +721,12 @@ M =
 0 & \eta & \gamma & \mu & \psi & \zeta &0 & 0 &0 \\
 0 & -\beta_0 \bar{S}& -\kappa \beta_0 \bar{S}& -\omega \beta_0 \bar{S}& -\rho \beta_0 \bar{S}& 0 &0 & 0 &0
 \end{pmatrix}
+\nonumber
 \end{equation}
 Where $r_1 = \left( \eta + \theta + \lambda \right) $, $r_2 = \left( \tau + \psi \right) $, $r_3 = \left( \epsilon_0 + \nu + \gamma\right) $, $r_4 =  \left( \varphi + \mu\right)$. and $r_5=\left( \delta + \zeta\right)$. Using $\det(sI-M) = 0$, we have the characteristic polynomial of $M$ having following form:  $s^{3} \left(r_{5} + s\right) p(s)$. Hence, the matrix has three null eigenvalues, one eigenvalue of $-\left( \delta + \zeta\right)$, and five eigenvalues that are roots of the polynomial $p(s)$, where,
 \begin{equation}
 p(s) = D(s) - \bar{S}N(s)
+\nonumber
 \end{equation}
 %
 with, 
@@ -802,6 +740,7 @@ D(s) = \\
 & s \left(r_{1} r_{2} r_{3} r_{4} + r_{1} r_{2} r_{3} \sigma + r_{1} r_{2} r_{4} \sigma + r_{1} r_{3} r_{4} \sigma + r_{2} r_{3} r_{4} \sigma\right) +\\ 
 & r_{1} r_{2} r_{3} r_{4} \sigma 
 \end{split}
+\nonumber
 \end{equation}
 %
 and,
@@ -813,6 +752,7 @@ N(s) = \\
 & s \beta_0 \sigma (1-\alpha) (\epsilon ( \omega r_1+  \omega r_2 + \rho \varphi ) + \kappa (r_1r_2+r_1r_4+r_2r_4) + \nu (r_2+r_4+\rho \theta)) + \\
 & s \beta_0 \sigma \alpha (r_2r_3+r_2r_4+r_3r_4+r_3 \rho \theta + r_4 \rho \theta) + \sigma r_1 r_2 r_3 r_4 R_0
 \end{split}
+\nonumber
 \end{equation}
 %
 %
@@ -820,10 +760,10 @@ Defining $G(s) = N(s)/D(s)$, and noting that the system is positive, and hence $
 \end{proof}
 %
 %
-\subsubsection*{Fitting of the model for the COVID-19 outbreak: Italy and India}
-We consider three scenarios to fit and estimate parameters for our model. First, for Italy, where the epidemic was controlled and currently have a resurgence with increasing number of cases. Second, for India, which is observing significant number of cases in recent times. Third, for Victoria, Australia, where a second reemergence is controlled with strict intervention.
+\subsubsection*{Fitting of the model for the COVID-19 outbreak: Italy, India and Victoria}
+We consider three scenarios to fit and estimate parameters for our model. First, for Italy, where the epidemic was controlled and currently have a resurgence with increasing number of cases. Second, for India, which is observing significant number of cases in recent times. Third, for Victoria, Australia, where a second re-emergence is controlled with strict intervention.
 
-For Italy, we use data from the official source (the Department of Civil Protection - Presidency of the Council of Ministers) about the evolution of the epidemic in Italy from 2020-02-24 to 2020-08-27. We convert this data to fraction of population by taking total population data from The World Bank Group (about 60297396, in 2019). The estimated parameter values are based on the data about the number of currently infected individuals that can be observed and roughly corresponding to $\left( Q(t) + H(t) + C(t)\right) $, and the number of recovered individuals that can be observed and roughly corresponding to $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$. To avoid the pitfalls described by authors in \cite{doi:10.1098/rspb.2015.0347}, we do not fit the model to cumulative number of cases or cumulative number of deaths - however, we present them for comparison.
+For Italy, we use data from the official source (the Department of Civil Protection - Presidency of the Council of Ministers) about the evolution of the epidemic in Italy from 2020-02-24 to 2022-03-04 (first $740$ days). We convert this data to fraction of population by taking total population data from The World Bank Group (about 60297396, in 2019). The estimated parameter values are based on the data about the number of currently infected individuals that can be observed and roughly corresponding to $\left( Q(t) + H(t) + C(t)\right) $, and the number of recovered individuals that can be observed and roughly corresponding to $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$. To avoid the pitfalls described by authors in \cite{doi:10.1098/rspb.2015.0347}, we do not fit the model to cumulative number of cases or cumulative number of deaths - however, we present them for comparison.
 
 The ordinary differential equation (ODE) system was solved using LSODA \cite{doi:10.1137/0904010, HindmarshSep2005}. We use lmfit python package \cite{LMFIT} for non-linear least-squares and minimize of the sum of the squares of the errors using trust region reflective method and obtaining goodness of fit measure of $\chi^2= 5.3331e^{-07}$ for Italy. Confidence interval for the fit is shown in Figure \ref{fig-fitness-1A}. The problem to minimize error is shown in following equation for fitting parameter set $p$:
 %
@@ -833,33 +773,65 @@ The ordinary differential equation (ODE) system was solved using LSODA \cite{doi
 %
 where $y_i$ are observations and $f_i$ is the model output.
 
-For India (population 1366417754, in 2019), we use data from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). We use data from 2020-03-02 to 2020-09-16. The estimated parameter values are based on the data about the number of currently infected individuals that can be observed and roughly corresponding to $\left( Q(t) + H(t) + C(t)\right) $. In this case we obtain a goodness of fit measure of $\chi^2= 4.4811e^{-08}$ and confidence interval for the fit is shown in Figure \ref{fig-fitness-1B}. Parameters $\beta_0, \beta_{\min}, \beta_{new}, t_0, t_1, r, u, \epsilon_0, \epsilon_{\max}, t_2$ and $s$ have all been estimated from fitting the model to data. It is important to note that contact rat $\beta(t)$ and testing rate $\epsilon(t)$ has been modeled as time variant functions.
+For India (population 1366417754, in 2019), we use data from Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). We use data from 2020-03-09 to 2021-08-04. The estimated parameter values are based on the data about the number of currently infected individuals that can be observed and roughly corresponding to $\left( Q(t) + H(t) + C(t)\right) $. In this case we obtain a goodness of fit measure of $\chi^2= 4.4811e^{-08}$ and confidence interval for the fit is shown in Figure \ref{fig-fitness-1B}. Parameters $\beta_0, \beta_{\min}, \beta_{new}, t_0, t_1, r, u, \epsilon_0, \epsilon_{\max}, t_2$ and $s$ have all been estimated from fitting the model to data. It is important to note that contact rat $\beta(t)$ and testing rate $\epsilon(t)$ has been modelled as time variant functions.
 
-For the state of Victoria, Australia, we use data from Covid19data.com.au, which is independent and voluntarily-run. We use data from 2020-02-27 to 2020-09-09. The estimated parameter values are based on the data about the number of currently infected individuals, and we obtain a goodness of fit measure of $\chi^2= 1.6701e^{-06}$. 
+For the state of Victoria, Australia (population 6629870, in 2019), we use data from Covid19data.com.au, which is independent and voluntarily-run. We use data from 2020-03-11 to 2022-01-13. From January 2022 onwards  recovery data is not available and hence we could not compare the model with the actual number of currently active cases  to which we fit our model for parameter estimation.
+ The estimated parameter values are based on the data about the number of currently infected individuals, and we obtain a goodness of fit measure of $\chi^2= 1.5728e^{-06}$ and confidence interval for the fit is shown in Figure \ref{fig-fitness-1C}. 
 %
 \begin{figure*}[t!]
 	\centering
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=0.7\linewidth]{Italy_model_confidence.pdf}
+		\includegraphics[width=\linewidth]{Italy_model_confidence.pdf}
 		\caption{Fitting model to data, Italy}
 		\label{fig-fitness-1A}
 	\end{subfigure}%
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=0.7\linewidth]{India_model_confidence.pdf}
+		\includegraphics[width=\linewidth]{India_model_confidence.pdf}
 		\caption{Fitting model to data, India}
 		\label{fig-fitness-1B}
 	\end{subfigure}
+\begin{subfigure}{0.3\textwidth}
+	\centering
+	\includegraphics[width=\linewidth]{Victoria_model_confidence.pdf}
+	\caption{Fitting model to data, Victoria, Australia}
+	\label{fig-fitness-1C}
+\end{subfigure}
 	\caption{Parameter estimation and fitting model to actual data for Italy and India using lmfit. The plot show actual data, best fit by minimizing sum of the squares of the errors, and 2-$\sigma$ uncertainty band  }
 	\label{fig-fitness-1}
 \end{figure*}
 
-\subsection*{Extending the baseline model}
-In this section we consider various extension of the model and parameters. 
+\subsubsection*{Sensitivity Analysis}
+In this section we present the sensitivity analysis for the base model using Latin Hypercube Sampling (LHS) and Partial Rank Correlation Coefficient (PRCC) to determine the most influential parameters of the model \cite{Marino2008}. LHS, which is a stratified sampling method, is implemented by dividing the range of values for a given parameter (see Table-\ref{Table1}) into equally probable intervals and each parameter is sampled in the range independently. This results in a matrix having $N$ rows for the number of samples and $M$ columns corresponding to the number of varied parameters. We consider the increasing number of infected individuals as our outcome of interest. Base model is then simulated with population size of $1e^7$, with each row of the above mentioned metric with parameter values while setting initial values in each compartment close to 0 as per Proposition-\ref{PROPOSITION-1}. Since our model has two type of parameters - one that are dependent on the time e.g. $\beta(t)$ and $\epsilon(t)$, and others that are independent of time e.g. $\alpha, \theta$. We have performed sensitivity analysis of these parameters in two different simulations to understand their importance.
+%
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{model_sensitivity_a.pdf}
+		\caption{Time independent parameters}
+		\label{fig-sensitivity-A}
+	\end{subfigure}
 
-\subsubsection*{Scenario: Confinement}
-First extension is to model confinement - where a large proportion of susceptible population is placed under restricted movement, and thereby reducing the probability of contact. Such restriction has been modeled by introducing another compartment $L$. Individuals from $S$ move to $L$ at rate $u(t)$. In many countries, confinement was spread over several weeks followed by a period of de-confinement. We model de-confinement by individuals moving from $L$ to $S$ at rate $p(t)$. In specific we modify equation (\ref{eqn:base-model-9}) as follows
+	\begin{subfigure}{\linewidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{model_sensitivity_b.pdf}
+		\caption{Time dependent parameters }
+		\label{fig-sensitivity-B}
+	\end{subfigure}
+	\caption{Partial rank correlation coefficients of parameters  with cases (fraction of the population) from 120 LHS samples}
+	\label{fig-sensitivity}
+\end{figure*}
+The result of sensitivity analysis is given in Figure-\ref{fig-sensitivity}. 
+%
+%
+It can be seen from Figure-\ref{fig-sensitivity-A} that parameter $\alpha$ ($-0.91525$), which determines the fraction of infections that become symptomatic has most significant influence. In other words, is it has negative PRCC it implies  that number of undetected asymptomatic cases can drive the cases significantly. Among the other parameters $\mu$  ($-0.89681$) and parameters related to recovery rate ($\eta, \psi$) are also influential. Among the remaining parameters rate of hospitalization also has impact. 
+
+Among the time dependent parameters $\beta(t)$, and $\epsilon(t)$ we can observe in Figure-\ref{fig-sensitivity-B} that parameter $r$, which determines how fast $\beta(t)$ converges from $\beta_0$ to $\beta_{min}$, or effectiveness of stringency measures has significant influence. Also $\epsilon_{\max}$, which determines the effectiveness of testing, has moderate importance. 
+
+\section*{Discussion}
+In this section we consider various extension of the model and parameters. First extension is to model confinement - where a large proportion of susceptible population is placed under restricted movement, and thereby reducing the probability of contact. Such restriction has been modelled by introducing another compartment $L$. Individuals from $S$ move to $L$ at rate $u(t)$. In many countries, confinement was spread over several weeks followed by a period of de-confinement. We model de-confinement by individuals moving from $L$ to $S$ at rate $p(t)$. In specific we modify equation (\ref{eqn:base-model-9}) as follows
 %%
 \begin{equation}
 \frac{dS}{dt} = p(t)L -\beta(t) \left( I + \kappa A + \omega Q + \rho H \right) \frac{S}{N} - u(t)S,
@@ -876,7 +848,6 @@ We also add following dynamics to the baseline model
 %%
 Thus, equations (\ref{eqn:base-model-1}-\ref{eqn:base-model-8}), equation (\ref{eqn:lockdown-model-1}), and (\ref{eqn:lockdown-model-2}) along with equation (\ref{eqn:base-model-10}), defines the confinement - de-confinement scenario. A few remarks are in place for the time dependent functions $u(t)$ and $p(t)$.
 
-\subsubsection*{Scenario: Loss of immunity}
 To consider the possibility of loosing acquired immunity over time and having a reinfection, we modify  equation (\ref{eqn:base-model-9}) and add a term $+\chi R$ and modify equation (\ref{eqn:base-model-8}) by adding term $-\chi R$ to obtain:
 %
 %
@@ -891,7 +862,7 @@ To consider the possibility of loosing acquired immunity over time and having a 
 \label{eqn:loss_immunity-model-9}
 \end{equation}
 %
-\subsubsection*{Scenario: Mass Vaccination }
+
 In this scenario, we assume that the susceptible individuals are vaccinated at rate $\xi(t)$. Initially $\xi(t)$ can be small and as more vaccines are produced at a larger scale, the waiting time to receive vaccine reduces (see equation (\ref{eqn:vaccination-model-10})). 
 %
 %
@@ -934,17 +905,94 @@ N(t) = S(t) + E(t) + A(t) + I(t) + Q(t) + H(t) + R(t) + D(t) + V(t),
 \end{equation}
 is the total population. 
 
+As described by extended model in equation - (\ref{eqn:loss_immunity-model-8}) and (\ref{eqn:loss_immunity-model-9}), we consider the possibility of losing acquired immunity over time and having a reinfection, we use parameter $\chi(t)$ to capture this. In our simulation we consider that $\chi$ varies from $1/180$ to $1/60$. This can be thought as number of days to lose immunity and hence corresponds to $180$ days to $60$ days. As shown in Figure \ref{fig4}, the simulation of the model after fitting current data for Italy indicates that if loss of immunity occurs within 3 months, there is a significant chance of subsequent waves of epidemic.  
+
+%
+\begin{figure*}[!htb]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_scenario_reinfection.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $180, 150, 120, 90$ and $60$ days (Italy). Note that not all panels are in the same scale.}
+	\label{fig4} 
+\end{figure*}
+%
+
+Finally, we simulate mass vaccination scenarios (see Figure \ref{fig5A} and Figure \ref{fig5B}) according to equation (\ref{eqn:vaccination-model-1}), (\ref{eqn:vaccination-model-2}), (\ref{eqn:vaccination-model-3}), (\ref{eqn:vaccination-model-5}) and (\ref{eqn:vaccination-model-10}). We assume that vaccine is available after 90 days from 27th August 2020. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) and $\xi_{\max} = 0.5$ and $\xi_{\max} = 0.9$. It can be concluded that even a 75\% efficient vaccine can be significantly effective in reducing the impact.
+
+\begin{figure*}[!htb]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.5.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.5$, i.e. maximum of 50\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
+	\label{fig5A} 
+\end{figure*}
+
+\begin{figure*}[!htb]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.8.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.9$. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
+	\label{fig5B} 
+\end{figure*}
+%
+Figure \ref{fig8} show the simulation study loss of acquired immunity for scenario in India. We note that this model is not very sensitive to $\chi(t)$.  This is due to the size of the population and current state of the epidemic in India - reinfection within 2 months changes total number of infected population from 2.66\% to 2.98\%, while reinfection after 250 days changes this to 2.768\%.
+
+%
+\begin{figure*}[!htb]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_scenario_reinfection.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $250, 200, 150, 100$ and $50$ days (India). Note that not all panels are in the same scale.}
+	\label{fig8} 
+\end{figure*}
+
+Simulation studies for vaccination is presented in Figure \ref{fig9A} and Figure \ref{fig9B}. We assume that the vaccine is available from 90 days after 16th September 2020. Simulation suggests that a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
+%
+%
+\begin{figure*}[!htb]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.3.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.3$, i.e. maximum of 30\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
+	\label{fig9A} 
+\end{figure*}
+%
+%
+\begin{figure*}[!htb]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.7.pdf}
+	\end{subfigure}
+	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.7$, i.e. maximum of 70\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
+	\label{fig9B} 
+\end{figure*}
+%
+%
 \section*{Authors' contributions}
 S. K. G.: Conceptualization, Data Collection, Software, Visualization, Writing - Original Draft, Writing - Review and Editing. S. G.: Conceptualization, Writing - Original Draft, Writing - Review and Editing. All authors reviewed the manuscript.
 
 \section*{Data availability}
-All of the data are publicly available and were extracted from \url{https://github.com/pcm-dpc/COVID-19}, and from \url{https://github.com/CSSEGISandData/COVID-19}.
+All of the data are publicly available and were extracted from \url{https://github.com/M3IT/COVID-19_Data}, from  \url{https://github.com/pcm-dpc/COVID-19}, and from \url{https://github.com/CSSEGISandData/COVID-19}.
 
 \section*{Code availability}
 Python codes were used for model implementation. All source codes can be accessed from \url{https://github.com/subhaskghosh/model_covid_19}
 
-\section*{Competing Interests statement}
-The authors have no competing interests.
+\section*{Competing interests}
+The authors declare no competing interests.
+
+\section*{Additional information}
+Correspondence and requests for materials should be addressed to S. K. G.
 
 %% References
 \bibliography{covid_m.bib}	
