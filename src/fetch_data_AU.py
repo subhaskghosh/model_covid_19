@@ -24,7 +24,7 @@ df_victoria["Currently Critical"] = (df_victoria["icu"]+df_victoria["vent"])/df_
 
 df_victoria = df_victoria.drop(columns=["confirmed","deaths","tests","positives","recovered","hosp",
                                 "icu", "vent", "population", "administrative_area_level","administrative_area_level_1",
-                                "administrative_area_level_2","administrative_area_level_3", "id","state_abbrev",
+                                "administrative_area_level_2","administrative_area_level_3", "id",
                                 "Currently Positive Number"])
 df_victoria.to_csv(f'../data/Victoria.csv', index=False)
 

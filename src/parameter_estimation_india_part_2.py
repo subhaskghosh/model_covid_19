@@ -26,12 +26,12 @@ parser.add_argument('--varphi', type=float, default=0.1254, help='rate of quaran
 parser.add_argument('--theta', type=float, default=0.371, help='rate of detection of symptomatic')
 parser.add_argument('--tau', type=float, default=0.0274, help='rate of developing life-threatening symptoms in isolation')
 parser.add_argument('--lamda', type=float, default=0.0171, help='rate of developing life-threatening symptoms for symptomatic')
-parser.add_argument('--gamma', type=float, default=0.03, help='recovery rate of asymptomatic')
-parser.add_argument('--eta', type=float, default=0.009, help='recovery rate of symptomatic')
-parser.add_argument('--mu', type=float, default=0.0742, help='recovery rate of quarantined')
-parser.add_argument('--psi', type=float, default=0.073, help='recovery rate of isolated')
-parser.add_argument('--zeta', type=float, default=0.078, help='recovery rate of critical')
-parser.add_argument('--delta', type=float, default=0.01, help='mortality rate')
+parser.add_argument('--gamma', type=float, default=0.1, help='recovery rate of asymptomatic')
+parser.add_argument('--eta', type=float, default=0.09, help='recovery rate of symptomatic')
+parser.add_argument('--mu', type=float, default=0.1, help='recovery rate of quarantined')
+parser.add_argument('--psi', type=float, default=0.1, help='recovery rate of isolated')
+parser.add_argument('--zeta', type=float, default=0.1, help='recovery rate of critical')
+parser.add_argument('--delta', type=float, default=0.008, help='mortality rate')
 
 
 
@@ -128,14 +128,14 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
         res = p1 + p2 + p3 + p4
         return res
 
-    E_0 = 0.0
-    I_0 = 1.0 / population
-    A_0 = 200.0 / population
-    Q_0 = 20.0 / population
-    H_0 = 2.0 / population
-    C_0 = 0.0
-    D_0 = 0.0
-    R_0 = 0.0
+    E_0 = 2.6749410756174385e-05
+    I_0 = 5.277971883086385e-06
+    A_0 = 6.41112627360641e-06
+    Q_0 = 1.7280961313165736e-05
+    H_0 = 5.120001398618197e-05
+    C_0 = 2.164423916129957e-05
+    D_0 = 0.00
+    R_0 = 0.00
     S_0 = 1.0 - (E_0 + I_0 + A_0 + Q_0 + H_0 + C_0 + D_0 + R_0)
     DR_0 = 0.0
     y0 = E_0, I_0, A_0, Q_0, H_0, C_0, D_0, R_0, S_0, DR_0
@@ -151,8 +151,8 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
 
     return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time
 
-outbreak_shift = 48
-till_day = 348
+outbreak_shift = 396
+till_day = 120
 y_data = currently_infected
 y_data = y_data[outbreak_shift:outbreak_shift+till_day]
 days = len(y_data)
@@ -197,15 +197,17 @@ plt.legend()
 plt.title("95\% confidence bands for the model (Italy)")
 plt.xlabel('Time (days)')
 plt.ylabel('Cases (fraction of the population)')
-plt.ylim(-1e-3, 1e-3)
+plt.ylim(-1e-2, 1e-2)
 plt.show()
+
 # Save plot data
-data = {'x_data': x_data,
+x_mod_data = [(a+396) for a in x_data]
+data = {'x_data': x_mod_data,
         'y_data': y_data,
         'best_fit': result.best_fit,
         'dely': dely}
 confidence_plot_df = pd.DataFrame(data)
-confidence_plot_df.to_csv(f'../data/india_confidence_plot_1.csv', index=False)
+confidence_plot_df.to_csv(f'../data/india_confidence_plot_2.csv', index=False)
 #
 t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time = Model(days, # change to 700 for plot_evolution_India, otherwise use days
                                                                                 result.best_values['beta_0'],
@@ -217,8 +219,21 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_o
                                                                                 result.best_values['epsilon_max'],
                                                                                 result.best_values['et_0'])
 
+# currently_infected_start = currently_infected[outbreak_shift-1]
+# currently_infected = [(a-currently_infected_start) for a in currently_infected]
+
+recovered_start = recovered[outbreak_shift-1]
+recovered = [(a-recovered_start) for a in recovered]
+
+deaths_start = deaths[outbreak_shift-1]
+deaths = [(a-deaths_start) for a in deaths]
+
+total_cases_start = total_cases[outbreak_shift-1]
+total_cases = [(a-total_cases_start) for a in total_cases]
+
 #Save plot data
-data = {'t': t,
+t_mod = [(a+348) for a in t]
+data = {'t': t_mod,
         'TI': TI,
         'currently_infected': currently_infected[outbreak_shift:outbreak_shift + till_day],
         'DR': DR,
@@ -229,14 +244,14 @@ data = {'t': t,
         'total_cases': total_cases[outbreak_shift:outbreak_shift + till_day],
         }
 plot_compare_df = pd.DataFrame(data)
-plot_compare_df.to_csv(f'../data/india_plot_compare_1.csv', index=False)
+plot_compare_df.to_csv(f'../data/india_plot_compare_2.csv', index=False)
 
 plot_compare_india(t,
              TI, currently_infected,
              DR, recovered,
              D, deaths,
              TI+DR+D, total_cases,
-             outbreak_shift, till_day)
+             outbreak_shift, days)
 
 #plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)
 print(f'E_0 = {E[-1]}\nI_0 = {I[-1]}\nA_0 = {A[-1]}\nQ_0 = {Q[-1]}\nH_0 = {H[-1]}\nC_0 = {C[-1]}\nD_0 = {D[-1]}\nR_0 = {R[-1]}')

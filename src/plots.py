@@ -19,7 +19,7 @@ def plot_compare(t,
                  R, recovered,
                  C, critical,
                  D, deaths,
-                 Q, quarantined,
+                 TOTAL,total_cases,
                  H, isolated,
                  outbreak_shift, till_day):
 
@@ -27,20 +27,20 @@ def plot_compare(t,
     fig.subplots_adjust(hspace=0.4, wspace=0.4)
 
     # 'Currently Infected: Model vs. Data'
-    (markers, stemlines, baseline) = axes[0, 0].stem(t, currently_infected,
+    (markers, stemlines, baseline) = axes[0, 0].stem(t, currently_infected[outbreak_shift:outbreak_shift + till_day],
                                               label='Actual Currently Infected', linefmt='#ECDACC', basefmt=" ",
                                               use_line_collection=True)
-    plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5, markerfacecolor=(0, 0, 0, 0.0))
+    plt.setp(markers, marker='o', markersize=2, markeredgecolor="#ECDACC", markeredgewidth=0.5, markerfacecolor=(0, 0, 0, 0.0))
     axes[0, 0].plot(t, TI, label='Currently Infected', color='#11B0DB')
     axes[0, 0].set_xlabel('Time (days)')
     axes[0, 0].set_ylabel('Cases (fraction of the population)')
     axes[0, 0].set_title('Currently Infected: Model vs. Data')
-    axes[0, 0].set_xlim(outbreak_shift,till_day)
-    axes[0, 0].set_ylim(0, 5e-3)
+    axes[0, 0].set_xlim(0,till_day)
+    axes[0, 0].set_ylim(0, 5e-2)
     axes[0, 0].text(-0.09, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
 
     # 'Recovered: Model vs. Data'
-    (markers, stemlines, baseline) = axes[0, 1].stem(t, recovered,
+    (markers, stemlines, baseline) = axes[0, 1].stem(t, recovered[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
@@ -49,12 +49,12 @@ def plot_compare(t,
     axes[0, 1].set_xlabel('Time (days)')
     axes[0, 1].set_ylabel('Cases (fraction of the population)')
     axes[0, 1].set_title('Recovered: Model vs. Data')
-    axes[0, 1].set_xlim(outbreak_shift, till_day)
-    axes[0, 1].set_ylim(0, 5e-3)
+    axes[0, 1].set_xlim(0, till_day)
+    axes[0, 1].set_ylim(0, 5e-1)
     axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
 
     # 'Infected, Life-Threatening Symptoms: Model vs. Data'
-    (markers, stemlines, baseline) = axes[1, 0].stem(t, critical,
+    (markers, stemlines, baseline) = axes[1, 0].stem(t, critical[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
@@ -63,12 +63,12 @@ def plot_compare(t,
     axes[1, 0].set_xlabel('Time (days)')
     axes[1, 0].set_ylabel('Cases (fraction of the population)')
     axes[1, 0].set_title('Infected, Life-Threatening Symptoms: Model vs. Data')
-    axes[1, 0].set_xlim(outbreak_shift, till_day)
-    axes[1, 0].set_ylim(0, 5e-3)
+    axes[1, 0].set_xlim(0, till_day)
+    axes[1, 0].set_ylim(0, 2.5e-3)
     axes[1, 0].text(-0.1, 1.15, 'c', transform=axes[1, 0].transAxes, size=16, weight='bold')
 
     # 'Deaths: Model vs. Data - NOTE: EXCLUDED FROM FITTING'
-    (markers, stemlines, baseline) = axes[1, 1].stem(t, deaths,
+    (markers, stemlines, baseline) = axes[1, 1].stem(t, deaths[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
@@ -77,43 +77,43 @@ def plot_compare(t,
     axes[1, 1].set_xlabel('Time (days)')
     axes[1, 1].set_ylabel('Cases (fraction of the population)')
     axes[1, 1].set_title('Deaths: Model vs. Data')
-    axes[1, 1].set_xlim(outbreak_shift, till_day)
-    axes[1, 1].set_ylim(0, 5e-3)
+    axes[1, 1].set_xlim(0, till_day)
+    axes[1, 1].set_ylim(0, 2.5e-2)
     axes[1, 1].text(-0.1, 1.15, 'd', transform=axes[1, 1].transAxes, size=16, weight='bold')
 
-    # 'Infected, No Symptoms: Model vs. Data'
-    (markers, stemlines, baseline) = axes[2, 0].stem(t, quarantined,
-                                                     label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
+    # # 'Infected, No Symptoms: Model vs. Data'
+    (markers, stemlines, baseline) = axes[2, 0].stem(t, total_cases[outbreak_shift:outbreak_shift + till_day],
+                                                     label='Actual Cumulative Cases', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
              markerfacecolor=(0, 0, 0, 0.0))
-    axes[2, 0].plot(t, Q, label='Recovered', color='#11B0DB')
+    axes[2, 0].plot(t, TOTAL, label='Cumulative Cases', color='#11B0DB')
     axes[2, 0].set_xlabel('Time (days)')
     axes[2, 0].set_ylabel('Cases (fraction of the population)')
-    axes[2, 0].set_title('Infected, No Symptoms: Model vs. Data')
-    axes[2, 0].set_xlim(outbreak_shift, till_day)
-    axes[2, 0].set_ylim(0, 5e-3)
+    axes[2, 0].set_title('Cumulative Cases: Model vs. Data')
+    axes[2, 0].set_xlim(0, till_day)
+    axes[2, 0].set_ylim(0, 5e-1)
     axes[2, 0].text(-0.1, 1.15, 'e', transform=axes[2, 0].transAxes, size=16, weight='bold')
 
     # 'Infected, Symptoms: Model vs. Data'
-    (markers, stemlines, baseline) = axes[2, 1].stem(t, isolated,
+    (markers, stemlines, baseline) = axes[2, 1].stem(t, isolated[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
-    plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
+    plt.setp(markers, marker='o', markersize=1, markeredgecolor="#ECDACC", markeredgewidth=0.1,
              markerfacecolor=(0, 0, 0, 0.0))
     axes[2, 1].plot(t, H, label='Recovered', color='#11B0DB')
     axes[2, 1].set_xlabel('Time (days)')
     axes[2, 1].set_ylabel('Cases (fraction of the population)')
     axes[2, 1].set_title('Infected, Symptoms: Model vs. Data')
-    axes[2, 1].set_xlim(outbreak_shift, till_day)
-    axes[2, 1].set_ylim(0, 5e-3)
+    axes[2, 1].set_xlim(0, till_day)
+    axes[2, 1].set_ylim(0, 2.5e-1)
     axes[2, 1].text(-0.1, 1.15, 'f', transform=axes[2, 1].transAxes, size=16, weight='bold')
 
     fig.tight_layout()
-    #plt.show()
+    plt.show()
 
-    plt.savefig(f'../doc/Italy_plot_model_data.pdf', dpi=600)
-    plt.clf()
+    #plt.savefig(f'../doc/Italy_plot_model_data.pdf', dpi=600)
+    #plt.clf()
 
 def plot_evolution(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time):
     short = 219
@@ -189,57 +189,71 @@ def plot_compare_india(t,
                  TI, currently_infected,
                  DR, recovered,
                  D, deaths,
+                 TOTAL, total_cases,
                  outbreak_shift, till_day):
 
-    fig, axes = plt.subplots(1,3, figsize = (12,5))
+    fig, axes = plt.subplots(2,2, figsize = (12,10))
     fig.subplots_adjust(hspace=0.4, wspace=0.4)
 
     # 'Currently Infected: Model vs. Data'
-    (markers, stemlines, baseline) = axes[0].stem(t, currently_infected[outbreak_shift:outbreak_shift + till_day],
+    (markers, stemlines, baseline) = axes[0, 0].stem(t, currently_infected[outbreak_shift:outbreak_shift + till_day],
                                               label='Actual Currently Infected', linefmt='#ECDACC', basefmt=" ",
                                               use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5, markerfacecolor=(0, 0, 0, 0.0))
-    axes[0].plot(t, TI, label='Currently Infected', color='#11B0DB')
-    axes[0].set_xlabel('Time (days)')
-    axes[0].set_ylabel('Cases (fraction of the population)')
-    axes[0].set_title('Currently Infected: Model vs. Data')
-    axes[0].set_xlim(outbreak_shift,till_day)
-    axes[0].set_ylim(0, 3e-3)
-    axes[0].text(-0.09, 1.15, 'a', transform=axes[0].transAxes, size=16, weight='bold')
+    axes[0, 0].plot(t, TI, label='Currently Infected', color='#11B0DB')
+    axes[0, 0].set_xlabel('Time (days)')
+    axes[0, 0].set_ylabel('Cases (fraction of the population)')
+    axes[0, 0].set_title('Currently Infected: Model vs. Data')
+    axes[0, 0].set_xlim(0,till_day)
+    axes[0, 0].set_ylim(0, 3e-3)
+    axes[0, 0].text(-0.09, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
 
     # 'Recovered: Model vs. Data'
-    (markers, stemlines, baseline) = axes[1].stem(t, recovered[outbreak_shift:outbreak_shift + till_day],
+    (markers, stemlines, baseline) = axes[0, 1].stem(t, recovered[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
              markerfacecolor=(0, 0, 0, 0.0))
-    axes[1].plot(t, DR, label='Recovered', color='#11B0DB')
-    axes[1].set_xlabel('Time (days)')
-    axes[1].set_ylabel('Cases (fraction of the population)')
-    axes[1].set_title('Recovered: Model vs. Data')
-    axes[1].set_xlim(outbreak_shift, till_day)
-    axes[1].set_ylim(0, 3e-3)
-    axes[1].text(-0.1, 1.15, 'b', transform=axes[1].transAxes, size=16, weight='bold')
+    axes[0, 1].plot(t, DR, label='Recovered', color='#11B0DB')
+    axes[0, 1].set_xlabel('Time (days)')
+    axes[0, 1].set_ylabel('Cases (fraction of the population)')
+    axes[0, 1].set_title('Recovered: Model vs. Data')
+    axes[0, 1].set_xlim(0,till_day)
+    axes[0, 1].set_ylim(0, 3e-2)
+    axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
 
     # 'Deaths: Model vs. Data - NOTE: EXCLUDED FROM FITTING'
-    (markers, stemlines, baseline) = axes[2].stem(t, deaths[outbreak_shift:outbreak_shift + till_day],
+    (markers, stemlines, baseline) = axes[1,0].stem(t, deaths[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
              markerfacecolor=(0, 0, 0, 0.0))
-    axes[2].plot(t, D, label='Recovered', color='#11B0DB')
-    axes[2].set_xlabel('Time (days)')
-    axes[2].set_ylabel('Cases (fraction of the population)')
-    axes[2].set_title('Deaths: Model vs. Data')
-    axes[2].set_xlim(outbreak_shift, till_day)
-    axes[2].set_ylim(0, 3e-3)
-    axes[2].text(-0.1, 1.15, 'c', transform=axes[2].transAxes, size=16, weight='bold')
+    axes[1,0].plot(t, D, label='Recovered', color='#11B0DB')
+    axes[1,0].set_xlabel('Time (days)')
+    axes[1,0].set_ylabel('Cases (fraction of the population)')
+    axes[1,0].set_title('Deaths: Model vs. Data')
+    axes[1,0].set_xlim(0,till_day)
+    axes[1,0].set_ylim(0, 3e-3)
+    axes[1,0].text(-0.1, 1.15, 'c', transform=axes[1,0].transAxes, size=16, weight='bold')
+
+    (markers, stemlines, baseline) = axes[1,1].stem(t, total_cases[outbreak_shift:outbreak_shift + till_day],
+                                                     label='Actual Cumulative Cases', linefmt='#ECDACC', basefmt=" ",
+                                                     use_line_collection=True)
+    plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
+             markerfacecolor=(0, 0, 0, 0.0))
+    axes[1,1].plot(t, TOTAL, label='Cumulative Cases', color='#11B0DB')
+    axes[1,1].set_xlabel('Time (days)')
+    axes[1,1].set_ylabel('Cases (fraction of the population)')
+    axes[1,1].set_title('Cumulative Cases: Model vs. Data')
+    axes[1,1].set_xlim(0, till_day)
+    axes[1,1].set_ylim(0, 3e-2)
+    axes[1,1].text(-0.1, 1.15, 'd', transform=axes[1,1].transAxes, size=16, weight='bold')
 
     fig.tight_layout()
-    plt.show()
+    #plt.show()
 
-    #plt.savefig(f'../doc/India_plot_model_data.pdf', dpi=600)
-    #plt.clf()
+    plt.savefig(f'../doc/India_plot_model_data.pdf', dpi=600)
+    plt.clf()
 
 def plot_evolution_India(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time):
     short = 90
@@ -688,10 +702,10 @@ def plot_sensitivity_epsilon_italy(t,
     axes[1, 2].legend(('2', '4', '6', '8', '10'))
 
     fig.tight_layout()
-    #plt.show()
+    plt.show()
 
-    plt.savefig(f'../doc/Italy_sensitivity_epsilon.pdf', dpi=600)
-    plt.clf()
+    #plt.savefig(f'../doc/Italy_sensitivity_epsilon.pdf', dpi=600)
+    #plt.clf()
 
 def plot_scenario_reinfection_italy(t,
                             TI1, DR1, R1, D1, CI1, CR1,
@@ -700,7 +714,7 @@ def plot_scenario_reinfection_italy(t,
                             TI4, DR4, R4, D4, CI4, CR4,
                             TI5, DR5, R5, D5, CI5, CR5,
                             currently_infected):
-    long = 700
+    long = 3650
     fig, axes = plt.subplots(2, 3, figsize=(12, 8))
     fig.subplots_adjust(hspace=0.4, wspace=0.4)
 
@@ -713,9 +727,9 @@ def plot_scenario_reinfection_italy(t,
     axes[0, 0].set_ylabel('Cases (fraction of the population)')
     axes[0, 0].set_title('Sensitivity w. r. t. $\chi$: Currently infected')
     axes[0, 0].set_xlim(0, long)
-    axes[0, 0].set_ylim(0, 3e-1)
+    axes[0, 0].set_ylim(0, 5e-1)
     axes[0, 0].text(-0.1, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
-    axes[0, 0].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
+    axes[0, 0].legend(('180 days', '150 days', '120 days', '90 days', '60 days'))
 
     axes[0, 1].plot(t, DR1, label='Current total infected', color='#D0E9F2')
     axes[0, 1].plot(t, DR2, label='Current total infected', color='#829FD9')
@@ -726,9 +740,9 @@ def plot_scenario_reinfection_italy(t,
     axes[0, 1].set_ylabel('Cases (fraction of the population)')
     axes[0, 1].set_title('Sensitivity w. r. t. $\chi$: Cumulative Detected and Recovered')
     axes[0, 1].set_xlim(0, long)
-    axes[0, 1].set_ylim(0, 1)
+    axes[0, 1].set_ylim(0, 10)
     axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
-    axes[0, 1].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
+    axes[0, 1].legend(('180 days', '150 days', '120 days', '90 days', '60 days'))
 
     axes[0, 2].plot(t, R1, label='Current total infected', color='#D0E9F2')
     axes[0, 2].plot(t, R2, label='Current total infected', color='#829FD9')
@@ -739,9 +753,9 @@ def plot_scenario_reinfection_italy(t,
     axes[0, 2].set_ylabel('Cases (fraction of the population)')
     axes[0, 2].set_title('Sensitivity w. r. t. $\chi$: Cumulative Recovered')
     axes[0, 2].set_xlim(0, long)
-    axes[0, 2].set_ylim(0, 1)
+    axes[0, 2].set_ylim(0, 10)
     axes[0, 2].text(-0.1, 1.15, 'c', transform=axes[0, 2].transAxes, size=16, weight='bold')
-    axes[0, 2].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
+    axes[0, 2].legend(('180 days', '150 days', '120 days', '90 days', '60 days'))
 
     axes[1, 0].plot(t, D1, label='Current total infected', color='#D0E9F2')
     axes[1, 0].plot(t, D2, label='Current total infected', color='#829FD9')
@@ -752,9 +766,9 @@ def plot_scenario_reinfection_italy(t,
     axes[1, 0].set_ylabel('Cases (fraction of the population)')
     axes[1, 0].set_title('Sensitivity w. r. t. $\chi$: Cumulative Deaths')
     axes[1, 0].set_xlim(0, long)
-    axes[1, 0].set_ylim(0, 2.5e-1)
+    axes[1, 0].set_ylim(0, 5e-1)
     axes[1, 0].text(-0.1, 1.15, 'd', transform=axes[1, 0].transAxes, size=16, weight='bold')
-    axes[1, 0].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
+    axes[1, 0].legend(('180 days', '150 days', '120 days', '90 days', '60 days'))
 
     axes[1, 1].plot(t, CI1, label='Current total infected', color='#D0E9F2')
     axes[1, 1].plot(t, CI2, label='Current total infected', color='#829FD9')
@@ -765,9 +779,9 @@ def plot_scenario_reinfection_italy(t,
     axes[1, 1].set_ylabel('Cases (fraction of the population)')
     axes[1, 1].set_title('Sensitivity w. r. t. $\chi$: Cumulative Infected')
     axes[1, 1].set_xlim(0, long)
-    axes[1, 1].set_ylim(0, 1)
+    axes[1, 1].set_ylim(0, 10)
     axes[1, 1].text(-0.1, 1.15, 'e', transform=axes[1, 1].transAxes, size=16, weight='bold')
-    axes[1, 1].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
+    axes[1, 1].legend(('180 days', '150 days', '120 days', '90 days', '60 days'))
 
     axes[1, 2].plot(t, CR1, label='Current total infected', color='#D0E9F2')
     axes[1, 2].plot(t, CR2, label='Current total infected', color='#829FD9')
@@ -778,9 +792,9 @@ def plot_scenario_reinfection_italy(t,
     axes[1, 2].set_ylabel('Cases (fraction of the population)')
     axes[1, 2].set_title('Sensitivity w. r. t. $\chi$: Currently Critical')
     axes[1, 2].set_xlim(0, long)
-    axes[1, 2].set_ylim(0, 8e-3)
+    axes[1, 2].set_ylim(0, 5e-2)
     axes[1, 2].text(-0.1, 1.15, 'f', transform=axes[1, 2].transAxes, size=16, weight='bold')
-    axes[1, 2].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
+    axes[1, 2].legend(('180 days', '150 days', '120 days', '90 days', '60 days'))
 
     fig.tight_layout()
     plt.show()
@@ -808,7 +822,7 @@ def plot_scenario_reinfection_india(t,
     axes[0, 0].set_ylabel('Cases (fraction of the population)')
     axes[0, 0].set_title('Sensitivity w. r. t. $\chi$: Currently infected')
     axes[0, 0].set_xlim(0, long)
-    axes[0, 0].set_ylim(0, 2.5e-3)
+    axes[0, 0].set_ylim(0, 5e-1)
     axes[0, 0].text(-0.1, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
     axes[0, 0].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
 
@@ -821,7 +835,7 @@ def plot_scenario_reinfection_india(t,
     axes[0, 1].set_ylabel('Cases (fraction of the population)')
     axes[0, 1].set_title('Sensitivity w. r. t. $\chi$: Cumulative Detected and Recovered')
     axes[0, 1].set_xlim(0, long)
-    axes[0, 1].set_ylim(0, 2.5e-2)
+    axes[0, 1].set_ylim(0, 5e-1)
     axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
     axes[0, 1].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
 
@@ -834,7 +848,7 @@ def plot_scenario_reinfection_india(t,
     axes[0, 2].set_ylabel('Cases (fraction of the population)')
     axes[0, 2].set_title('Sensitivity w. r. t. $\chi$: Cumulative Recovered')
     axes[0, 2].set_xlim(0, long)
-    axes[0, 2].set_ylim(0, 5e-2)
+    axes[0, 2].set_ylim(0, 5e-1)
     axes[0, 2].text(-0.1, 1.15, 'c', transform=axes[0, 2].transAxes, size=16, weight='bold')
     axes[0, 2].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
 
@@ -847,7 +861,7 @@ def plot_scenario_reinfection_india(t,
     axes[1, 0].set_ylabel('Cases (fraction of the population)')
     axes[1, 0].set_title('Sensitivity w. r. t. $\chi$: Cumulative Deaths')
     axes[1, 0].set_xlim(0, long)
-    axes[1, 0].set_ylim(0, 2.5e-3)
+    axes[1, 0].set_ylim(0, 5e-1)
     axes[1, 0].text(-0.1, 1.15, 'd', transform=axes[1, 0].transAxes, size=16, weight='bold')
     axes[1, 0].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
 
@@ -860,7 +874,7 @@ def plot_scenario_reinfection_india(t,
     axes[1, 1].set_ylabel('Cases (fraction of the population)')
     axes[1, 1].set_title('Sensitivity w. r. t. $\chi$: Cumulative Infected')
     axes[1, 1].set_xlim(0, long)
-    axes[1, 1].set_ylim(0, 5e-2)
+    axes[1, 1].set_ylim(0, 5e-1)
     axes[1, 1].text(-0.1, 1.15, 'e', transform=axes[1, 1].transAxes, size=16, weight='bold')
     axes[1, 1].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
 
@@ -873,7 +887,7 @@ def plot_scenario_reinfection_india(t,
     axes[1, 2].set_ylabel('Cases (fraction of the population)')
     axes[1, 2].set_title('Sensitivity w. r. t. $\chi$: Currently Critical')
     axes[1, 2].set_xlim(0, long)
-    axes[1, 2].set_ylim(0, 2.5e-3)
+    axes[1, 2].set_ylim(0, 5e-1)
     axes[1, 2].text(-0.1, 1.15, 'f', transform=axes[1, 2].transAxes, size=16, weight='bold')
     axes[1, 2].legend(('250 days', '200 days', '150 days', '100 days', '50 days'))
 
@@ -1068,10 +1082,10 @@ def plot_scenario_vaccination_italy(t,
     axes[1, 2].legend(('No vaccination', '50\% effective', '75\% effective', '87.5\% effective', '93.75\% effective'))
 
     fig.tight_layout()
-    #plt.show()
+    plt.show()
 
-    plt.savefig(f'../doc/Italy_scenario_vaccination{xi_max}.pdf', dpi=600)
-    plt.clf()
+    #plt.savefig(f'../doc/Italy_scenario_vaccination{xi_max}.pdf', dpi=600)
+    #plt.clf()
 
 # Model simulation compared to real data.
 def plot_compare_vic(t,
@@ -1087,20 +1101,20 @@ def plot_compare_vic(t,
     fig.subplots_adjust(hspace=0.4, wspace=0.4)
 
     # 'Currently Infected: Model vs. Data'
-    (markers, stemlines, baseline) = axes[0, 0].stem(t, currently_infected[outbreak_shift:],
+    (markers, stemlines, baseline) = axes[0, 0].stem(t, currently_infected[outbreak_shift:outbreak_shift + till_day],
                                               label='Actual Currently Infected', linefmt='#ECDACC', basefmt=" ",
                                               use_line_collection=True)
-    plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5, markerfacecolor=(0, 0, 0, 0.0))
+    plt.setp(markers, marker='o', markersize=2, markeredgecolor="#ECDACC", markeredgewidth=0.5, markerfacecolor=(0, 0, 0, 0.0))
     axes[0, 0].plot(t, TI, label='Currently Infected', color='#11B0DB')
     axes[0, 0].set_xlabel('Time (days)')
     axes[0, 0].set_ylabel('Cases (fraction of the population)')
     axes[0, 0].set_title('Currently Infected: Model vs. Data')
     axes[0, 0].set_xlim(0,till_day)
-    axes[0, 0].set_ylim(0, 5e-3)
+    axes[0, 0].set_ylim(0, 5e-2)
     axes[0, 0].text(-0.09, 1.15, 'a', transform=axes[0, 0].transAxes, size=16, weight='bold')
 
     # 'Recovered: Model vs. Data'
-    (markers, stemlines, baseline) = axes[0, 1].stem(t, recovered[outbreak_shift:],
+    (markers, stemlines, baseline) = axes[0, 1].stem(t, recovered[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
@@ -1110,11 +1124,11 @@ def plot_compare_vic(t,
     axes[0, 1].set_ylabel('Cases (fraction of the population)')
     axes[0, 1].set_title('Recovered: Model vs. Data')
     axes[0, 1].set_xlim(0, till_day)
-    axes[0, 1].set_ylim(0, 5e-3)
+    axes[0, 1].set_ylim(0, 5e-2)
     axes[0, 1].text(-0.1, 1.15, 'b', transform=axes[0, 1].transAxes, size=16, weight='bold')
 
     # 'Infected, Life-Threatening Symptoms: Model vs. Data'
-    (markers, stemlines, baseline) = axes[1, 0].stem(t, critical[outbreak_shift:],
+    (markers, stemlines, baseline) = axes[1, 0].stem(t, critical[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
@@ -1124,11 +1138,11 @@ def plot_compare_vic(t,
     axes[1, 0].set_ylabel('Cases (fraction of the population)')
     axes[1, 0].set_title('Infected, Life-Threatening Symptoms: Model vs. Data')
     axes[1, 0].set_xlim(0, till_day)
-    axes[1, 0].set_ylim(0, 5e-3)
+    axes[1, 0].set_ylim(0, 5e-4)
     axes[1, 0].text(-0.1, 1.15, 'c', transform=axes[1, 0].transAxes, size=16, weight='bold')
 
     # 'Deaths: Model vs. Data - NOTE: EXCLUDED FROM FITTING'
-    (markers, stemlines, baseline) = axes[1, 1].stem(t, deaths[outbreak_shift:],
+    (markers, stemlines, baseline) = axes[1, 1].stem(t, deaths[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
@@ -1142,7 +1156,7 @@ def plot_compare_vic(t,
     axes[1, 1].text(-0.1, 1.15, 'd', transform=axes[1, 1].transAxes, size=16, weight='bold')
 
     # # 'Infected, No Symptoms: Model vs. Data'
-    (markers, stemlines, baseline) = axes[2, 0].stem(t, total_cases[outbreak_shift:],
+    (markers, stemlines, baseline) = axes[2, 0].stem(t, total_cases[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Cumulative Cases', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
     plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
@@ -1152,14 +1166,14 @@ def plot_compare_vic(t,
     axes[2, 0].set_ylabel('Cases (fraction of the population)')
     axes[2, 0].set_title('Cumulative Cases: Model vs. Data')
     axes[2, 0].set_xlim(0, till_day)
-    axes[2, 0].set_ylim(0, 5e-3)
+    axes[2, 0].set_ylim(0, 5e-2)
     axes[2, 0].text(-0.1, 1.15, 'e', transform=axes[2, 0].transAxes, size=16, weight='bold')
 
     # 'Infected, Symptoms: Model vs. Data'
-    (markers, stemlines, baseline) = axes[2, 1].stem(t, isolated[outbreak_shift:],
+    (markers, stemlines, baseline) = axes[2, 1].stem(t, isolated[outbreak_shift:outbreak_shift + till_day],
                                                      label='Actual Recovered', linefmt='#ECDACC', basefmt=" ",
                                                      use_line_collection=True)
-    plt.setp(markers, marker='o', markersize=6, markeredgecolor="#ECDACC", markeredgewidth=0.5,
+    plt.setp(markers, marker='o', markersize=1, markeredgecolor="#ECDACC", markeredgewidth=0.1,
              markerfacecolor=(0, 0, 0, 0.0))
     axes[2, 1].plot(t, H, label='Recovered', color='#11B0DB')
     axes[2, 1].set_xlabel('Time (days)')
@@ -1170,10 +1184,10 @@ def plot_compare_vic(t,
     axes[2, 1].text(-0.1, 1.15, 'f', transform=axes[2, 1].transAxes, size=16, weight='bold')
 
     fig.tight_layout()
-    #plt.show()
+    plt.show()
 
-    plt.savefig(f'../doc/Victoria_plot_model_data.pdf', dpi=600)
-    plt.clf()
+    #plt.savefig(f'../doc/Victoria_plot_model_data.pdf', dpi=600)
+    #plt.clf()
 
 def plot_evolution_vic(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time):
     short = 200

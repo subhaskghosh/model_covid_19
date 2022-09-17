@@ -20,18 +20,18 @@ parser.add_argument('--kappa', type=float, default=0.50, help='infectiousness fa
 parser.add_argument('--omega', type=float, default=0.0114, help='infectiousness factor quarantined')
 parser.add_argument('--rho', type=float, default=0.0114, help='infectiousness factor isolated')
 parser.add_argument('--sigma', type=float, default=0.223, help='transition rate exposed to infectious')
-parser.add_argument('--alpha', type=float, default=0.30, help='fraction of infections that become symptomatic')
-parser.add_argument('--nu', type=float, default=0.0104, help='transition rate  asymptomatic to symptomatic')
-parser.add_argument('--varphi', type=float, default=0.0114, help='rate of quarantined to isolation')
-parser.add_argument('--theta', type=float, default=0.01, help='rate of detection of symptomatic')
-parser.add_argument('--tau', type=float, default=0.0009, help='rate of developing life-threatening symptoms in isolation')
-parser.add_argument('--lamda', type=float, default=0.009, help='rate of developing life-threatening symptoms for symptomatic')
-parser.add_argument('--gamma', type=float, default=0.0447, help='recovery rate of asymptomatic')
-parser.add_argument('--eta', type=float, default=0.049, help='recovery rate of symptomatic')
-parser.add_argument('--mu', type=float, default=0.0445, help='recovery rate of quarantined')
+parser.add_argument('--alpha', type=float, default=0.138, help='fraction of infections that become symptomatic')
+parser.add_argument('--nu', type=float, default=0.0084, help='transition rate  asymptomatic to symptomatic')
+parser.add_argument('--varphi', type=float, default=0.005, help='rate of quarantined to isolation')
+parser.add_argument('--theta', type=float, default=0.001, help='rate of detection of symptomatic')
+parser.add_argument('--tau', type=float, default=0.003, help='rate of developing life-threatening symptoms in isolation')
+parser.add_argument('--lamda', type=float, default=0.0035, help='rate of developing life-threatening symptoms for symptomatic')
+parser.add_argument('--gamma', type=float, default=0.089, help='recovery rate of asymptomatic')
+parser.add_argument('--eta', type=float, default=0.089, help='recovery rate of symptomatic')
+parser.add_argument('--mu', type=float, default=0.089, help='recovery rate of quarantined')
 parser.add_argument('--psi', type=float, default=0.089, help='recovery rate of isolated')
-parser.add_argument('--zeta', type=float, default=0.048, help='recovery rate of critical')
-parser.add_argument('--delta', type=float, default=0.095, help='mortality rate')
+parser.add_argument('--zeta', type=float, default=0.089, help='recovery rate of critical')
+parser.add_argument('--delta', type=float, default=0.05, help='mortality rate')
 
 
 args = parser.parse_args()
@@ -163,14 +163,14 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_
 
     return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time
 
-outbreak_shift = 48
-till_day = 448
+outbreak_shift = 581
+till_day = 138
 y_data = currently_infected
 y_data = y_data[outbreak_shift:outbreak_shift+till_day]
 days = len(y_data)
 x_data = np.linspace(0, days - 1, days, dtype=int)
 
-params_init_min_max = {"beta_0": (1.14, 1.1, 1.8),
+params_init_min_max = {"beta_0": (1.14, 0.5, 1.8),
                        "beta_min": (0.03, 0.000001, 0.54),
                        "t_0": (2, 1, 40),
                        "t_1": (55, 45, 200),
@@ -179,10 +179,10 @@ params_init_min_max = {"beta_0": (1.14, 1.1, 1.8),
                        "epsilon_0": (0.171, 0.151, 0.5),
                        "epsilon_max": (0.6,0.5,0.99),
                        "s":(0.03, 0.001, 0.5),
-                       "beta_new": (0.5, 0.3, 1.5),
+                       "beta_new": (1.14, 0.3, 1.5),
                        "u": (0.03, 0.001, 0.036),
                        "beta_min_1": (0.03, 0.000005, 0.54),
-                       "t_2": (150, 100, 300),
+                       "t_2": (10, 1, 200),
                        "v": (0.03, 0.001, 0.2)
                        } # {initial, min, max}
 
@@ -202,11 +202,10 @@ result = mod.fit(y_data, params, method="least_squares", x=x_data)
 
 print(result.best_values)
 print(result.fit_report())
-# print(result.ci_report())
+#print(result.ci_report())
 
 dely = result.eval_uncertainty(params, sigma=2)
 
-# Plot
 # plt.figure(figsize=(6,8))
 # plt.plot(x_data,y_data,label='data')
 # plt.plot(x_data,result.best_fit,label='best-fit')
@@ -219,14 +218,17 @@ dely = result.eval_uncertainty(params, sigma=2)
 # plt.ylim(-5e-2, 5e-2)
 # plt.show()
 
-# Save plot data
-data = {'x_data': x_data,
+#
+#Save plot data
+# x_data, y_data, result.best_fit, dely
+x_mod_data = [(a+532) for a in x_data]
+data = {'x_data': x_mod_data,
         'y_data': y_data,
         'best_fit': result.best_fit,
         'dely': dely}
 confidence_plot_df = pd.DataFrame(data)
-# confidence_plot_df.to_csv(f'../data/victoria_confidence_plot_1.csv', index=False)
-#
+#confidence_plot_df.to_csv(f'../data/victoria_confidence_plot_3.csv', index=False)
+
 t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time = Model(days,
                                                                                 result.best_values['beta_0'],
                                                                                 result.best_values['t_0'],
@@ -243,14 +245,15 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_o
                                                                                 result.best_values['t_2'],
                                                                                 result.best_values['v'])
 #
+
 # currently_infected_start = currently_infected[outbreak_shift-1]
 # currently_infected = [(a-currently_infected_start) for a in currently_infected]
 
 recovered_start = recovered[outbreak_shift-1]
 recovered = [(a-recovered_start) for a in recovered]
 
-critical_start = critical[outbreak_shift-1]
-critical = [(a-critical_start) for a in critical]
+# critical_start = critical[outbreak_shift-1]
+# critical = [(a-critical_start) for a in critical]
 
 deaths_start = deaths[outbreak_shift-1]
 deaths = [(a-deaths_start) for a in deaths]
@@ -258,11 +261,12 @@ deaths = [(a-deaths_start) for a in deaths]
 total_cases_start = total_cases[outbreak_shift-1]
 total_cases = [(a-total_cases_start) for a in total_cases]
 
-isolated_start = isolated[outbreak_shift-1]
-isolated = [(a-isolated_start) for a in isolated]
+# isolated_start = isolated[outbreak_shift-1]
+# isolated = [(a-isolated_start) for a in isolated]
 
 #Save plot data
-data = {'t': t,
+t_mod = [(a+532) for a in t]
+data = {'t': t_mod,
         'TI': TI,
         'currently_infected': currently_infected[outbreak_shift:outbreak_shift + till_day],
         'DR': DR,
@@ -277,7 +281,7 @@ data = {'t': t,
         'isolated': isolated[outbreak_shift:outbreak_shift + till_day],
         }
 plot_compare_df = pd.DataFrame(data)
-plot_compare_df.to_csv(f'../data/victoria_plot_compare_1.csv', index=False)
+plot_compare_df.to_csv(f'../data/victoria_plot_compare_3.csv', index=False)
 
 plot_compare_vic(t,
              TI, currently_infected,

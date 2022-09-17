@@ -16,22 +16,22 @@ parser.add_argument('--step', type=float, default=0.01, help='Time-step - discre
 parser.add_argument('--country', type=str, default='Italy', help='Total population')
 
 ### Model parameters
-parser.add_argument('--kappa', type=float, default=0.45, help='infectiousness factor asymptomatic')
+parser.add_argument('--kappa', type=float, default=0.5, help='infectiousness factor asymptomatic')
 parser.add_argument('--omega', type=float, default=0.0114, help='infectiousness factor quarantined')
 parser.add_argument('--rho', type=float, default=0.0114, help='infectiousness factor isolated')
 parser.add_argument('--sigma', type=float, default=0.223, help='transition rate exposed to infectious')
-parser.add_argument('--alpha', type=float, default=0.50, help='fraction of infections that become symptomatic')
-parser.add_argument('--nu', type=float, default=0.1254, help='transition rate  asymptomatic to symptomatic')
+parser.add_argument('--alpha', type=float, default=0.85, help='fraction of infections that become symptomatic')
+parser.add_argument('--nu', type=float, default=0.154, help='transition rate  asymptomatic to symptomatic')
 parser.add_argument('--varphi', type=float, default=0.0527, help='rate of quarantined to isolation')
 parser.add_argument('--theta', type=float, default=0.171, help='rate of detection of symptomatic')
-parser.add_argument('--tau', type=float, default=0.008, help='rate of developing life-threatening symptoms in isolation')
-parser.add_argument('--lamda', type=float, default=0.007, help='rate of developing life-threatening symptoms for symptomatic')
+parser.add_argument('--tau', type=float, default=0.0007, help='rate of developing life-threatening symptoms in isolation')
+parser.add_argument('--lamda', type=float, default=0.0007, help='rate of developing life-threatening symptoms for symptomatic')
 parser.add_argument('--gamma', type=float, default=0.0742, help='recovery rate of asymptomatic')
 parser.add_argument('--eta', type=float, default=0.0171, help='recovery rate of symptomatic')
 parser.add_argument('--mu', type=float, default=0.0342, help='recovery rate of quarantined')
-parser.add_argument('--psi', type=float, default=0.0171, help='recovery rate of isolated')
-parser.add_argument('--zeta', type=float, default=0.0171, help='recovery rate of critical')
-parser.add_argument('--delta', type=float, default=0.094, help='mortality rate')
+parser.add_argument('--psi', type=float, default=0.0291, help='recovery rate of isolated')
+parser.add_argument('--zeta', type=float, default=0.0291, help='recovery rate of critical')
+parser.add_argument('--delta', type=float, default=0.15, help='mortality rate')
 
 
 args = parser.parse_args()
@@ -116,7 +116,21 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
         else:
             return epsilon_max - (epsilon_max - epsilon_0) * np.exp(-s * (t-et_0))
 
-    E_0 = 0.0
+    def r_0(t):
+        r_1 = (eta + theta + lamda)
+        r_2 = (tau + psi)
+        r_3 = (epsilon(t) + nu + gamma)
+        r_4 = (varphi + mu)
+
+        p1 = beta(t) * (((alpha) / (r_1)) + ((nu * (1 - alpha)) / (r_1 * r_3)))
+        p2 = kappa * beta(t) * ((1 - alpha) / (r_3))
+        p3 = omega * beta(t) * ((epsilon(t) * (1 - alpha)) / (r_3 * r_4))
+        p4 = rho * beta(t) * (((alpha * theta) / (r_1 * r_2)) + (((1 - alpha) * epsilon(t) * varphi) / (r_2 * r_3 * r_4)) + (((1 - alpha) * nu * theta) / (r_1 * r_2 * r_3)))
+
+        res = p1 + p2 + p3 + p4
+        return res
+
+    E_0 = 100.0 / population
     I_0 = 100.0 / population
     A_0 = 300.0 / population
     Q_0 = 101.0 / population
@@ -134,11 +148,14 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
     TI = Q + H + C
     beta_over_time = [beta(i) for i in range(len(t))]
     epsilon_over_time = [epsilon(i) for i in range(len(t))]
+    r_not_over_time = [r_0(i) for i in range(len(t))]
 
-    return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time
+    return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time
 
-outbreak_shift = 0
-till_day = 75
+outbreak_shift = 190
+till_day = 120
+currently_infected_start = currently_infected[outbreak_shift-1]
+currently_infected = [(a-currently_infected_start) for a in currently_infected]
 y_data = currently_infected
 y_data = y_data[outbreak_shift:outbreak_shift+till_day]
 days = len(y_data)
@@ -156,7 +173,7 @@ params_init_min_max = {"beta_0": (1.14, 0.9, 1.5),
 
 def fitter(x, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0):
     ret = Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0)
-    return ret[11][x]
+    return ret[11]
 
 mod = lmfit.Model(fitter)
 
@@ -170,11 +187,27 @@ result = mod.fit(y_data, params, method="least_squares", x=x_data)
 
 print(result.best_values)
 print(result.fit_report())
-# print(result.ci_report())
-# result.plot_fit(datafmt="-")
-# result.plot_residuals(datafmt="-")
-# plt.show()
-t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time = Model(days,
+#print(result.ci_report())
+result.plot_fit(datafmt="-")
+#result.plot_residuals(datafmt="-")
+plt.show()
+
+recovered_start = recovered[outbreak_shift-1]
+recovered = [(a-recovered_start) for a in recovered]
+
+critical_start = critical[outbreak_shift-1]
+critical = [(a-critical_start) for a in critical]
+
+deaths_start = deaths[outbreak_shift-1]
+deaths = [(a-deaths_start) for a in deaths]
+
+quarantined_start = quarantined[outbreak_shift-1]
+quarantined = [(a-quarantined_start) for a in quarantined]
+
+isolated_start = isolated[outbreak_shift-1]
+isolated = [(a-isolated_start) for a in isolated]
+
+t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time = Model(days,
                                                                                 result.best_values['beta_0'],
                                                                                 result.best_values['t_0'],
                                                                                 result.best_values['beta_min'],

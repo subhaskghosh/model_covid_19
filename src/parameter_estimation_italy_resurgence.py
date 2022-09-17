@@ -158,14 +158,14 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_
     return t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time
 
 outbreak_shift = 0
-till_day = 75
+till_day = 170
 y_data = currently_infected
-y_data = y_data[outbreak_shift:]
+y_data = y_data[outbreak_shift:outbreak_shift+till_day]
 days = len(y_data)
 x_data = np.linspace(0, days - 1, days, dtype=int)
 
 params_init_min_max = {"beta_0": (1.14, 0.9, 1.8),
-                       "beta_min": (0.03, 0.034, 0.54),
+                       "beta_min": (0.03, 0.004, 0.54),
                        "t_0": (2, 2, 40),
                        "t_1": (55, 45, 200),
                        "et_0": (40, 2, 80),
@@ -179,7 +179,7 @@ params_init_min_max = {"beta_0": (1.14, 0.9, 1.8),
 
 def fitter(x, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0,beta_new, u, t_1):
     ret = Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_new, u, t_1)
-    return ret[11][x]
+    return ret[11]
 
 mod = lmfit.Model(fitter)
 
@@ -193,21 +193,32 @@ result = mod.fit(y_data, params, method="least_squares", x=x_data)
 
 print(result.best_values)
 print(result.fit_report())
-#print(result.ci_report())
+# print(result.ci_report())
 
-# dely = result.eval_uncertainty(params, sigma=2)
+dely = result.eval_uncertainty(params, sigma=2)
+
+# Plot
 # plt.figure(figsize=(6,8))
+# plt.plot(x_data,y_data,label='data')
+# plt.plot(x_data,result.best_fit,label='best-fit')
 # plt.fill_between(x_data, result.best_fit-dely, result.best_fit+dely, color="#E8E9EA",
 #                  label='2-$\sigma$ uncertainty band')
-# result.plot_fit(datafmt="-")
+# plt.legend()
 # plt.title("95\% confidence bands for the model (Italy)")
 # plt.xlabel('Time (days)')
 # plt.ylabel('Cases (fraction of the population)')
-# #plt.ylim(-2.5e-3, 2.5e-3)
-# #plt.show()
-# plt.savefig(f'../doc/Italy_model_confidence.pdf', dpi=600)
-# plt.clf()
+# plt.ylim(-1e-2, 1e-2)
+# plt.show()
 
+# Save plot data
+data = {'x_data': x_data,
+        'y_data': y_data,
+        'best_fit': result.best_fit,
+        'dely': dely}
+confidence_plot_df = pd.DataFrame(data)
+#confidence_plot_df.to_csv(f'../data/italy_confidence_plot_1.csv', index=False)
+#
+#
 t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_over_time = Model(days,
                                                                                 result.best_values['beta_0'],
                                                                                 result.best_values['t_0'],
@@ -221,14 +232,31 @@ t, E, I, A, Q, H, C, D, R, S, DR, TI, beta_over_time, epsilon_over_time, r_not_o
                                                                                 result.best_values['u'],
                                                                                 result.best_values['t_1'])
 #
-#
+
+#Save plot data
+data = {'t': t,
+        'TI': TI,
+        'currently_infected': currently_infected[outbreak_shift:outbreak_shift + till_day],
+        'DR': DR,
+        'recovered': recovered[outbreak_shift:outbreak_shift + till_day],
+        'C': C,
+        'critical': critical[outbreak_shift:outbreak_shift + till_day],
+        'D': D,
+        'deaths': deaths[outbreak_shift:outbreak_shift + till_day],
+        'TI+DR+D': TI+DR+D,
+        'total_cases': total_cases[outbreak_shift:outbreak_shift + till_day],
+        'H': H,
+        'isolated': isolated[outbreak_shift:outbreak_shift + till_day],
+        }
+plot_compare_df = pd.DataFrame(data)
+plot_compare_df.to_csv(f'../data/italy_plot_compare_1.csv', index=False)
 plot_compare(t,
              TI, currently_infected,
              DR, recovered,
              C, critical,
              D, deaths,
-             Q+A, quarantined,
+             TI+DR+D,total_cases,
              H, isolated,
-             0, days)
+             outbreak_shift, days)
 #
 #plot_evolution(t, I, A, Q, H, C, D, DR, TI, R, currently_infected, beta_over_time, epsilon_over_time)

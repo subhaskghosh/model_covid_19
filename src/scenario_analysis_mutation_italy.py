@@ -5,7 +5,10 @@ from scipy.integrate import odeint
 import lmfit
 import argparse
 from src.plots import plot_scenario_reinfection_italy, plot_compare
+from numpy import random
 
+rate = 1/30
+cinterval = 0
 parser = argparse.ArgumentParser(description='The Baseline Epidemic Model')
 
 ### Simulation time related arguments
@@ -122,9 +125,11 @@ def Model(days, beta_0, t_0, beta_min, r, epsilon_0, s, epsilon_max, et_0, beta_
             return epsilon_max - (epsilon_max - epsilon_0) * np.exp(-s * (t-et_0))
 
     def chi(t):
-        if t < 186:
+        if t < cinterval:
             return chi_val
         else:
+            interval = random.exponential(1 / rate)
+            cinterval = t + interval
             return chi_val
 
     E_0 = 0.0
