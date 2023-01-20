@@ -30,7 +30,7 @@
 \keywords{COVID-19, SARS-CoV-2, Mathematical modeling, Epidemic, Intervention, Vaccination}
 
 \begin{abstract}
-		In this work we define a modified SEIR model that accounts for the spread of infection during the latent period, infections from asymptomatic or pauci-symptomatic infected individuals, potential loss of acquired immunity, people’s increasing awareness of social distancing and the use of vaccination as well as non-pharmaceutical interventions like social confinement. We estimate model parameters in three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. Our result shows the benefit of long term confinement of 50\% or above population and extensive testing. With respect to loss of acquired immunity, our model suggests higher impact for Italy. We also show that a reasonably effective vaccine with mass vaccination program  are successful measures in significantly controlling the size of infected population. We show that for population a dynamics in a country like India, a reduction in contact rate by 50\% compared to a reduction of 10\% reduces death from 0.0268\% to 0.0141\% of population. Similarly, for a country like Italy we show that reducing contact rate by half can reduce a potential peak infection of 15\% population to less than 1.5\% of population, and potential deaths from 0.48\% to 0.04\%. With respect to vaccination, we show that even a 75\% efficient vaccine administered to 50\% population can reduce the peak number of infected population by nearly 50\% in Italy. Similarly, for India, a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
+		In this work we define a modified SEIR model that accounts for the spread of infection during the latent period, infections from asymptomatic or pauci-symptomatic infected individuals, potential loss of acquired immunity, people’s increasing awareness of social distancing and the use of vaccination as well as non-pharmaceutical interventions like social confinement. We estimate model parameters in three different scenarios - in Italy, where there is a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. Our result shows the benefit of long term confinement of 50\% or above population and extensive testing. With respect to loss of acquired immunity, our model suggests higher impact for Italy. We also show that a reasonably effective vaccine with mass vaccination program  are successful measures in significantly controlling the size of infected population. We show that for a country like India, a reduction in contact rate by 50\% compared to a reduction of 10\% reduces death from 0.0268\% to 0.0141\% of population. Similarly, for a country like Italy we show that reducing contact rate by half can reduce a potential peak infection of 15\% population to less than 1.5\% of population, and potential deaths from 0.48\% to 0.04\%. With respect to vaccination, we show that even a 75\% efficient vaccine administered to 50\% population can reduce the peak number of infected population by nearly 50\% in Italy. Similarly, for India, a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
 \end{abstract}
 
 \begin{document}
@@ -314,7 +314,7 @@ For the COVID-19 epidemic in Italy, we estimate the model parameters based on da
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Italy_plot_model_data.pdf}
+		\includegraphics[width=\linewidth]{2.pdf}
 	\end{subfigure}
 	\caption{Model simulation compared to real data (Italy) - Comparison between the official data (histogram) and the results with our model. Description of panels: \textbf{(a):} Number of currently active cases, $\left( Q(t) + H(t) + C(t)\right)$, \textbf{(b):} number of reported recovered individuals. $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$, \textbf{(c):} number of reported infected with life-threatening symptoms, admitted to ICU, $C(t)$, \textbf{(d):} Number of deceased individuals $D(t)$, \textbf{(e):} number of reported infected with no (or mild) symptoms, who are quarantined at home. $Q(t)$ , \textbf{(f):} number of reported infected with symptoms, who are hospitalized. $H(t)$}
 	\label{fig2A} 
@@ -327,7 +327,7 @@ Model simulation compared to real data is shown in Figure \ref{fig2A}. We have e
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Italy_evolution.pdf}
+		\includegraphics[width=\linewidth]{3.pdf}
 	\end{subfigure}
 	\caption{Model simulation compared to real data (Italy) - Epidemic evolution predicted by the model based on the available data. Description of panels: \textbf{(a, c):} The short-term epidemic evolution obtained by reproducing the data trend with the model, \textbf{(b, d):} Long term epidemic evolution over 700 days. Plots refers to all cases of infection, both diagnosed and non-diagnosed, predicted by the model, although non-diagnosed cases are of course not counted in the data. Note that not all panels are in the same scale.}
 	\label{fig2B} 
@@ -340,7 +340,7 @@ In Figure \ref{fig2B}, we show both short term and long term evolution after fit
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Italy_sensitivity_beta.pdf}
+		\includegraphics[width=1\linewidth]{4.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of $\beta(t)$ with $50\%, 40\%, 30\%, 20\%$ and $10\%$ reduction from current contact rate (Italy). Note that not all panels are in the same scale.}
 	\label{fig3A} 
@@ -354,7 +354,7 @@ Subsequently, we also consider the effects of testing and rate of detection of l
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Italy_sensitivity_epsilon.pdf}
+		\includegraphics[width=1\linewidth]{5.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of $\epsilon(t)$ with changed rate of testing by $2, 4, 6, 8$ and $10$ times the current rate (Italy). Note that not all panels are in the same scale.}
 	\label{fig3B} 
@@ -370,19 +370,19 @@ We use data from Johns Hopkins University Center for Systems Science and Enginee
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{India_plot_model_data.pdf}
+		\includegraphics[width=1\linewidth]{6.pdf}
 	\end{subfigure}
 	\caption{Model simulation compared to real data (India) - Comparison between the official data (histogram) and the results with our model. Description of panels: \textbf{(a):} Number of currently active cases, $\left( Q(t) + H(t) + C(t)\right)$, \textbf{(b):} number of reported recovered individuals. $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$, \textbf{(c):} Number of deceased individuals $D(t)$}
 	\label{fig6A} 
 \end{figure*}
 
-We have simulated the long term evolution of the epidemic for India after estimating the parameters as shown in Figure \ref{fig6B}. Simulation suggested that peak in India for the first wave will be reached around 275 days from 2nd March 2020 with about 2.6\% population getting infected. 
+We have simulated the long term evolution of the epidemic for India after estimating the parameters as shown in Figure \ref{fig6B}. Simulation suggested that peak in India for the first wave reached around 275 days from 2nd March 2020 with about 2.6\% population getting infected. 
 
 \begin{figure*}[t!]
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{India_evolution.pdf}
+		\includegraphics[width=1\linewidth]{7.pdf}
 	\end{subfigure}
 	\caption{Model simulation compared to real data (India) - Epidemic evolution predicted by the model based on the available data. Description of panels: \textbf{(a, c):} The short-term epidemic evolution obtained by reproducing the data trend with the model for 90 days, \textbf{(b, d):} Long term epidemic evolution over 700 days. Plots refers to all cases of infection, both diagnosed and non-diagnosed, predicted by the model, although non-diagnosed cases are of course not counted in the data. Note that not all panels are in the same scale.}
 	\label{fig6B} 
@@ -394,7 +394,7 @@ Simulation studies on impact of reducing contact rate and testing is captured in
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{India_sensitivity_beta.pdf}
+		\includegraphics[width=1\linewidth]{8.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of $\beta(t)$ with $50\%, 40\%, 30\%, 20\%$ and $10\%$ reduction from current contact rate (India). Note that not all panels are in the same scale.}
 	\label{fig7A} 
@@ -404,7 +404,7 @@ Simulation studies on impact of reducing contact rate and testing is captured in
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{India_sensitivity_epsilon.pdf}
+		\includegraphics[width=1\linewidth]{9.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of $\epsilon(t)$ with changed rate of testing by $1.2, 1.4, 1.6, 1.8$ and $2$ times the current rate (India). Note that not all panels are in the same scale.}
 	\label{fig7B} 
@@ -413,13 +413,13 @@ Simulation studies on impact of reducing contact rate and testing is captured in
 
 
 \subsection*{Victoria, Australia}
-For Victoria, Australia we use data from 11th March, 2020 (day 1) to 13th January, 2022 (day 650). Consistent with other places Victoria had initial outbreak during March and April 2020 - which was effectively controlled.  Control measures were relaxed during June 2020 to revive economic activities.  Based on our estimate $R_0$ in Victoria was $2.72$ in the beginning of July.  A stricter confinement was placed in selected localities on 1 July 2020, which was extended to the whole of metropolitan Melbourne and Mitchell Shire on 8 July. Estimated by our model, $R_0$ was $2.86$ at that time. However, the restriction was effective to bring down $R_0$ to $1.13$ by 30, July, 2020. We note that our findings are similar to \cite{Saul2020}. 
+For Victoria, Australia we use data from 11th March, 2020 (day 1) to 13th January, 2022 (day 650). Figure \ref{fig10A} compares the fitted model with actual data. Consistent with other places Victoria had initial outbreak during March and April 2020 - which was effectively controlled.  Control measures were relaxed during June 2020 to revive economic activities.  Based on our estimate $R_0$ in Victoria was $2.72$ in the beginning of July.  A stricter confinement was placed in selected localities on 1 July 2020, which was extended to the whole of metropolitan Melbourne and Mitchell Shire on 8 July. We have simulated the long term evolution of the epidemic for Victoria, after estimating the parameters as shown in Figure \ref{fig10B}. Estimated by our model, $R_0$ was $2.86$ at that time. However, the restriction was effective to bring down $R_0$ to $1.13$ by 30, July, 2020. We note that our findings are similar to \cite{Saul2020}. 
 
 \begin{figure*}[t!]
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Victoria_plot_model_data.pdf}
+		\includegraphics[width=1\linewidth]{10.pdf}
 	\end{subfigure}
 	\caption{Model simulation compared to real data (Victoria, Australia) - Comparison between the official data (histogram) and the results with our model. Description of panels: \textbf{(a):} Number of currently active cases, $\left( Q(t) + H(t) + C(t)\right)$, \textbf{(b):} number of reported recovered individuals. $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$, \textbf{(c):} number of reported infected with life-threatening symptoms, admitted to ICU, $C(t)$, \textbf{(d):} Number of deceased individuals $D(t)$, \textbf{(e):} Cumulative number of cases, $Q(t) + H(t) + C(t) + D(t) + \int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$ \textbf{(f):} number of reported infected with symptoms, who are hospitalized. $H(t)$}
 	\label{fig10A} 
@@ -430,7 +430,7 @@ For Victoria, Australia we use data from 11th March, 2020 (day 1) to 13th Januar
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Victoria_evolution.pdf}
+		\includegraphics[width=1\linewidth]{11.pdf}
 	\end{subfigure}
 	\caption{Model simulation compared to real data (Victoria, Australia) - Epidemic evolution predicted by the model based on the available data. Description of panels: \textbf{(a, c):} The short-term epidemic evolution obtained by reproducing the data trend with the model, \textbf{(b, d):} Long term epidemic evolution over 350 days. Plots refers to all cases of infection, both diagnosed and non-diagnosed, predicted by the model, although non-diagnosed cases are of course not counted in the data. Note that not all panels are in the same scale.}
 	\label{fig10B} 
@@ -780,21 +780,21 @@ For the state of Victoria, Australia (population 6629870, in 2019), we use data 
 %
 \begin{figure*}[t!]
 	\centering
-	\begin{subfigure}{0.3\textwidth}
+	\begin{subfigure}{0.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Italy_model_confidence.pdf}
+		\includegraphics[width=\linewidth]{12A.pdf}
 		\caption{Fitting model to data, Italy}
 		\label{fig-fitness-1A}
 	\end{subfigure}%
-	\begin{subfigure}{0.3\textwidth}
+	\begin{subfigure}{0.5\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{India_model_confidence.pdf}
+		\includegraphics[width=\linewidth]{12B.pdf}
 		\caption{Fitting model to data, India}
 		\label{fig-fitness-1B}
 	\end{subfigure}
-\begin{subfigure}{0.3\textwidth}
+\begin{subfigure}{0.5\textwidth}
 	\centering
-	\includegraphics[width=\linewidth]{Victoria_model_confidence.pdf}
+	\includegraphics[width=\linewidth]{12C.pdf}
 	\caption{Fitting model to data, Victoria, Australia}
 	\label{fig-fitness-1C}
 \end{subfigure}
@@ -809,14 +809,14 @@ In this section we present the sensitivity analysis for the base model using Lat
 	\centering
 	\begin{subfigure}{\linewidth}
 		\centering
-		\includegraphics[width=0.7\linewidth]{model_sensitivity_a.pdf}
+		\includegraphics[width=0.7\linewidth]{13A.pdf}
 		\caption{Time independent parameters}
 		\label{fig-sensitivity-A}
 	\end{subfigure}
 
 	\begin{subfigure}{\linewidth}
 		\centering
-		\includegraphics[width=0.7\linewidth]{model_sensitivity_b.pdf}
+		\includegraphics[width=0.7\linewidth]{13B.pdf}
 		\caption{Time dependent parameters }
 		\label{fig-sensitivity-B}
 	\end{subfigure}
@@ -826,7 +826,7 @@ In this section we present the sensitivity analysis for the base model using Lat
 The result of sensitivity analysis is given in Figure-\ref{fig-sensitivity}. 
 %
 %
-It can be seen from Figure-\ref{fig-sensitivity-A} that parameter $\alpha$ ($-0.91525$), which determines the fraction of infections that become symptomatic has most significant influence. In other words, is it has negative PRCC it implies  that number of undetected asymptomatic cases can drive the cases significantly. Among the other parameters $\mu$  ($-0.89681$) and parameters related to recovery rate ($\eta, \psi$) are also influential. Among the remaining parameters rate of hospitalization also has impact. 
+It can be seen from Figure-\ref{fig-sensitivity-A} that parameter $\alpha$ ($-0.91525$), which determines the fraction of infections that become symptomatic has most significant influence. In other words, since it has negative PRCC it implies  that number of undetected asymptomatic cases can drive the cases significantly. Among the other parameters $\mu$  ($-0.89681$) and parameters related to recovery rate ($\eta, \psi$) are also influential. Among the remaining parameters rate of hospitalization also has impact. 
 
 Among the time dependent parameters $\beta(t)$, and $\epsilon(t)$ we can observe in Figure-\ref{fig-sensitivity-B} that parameter $r$, which determines how fast $\beta(t)$ converges from $\beta_0$ to $\beta_{min}$, or effectiveness of stringency measures has significant influence. Also $\epsilon_{\max}$, which determines the effectiveness of testing, has moderate importance. 
 
@@ -912,7 +912,7 @@ As described by extended model in equation - (\ref{eqn:loss_immunity-model-8}) a
 	\centering
 	\begin{subfigure}[b]{0.7\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Italy_scenario_reinfection.pdf}
+		\includegraphics[width=1\linewidth]{14.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $180, 150, 120, 90$ and $60$ days (Italy). Note that not all panels are in the same scale.}
 	\label{fig4} 
@@ -925,7 +925,7 @@ Finally, we simulate mass vaccination scenarios (see Figure \ref{fig5A} and Figu
 	\centering
 	\begin{subfigure}[b]{0.7\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.5.pdf}
+		\includegraphics[width=1\linewidth]{15.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.5$, i.e. maximum of 50\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
 	\label{fig5A} 
@@ -935,7 +935,7 @@ Finally, we simulate mass vaccination scenarios (see Figure \ref{fig5A} and Figu
 	\centering
 	\begin{subfigure}[b]{0.7\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{Italy_scenario_vaccination0.8.pdf}
+		\includegraphics[width=1\linewidth]{16.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.9$. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (Italy)}
 	\label{fig5B} 
@@ -948,7 +948,7 @@ Figure \ref{fig8} show the simulation study loss of acquired immunity for scenar
 	\centering
 	\begin{subfigure}[b]{0.7\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{India_scenario_reinfection.pdf}
+		\includegraphics[width=1\linewidth]{17.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of $\chi(t)$ with loss of acquired immunity over time by $250, 200, 150, 100$ and $50$ days (India). Note that not all panels are in the same scale.}
 	\label{fig8} 
@@ -961,7 +961,7 @@ Simulation studies for vaccination is presented in Figure \ref{fig9A} and Figure
 	\centering
 	\begin{subfigure}[b]{0.7\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.3.pdf}
+		\includegraphics[width=1\linewidth]{18.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.3$, i.e. maximum of 30\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
 	\label{fig9A} 
@@ -972,11 +972,23 @@ Simulation studies for vaccination is presented in Figure \ref{fig9A} and Figure
 	\centering
 	\begin{subfigure}[b]{0.7\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{India_scenario_vaccination0.7.pdf}
+		\includegraphics[width=1\linewidth]{19.pdf}
 	\end{subfigure}
 	\caption{Sensitivity of vaccine efficiency parameter $(1-\phi)$, where $\phi = 0$ represents vaccine that offers $100\%$ protection against infection, and $\xi_{\max} = 0.7$, i.e. maximum of 70\% population is administered with vaccine. $\phi$ is varied from 1.0 (No vaccination), 0.5 (50\% efficient), 0.25 (75\% efficient), 0.125(87.5\% efficient), and 0.0625 (93.75\% efficient) (India)}
 	\label{fig9B} 
 \end{figure*}
+%
+%
+\section*{Conclusion}
+In this work we have presented a deterministic compartmental model that is an extension of the SEIR model in which we have included current experience with SARS-CoV-2 - namely, we have extended standard SEIR model to include symptomatic and asymptomatic classes, and the fact that in SARS-CoV-2, as it has been observed that asymptomatic classes can infect susceptible individuals. This base model has then extended to various scenarios including the effects of non-pharmaceutical interventions (such as social distancing, self-isolation, contact tracing etc.) and pharmaceutical interventions (such as testing, mass vaccination with variable efficacy and variable percent of population being vaccinated). Scenario also includes the possibility of losing acquired immunity over time and reinfection.  
+
+In particular, our simulation of the model in various scenarios (Figure \ref{fig4} - \ref{fig9B}) suggests that shorter reinfection time, and/or usage of a vaccine of lower efficacy fails to control the growth of infection numbers in populations which are highly susceptible to the disease (e.g. because they are far from reaching herd immunity), and induces wave like growth patterns. In practice, such scenario indicates that continued surveillance and re-introduction of non-pharmaceutical interventions remains necessary for longer term.
+
+In order to estimate various parameters we have used  published data in three different scenarios - in Italy, where in initial stages there were a growing number of cases and re-emergence of the epidemic, in India, where there are significant number of cases post confinement period and in Victoria, Australia where a re-emergence has been controlled with severe social confinement program. Following the initial stages we have used data to estimate various parameters during the emergence and spread of the Alpha B.1.1.7, Delta B.1.617.2, and Omicron B.1.1.529 VOCs. The estimated parameter values are based on the data about the number of currently infected individuals that can be observed and roughly corresponding to $\left( Q(t) + H(t) + C(t)\right) $, and the number of recovered individuals that can be observed and roughly corresponding to $\int_{0}^{t}{\left( \mu Q(s) + \psi H(s) + \zeta  C(s) \right) ds}$. We obtain a goodness of fit measure between $\chi^2=[157.28-4.4811]e^{-08}$. Sensitivity analysis of parameters implies  that number of undetected asymptomatic cases can drive the cases significantly and which in practice implies the importance of contact tracing and testing. This is corroborated further by importance of parameters that relate to effectiveness of stringency measures - which has significant influence. Also the fact that parameter which determines the effectiveness of testing, has moderate importance. 
+
+Our result shows the benefit of long term confinement of at least half of population and extensive testing in curbing exponential growth. With respect to loss of acquired immunity, our model suggests higher impact for Italy. We also show that a reasonably effective vaccine with mass vaccination program  are successful measures in significantly controlling the size of infected population. We show that for a country like India, a reduction in contact rate by 50\% compared to a reduction of 10\% reduces death from 0.0268\% to 0.0141\% of population in initial stages of epidemic. Similarly, for a country like Italy we show that reducing contact rate by half can reduce a potential peak infection of 15\% population to less than 1.5\% of population, and potential deaths from 0.48\% to 0.04\%. With respect to vaccination, we show that even a 75\% efficient vaccine administered to 50\% population can reduce the peak number of infected population by nearly 50\% in Italy. Similarly, for India, a 0.056\% of population would die without vaccination, while 93.75\% efficient vaccine given to 30\% population would bring this down to 0.036\% of population, and 93.75\% efficient vaccine given to 70\% population would bring this down to 0.034\%.
+
+Future work and extensions
 %
 %
 \section*{Authors' contributions}
